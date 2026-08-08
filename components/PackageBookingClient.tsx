@@ -15,10 +15,11 @@ import {
   Users
 } from "lucide-react";
 import SiteHeader from "@/components/SiteHeader";
+import { sendWeb3FormData } from "@/lib/web3forms";
 
 const contact = {
-  phone: "(011) 293 4924",
-  phoneHref: "tel:+94112934924",
+  phone: "+94 (77) 666 1272",
+  phoneHref: "tel:+94776661272",
   whatsappHref: "https://wa.me/94767161937",
   email: "hello@triplerholidays.com"
 };
@@ -122,8 +123,8 @@ export default function PackageBookingClient() {
             style={{ backgroundImage: "url(/images/tours/sri-lanka-grand-multi-city-tour.jpg)" }}
             data-hero-media
           />
-          <div className="absolute inset-0 bg-[#082B49]/55" />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#082B49]/34 via-[#082B49]/42 to-[#082B49]/64" />
+          <div className="absolute inset-0 bg-[#082B49]/38" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#082B49]/22 via-[#082B49]/28 to-[#082B49]/48" />
           <div className="grain-overlay" />
           
           <div
@@ -468,9 +469,21 @@ export default function PackageBookingClient() {
             </div>
 
             <form
-              action={`mailto:${contact.email}`}
-              method="post"
-              encType="text/plain"
+              onSubmit={async (event) => {
+                event.preventDefault();
+                const form = event.currentTarget;
+                try {
+                  await sendWeb3FormData(
+                    "Package Quote Inquiry - Triple R Holidays",
+                    "Package Quote Form",
+                    new FormData(form)
+                  );
+                  form.reset();
+                  window.alert("Thank you. Your package inquiry has been sent.");
+                } catch {
+                  window.alert("Sorry, we could not send your inquiry. Please try again or contact us on WhatsApp.");
+                }
+              }}
               className="scandi-soft-card p-5 sm:p-7"
             >
               <div className="grid gap-4 sm:grid-cols-2">

@@ -11,3 +11,5 @@ out
 *.tsbuildinfo
 aerovista-*.png
 .vercel
+.playwright-mcp/
+*.zip

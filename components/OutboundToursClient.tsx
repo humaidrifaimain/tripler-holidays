@@ -1,34 +1,33 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   ArrowRight,
+  CalendarDays,
+  CheckCircle2,
+  Clock3,
+  Info,
   MapPin,
+  Route,
   ShieldCheck,
   Sparkles,
   Star,
+  TicketCheck,
   X
 } from "lucide-react";
 import { destinations } from "@/lib/content";
 import SiteHeader from "@/components/SiteHeader";
 import HolidayToursHeroShowcase from "@/components/HolidayToursHeroShowcase";
 import AccordionFAQ from "@/components/AccordionFAQ";
+import { sendWeb3Form } from "@/lib/web3forms";
+import { useAutoSwipeSlider } from "@/components/AutoSwipeCarousel";
 
 const contact = {
-  phone: "(011) 293 4924",
+  phone: "+94 (77) 666 1272",
   whatsappHref: "https://wa.me/94767161937",
   email: "hello@triplerholidays.com"
-};
-
-const buildMailtoHref = (subject: string, fields: Array<[string, string]>) => {
-  const body = fields
-    .filter(([, value]) => value.trim().length > 0)
-    .map(([label, value]) => `${label}: ${value}`)
-    .join("\n");
-
-  return `mailto:${contact.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 };
 
 const outboundPackageVoice: Record<
@@ -215,47 +214,214 @@ const singaporeTourCollection = [
   }
 ];
 
-const malaysiaTourCollection = [
+type TourItineraryDay = {
+  day: string;
+  title: string;
+  description: string;
+};
+
+type DetailedPackage = {
+  title: string;
+  duration: string;
+  tourType: string;
+  image: string;
+  details: string[];
+  inclusions: string[];
+  exclusions: string[];
+  itinerary: TourItineraryDay[];
+};
+
+type OutboundPackageModal = {
+  title: string;
+  duration?: string;
+  image: string;
+  images?: string[];
+  details?: string[];
+  subtitle?: string;
+  tourType?: string;
+  inclusions?: string[];
+  exclusions?: string[];
+  itinerary?: TourItineraryDay[];
+};
+
+const malaysiaTourCollection: DetailedPackage[] = [
   {
-    title: "KL + Cameron Highlands",
+    title: "KL + Cameron Highlands Package",
     duration: "4 Days 3 Nights",
+    tourType: "Daily Tour",
     image:
       "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1800&q=88",
     details: [
-      "Shared accommodation in selected hotels",
-      "Daily breakfast",
-      "AC transfers with English-speaking chauffeur",
       "Kuala Lumpur half-day city tour with KL Tower observation deck",
-      "Mossy Forest and Coral Hill experience",
+      "Cameron Highlands stay with a full-day local tour",
       "Strawberry farm, Lavender Park and Butterfly Park visits"
+    ],
+    inclusions: [
+      "Shared accommodation in selected or similar hotels",
+      "Daily breakfast at the hotel",
+      "Air-conditioned vehicle transfers with an English-speaking chauffeur",
+      "Kuala Lumpur 4-hour city tour including KL Tower Observation Deck",
+      "Cameron Highlands visits to Strawberry farms, Lavender Park and Butterfly Park"
+    ],
+    exclusions: ["Tourism tax", "Midnight transfer surcharge"],
+    itinerary: [
+      {
+        day: "Day 01",
+        title: "Arrival + Kuala Lumpur City Tour",
+        description:
+          "Meet at KLIA, continue with Kuala Lumpur sightseeing including KL Tower Observation Deck, then check in for an overnight stay in Kuala Lumpur."
+      },
+      {
+        day: "Day 02",
+        title: "Kuala Lumpur to Cameron Highlands",
+        description:
+          "After breakfast, travel to Cameron Highlands and settle in for an overnight highland stay."
+      },
+      {
+        day: "Day 03",
+        title: "Cameron Highlands Full-Day Tour",
+        description:
+          "Enjoy an 8-hour Cameron Highlands tour covering the Strawberry farms, Lavender Park and Butterfly Park before another overnight stay."
+      },
+      {
+        day: "Day 04",
+        title: "Departure",
+        description: "Check out and transfer back to KLIA for the departure flight."
+      }
     ]
   },
   {
-    title: "KL + Sunway Lagoon + Genting",
+    title: "KL + Sunway Lagoon + Genting Package",
     duration: "4 Days 3 Nights",
+    tourType: "Daily Tour",
     image:
       "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?auto=format&fit=crop&w=1800&q=88",
     details: [
-      "Shared accommodation in selected hotels",
-      "Daily breakfast",
-      "AC transfers with English-speaking chauffeur",
       "Kuala Lumpur half-day city tour with KL Tower observation deck",
       "Sunway Lagoon 6 theme parks access",
       "Genting Highlands day tour with return cable car ride"
+    ],
+    inclusions: [
+      "Shared accommodation in selected or similar hotels",
+      "Daily breakfast at the hotel",
+      "Air-conditioned vehicle transfers with an English-speaking chauffeur",
+      "Kuala Lumpur 4-hour city tour including KL Tower Observation Deck",
+      "Sunway Lagoon 6 theme park tickets",
+      "Genting Highlands day tour including two-way standard gondola cable car"
+    ],
+    exclusions: ["Tourism tax", "Midnight transfer surcharge"],
+    itinerary: [
+      {
+        day: "Day 01",
+        title: "Arrival + Kuala Lumpur Half-Day Tour",
+        description:
+          "Meet at KLIA, start with a half-day Kuala Lumpur city tour including KL Tower Observation Deck, then overnight in Kuala Lumpur."
+      },
+      {
+        day: "Day 02",
+        title: "Sunway Lagoon Theme Parks",
+        description:
+          "Spend the day at Sunway Lagoon with access to its six theme park zones, then return to the hotel in Kuala Lumpur."
+      },
+      {
+        day: "Day 03",
+        title: "Genting Highlands",
+        description:
+          "Visit Batu Caves and Genting Highlands, including a two-way standard gondola cable car ride, then overnight in Genting Highlands."
+      },
+      {
+        day: "Day 04",
+        title: "Departure",
+        description: "Transfer to KLIA for the departure flight."
+      }
     ]
   },
   {
     title: "Malaysia Grand Discovery",
     duration: "14 Days 13 Nights",
+    tourType: "Daily Tour",
     image:
       "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1800&q=88",
     details: [
-      "Shared accommodation in selected hotels",
-      "Daily breakfast",
-      "AC coach transfers with English-speaking chauffeur",
       "Kuala Lumpur city tour with Twin Towers and KL Tower access",
       "Genting Highlands with indoor and outdoor theme park entry",
       "Taman Negara, Langkawi and Kuala Selangor experiences"
+    ],
+    inclusions: [
+      "Shared accommodation in selected or similar hotels",
+      "Daily breakfast at the hotel",
+      "Air-conditioned coach transfers with an English-speaking chauffeur",
+      "Kuala Lumpur 8-hour city tour with Twin Towers and KL Tower tickets",
+      "Genting Highlands with standard gondola cable car and theme park tickets"
+    ],
+    exclusions: ["Tourism tax", "Midnight transfer surcharge"],
+    itinerary: [
+      {
+        day: "Day 01",
+        title: "Arrival in Kuala Lumpur",
+        description: "Arrive at KLIA, transfer to the hotel and overnight in Kuala Lumpur."
+      },
+      {
+        day: "Day 02",
+        title: "Kuala Lumpur City Tour",
+        description:
+          "Take an 8-hour Kuala Lumpur city tour with Menara KL Tower experiences and overnight in Kuala Lumpur."
+      },
+      {
+        day: "Day 03",
+        title: "Genting + Indoor Theme Park",
+        description:
+          "Travel to Genting Highlands via Batu Caves, ride the standard gondola cable car and enjoy the indoor theme park."
+      },
+      {
+        day: "Day 04",
+        title: "Genting Outdoor Theme Park",
+        description: "Spend the day at Genting's outdoor theme park and overnight in Genting Highlands."
+      },
+      {
+        day: "Days 05-07",
+        title: "Taman Negara Nature Stay",
+        description:
+          "Continue to Taman Negara for nature time, entry arrangements and a guided night jungle walk."
+      },
+      {
+        day: "Day 08",
+        title: "Taman Negara to Kuala Lumpur",
+        description: "Return from Taman Negara to Kuala Lumpur and overnight in the city."
+      },
+      {
+        day: "Day 09",
+        title: "Fly to Langkawi",
+        description: "Transfer to KLIA for the Langkawi flight, then check in and overnight in Langkawi."
+      },
+      {
+        day: "Day 10",
+        title: "Langkawi Cable Car",
+        description:
+          "Enjoy SkyCab, SkyDome, SkyRex, 3D Art Museum and Sky Bridge experiences in Langkawi."
+      },
+      {
+        day: "Day 11",
+        title: "Langkawi Island Hopping",
+        description: "Join an island-hopping tour on a shared basis and overnight in Langkawi."
+      },
+      {
+        day: "Day 12",
+        title: "Langkawi to Kuala Lumpur",
+        description:
+          "Fly back to Kuala Lumpur, then visit Chinatown for food and shopping before overnighting in the city."
+      },
+      {
+        day: "Day 13",
+        title: "Kuala Selangor Evening",
+        description:
+          "Head to Kuala Selangor in the evening for fireflies and blue tears before returning to Kuala Lumpur."
+      },
+      {
+        day: "Day 14",
+        title: "Putrajaya + Departure",
+        description: "Transfer to KLIA via Putrajaya for the departure flight."
+      }
     ]
   }
 ];
@@ -324,7 +490,124 @@ const outboundFaqs = [
   }
 ];
 
+function uniqueImages(images: string[]) {
+  return images.filter((image, index) => images.indexOf(image) === index).slice(0, 3);
+}
+
+function getOutboundPackageImages(pkg: OutboundPackageModal) {
+  if (pkg.images?.length) {
+    return uniqueImages([pkg.image, ...pkg.images]);
+  }
+
+  const packageGalleries: Record<string, string[]> = {
+    "KL + Cameron Highlands Package": [
+      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1800&q=88",
+      "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1800&q=88",
+      "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1800&q=88"
+    ],
+    "KL + Sunway Lagoon + Genting Package": [
+      "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?auto=format&fit=crop&w=1800&q=88",
+      "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1800&q=88",
+      "https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=1800&q=88"
+    ],
+    "Malaysia Grand Discovery": [
+      "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1800&q=88",
+      "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?auto=format&fit=crop&w=1800&q=88",
+      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1800&q=88"
+    ],
+    "Explore Bangkok": [
+      "https://images.unsplash.com/photo-1528181304800-259b08848526?auto=format&fit=crop&w=1800&q=88",
+      "https://images.unsplash.com/photo-1508009603885-50cf7c579365?auto=format&fit=crop&w=1800&q=88",
+      "https://images.unsplash.com/photo-1563492065599-3520f775eeed?auto=format&fit=crop&w=1800&q=88"
+    ],
+    "Bangkok & Phuket": [
+      "https://images.unsplash.com/photo-1537953773345-d172ccf13cf1?auto=format&fit=crop&w=1800&q=88",
+      "https://images.unsplash.com/photo-1528181304800-259b08848526?auto=format&fit=crop&w=1800&q=88",
+      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1800&q=88"
+    ],
+    "Exciting Singapore": [
+      "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?auto=format&fit=crop&w=1800&q=88",
+      "https://images.unsplash.com/photo-1496939376851-89342e90adcd?auto=format&fit=crop&w=2400&q=90",
+      "https://images.unsplash.com/photo-1508964942454-1a56651d54ac?auto=format&fit=crop&w=1800&q=88"
+    ],
+    "Amazing Singapore": [
+      "https://images.unsplash.com/photo-1496939376851-89342e90adcd?auto=format&fit=crop&w=2400&q=90",
+      "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?auto=format&fit=crop&w=1800&q=88",
+      "https://images.unsplash.com/photo-1565967511849-76a60a516170?auto=format&fit=crop&w=1800&q=88"
+    ],
+    "Singapore & Malaysia": [
+      "https://images.unsplash.com/photo-1508964942454-1a56651d54ac?auto=format&fit=crop&w=1800&q=88",
+      "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?auto=format&fit=crop&w=1800&q=88",
+      "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?auto=format&fit=crop&w=1800&q=88"
+    ],
+    "Maldives Luxe Escape": [
+      "https://images.unsplash.com/photo-1540202404-a2f29016b523?auto=format&fit=crop&w=1600&q=88",
+      "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=1600&q=88",
+      "https://images.unsplash.com/photo-1578922746465-3a80a228f223?auto=format&fit=crop&w=1600&q=88"
+    ],
+    "Maldives Explorer": [
+      "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=1600&q=88",
+      "https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&w=1600&q=88",
+      "https://images.unsplash.com/photo-1540202404-a2f29016b523?auto=format&fit=crop&w=1600&q=88"
+    ],
+    "Maldives Serenity Retreat": [
+      "https://images.unsplash.com/photo-1578922746465-3a80a228f223?auto=format&fit=crop&w=1600&q=88",
+      "https://images.unsplash.com/photo-1540202404-a2f29016b523?auto=format&fit=crop&w=1600&q=88",
+      "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=1600&q=88"
+    ],
+    "Maldives Family Fun": [
+      "https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&w=1600&q=88",
+      "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=1600&q=88",
+      "https://images.unsplash.com/photo-1540202404-a2f29016b523?auto=format&fit=crop&w=1600&q=88"
+    ]
+  };
+
+  const configuredImages = packageGalleries[pkg.title];
+  if (configuredImages?.length) {
+    return uniqueImages([pkg.image, ...configuredImages]);
+  }
+
+  const title = pkg.title.toLowerCase();
+
+  if (title.includes("singapore")) {
+    return uniqueImages([
+      pkg.image,
+      "https://images.unsplash.com/photo-1496939376851-89342e90adcd?auto=format&fit=crop&w=2400&q=90",
+      "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?auto=format&fit=crop&w=1800&q=88"
+    ]);
+  }
+
+  if (title.includes("bangkok") || title.includes("phuket") || title.includes("thailand")) {
+    return uniqueImages([
+      pkg.image,
+      "https://images.unsplash.com/photo-1528181304800-259b08848526?auto=format&fit=crop&w=1800&q=88",
+      "https://images.unsplash.com/photo-1537953773345-d172ccf13cf1?auto=format&fit=crop&w=1800&q=88"
+    ]);
+  }
+
+  if (title.includes("maldives")) {
+    return uniqueImages([
+      pkg.image,
+      "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=1600&q=88",
+      "https://images.unsplash.com/photo-1540202404-a2f29016b523?auto=format&fit=crop&w=1600&q=88"
+    ]);
+  }
+
+  return uniqueImages([
+    pkg.image,
+    "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?auto=format&fit=crop&w=1800&q=88",
+    "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1800&q=88"
+  ]);
+}
+
 export default function OutboundToursClient() {
+  const destinationsSlider = useAutoSwipeSlider<HTMLDivElement>({ autoPlayInterval: 3500 });
+  const packagesSlider = useAutoSwipeSlider<HTMLDivElement>({ autoPlayInterval: 3700 });
+  const servicesSlider = useAutoSwipeSlider<HTMLDivElement>({ autoPlayInterval: 3900 });
+  const topDestinationsSlider = useAutoSwipeSlider<HTMLDivElement>({ autoPlayInterval: 3600 });
+  const popularPackagesSlider = useAutoSwipeSlider<HTMLDivElement>({ autoPlayInterval: 3800 });
+  const whyChooseSlider = useAutoSwipeSlider<HTMLDivElement>({ autoPlayInterval: 4000 });
+
   const [inquiryForm, setInquiryForm] = useState({
     fullName: "",
     email: "",
@@ -337,13 +620,55 @@ export default function OutboundToursClient() {
   });
   const [isInquirySubmitting, setIsInquirySubmitting] = useState(false);
   const [inquirySuccess, setInquirySuccess] = useState(false);
-  const [mobilePackageModal, setMobilePackageModal] = useState<null | {
-    title: string;
-    duration?: string;
-    image: string;
-    details?: string[];
-    subtitle?: string;
-  }>(null);
+  const [mobilePackageModal, setMobilePackageModal] = useState<OutboundPackageModal | null>(null);
+  const [packageImageIndex, setPackageImageIndex] = useState(0);
+
+  useEffect(() => {
+    if (!mobilePackageModal) return;
+
+    const scrollY = window.scrollY;
+    const originalOverflow = document.body.style.overflow;
+    const originalPosition = document.body.style.position;
+    const originalTop = document.body.style.top;
+    const originalWidth = document.body.style.width;
+    const originalLeft = document.body.style.left;
+    const originalRight = document.body.style.right;
+    const originalHtmlOverflow = document.documentElement.style.overflow;
+
+    document.documentElement.style.overflow = "hidden";
+    document.body.style.overflow = "hidden";
+    document.body.style.position = "fixed";
+    document.body.style.top = `-${scrollY}px`;
+    document.body.style.left = "0";
+    document.body.style.right = "0";
+    document.body.style.width = "100%";
+
+    return () => {
+      document.documentElement.style.overflow = originalHtmlOverflow;
+      document.body.style.overflow = originalOverflow;
+      document.body.style.position = originalPosition;
+      document.body.style.top = originalTop;
+      document.body.style.left = originalLeft;
+      document.body.style.right = originalRight;
+      document.body.style.width = originalWidth;
+      window.scrollTo(0, scrollY);
+    };
+  }, [mobilePackageModal]);
+
+  useEffect(() => {
+    setPackageImageIndex(0);
+    if (!mobilePackageModal) return;
+
+    const images = getOutboundPackageImages(mobilePackageModal);
+    const timer = window.setInterval(() => {
+      setPackageImageIndex(index => (index + 1) % images.length);
+    }, 1600);
+
+    return () => window.clearInterval(timer);
+  }, [mobilePackageModal]);
+
+  const mobilePackageImages = mobilePackageModal ? getOutboundPackageImages(mobilePackageModal) : [];
+  const mobilePackageImage = mobilePackageImages[packageImageIndex % mobilePackageImages.length] ?? mobilePackageModal?.image;
 
   return (
     <main className="holiday-page-bg light-mode-travel min-h-screen text-[#111820] font-manrope">
@@ -381,6 +706,8 @@ export default function OutboundToursClient() {
               }
             }}
             className="hide-scrollbar mt-10 flex snap-x snap-mandatory gap-3 overflow-x-auto pb-2 md:grid md:grid-cols-2 md:gap-5 md:overflow-visible md:pb-0 lg:grid-cols-4"
+            ref={destinationsSlider.containerRef}
+            {...destinationsSlider.touchHandlers}
           >
             {outboundCategories.map(item => (
               <motion.article
@@ -445,6 +772,8 @@ export default function OutboundToursClient() {
               }
             }}
             className="hide-scrollbar mt-12 flex snap-x snap-mandatory gap-3 overflow-x-auto pb-2 md:grid md:grid-cols-2 md:gap-5 md:overflow-visible md:pb-0 xl:grid-cols-3"
+            ref={packagesSlider.containerRef}
+            {...packagesSlider.touchHandlers}
           >
             {malaysiaTourCollection.map(item => (
               <motion.article
@@ -465,12 +794,37 @@ export default function OutboundToursClient() {
                     decoding="async"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/72 via-black/20 to-transparent" />
-                  <span className="absolute left-4 top-4 rounded-full bg-[#D98928] px-3 py-1 text-[10px] font-bold uppercase tracking-[0.12em] text-[#111820]">
-                    {item.duration}
-                  </span>
+                  <div className="absolute left-4 top-4 flex flex-wrap gap-2">
+                    <span className="rounded-full bg-[#D98928] px-3 py-1 text-[10px] font-bold uppercase tracking-[0.12em] text-[#111820]">
+                      {item.duration}
+                    </span>
+                    <span className="rounded-full bg-white/88 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.12em] text-[#111820]">
+                      {item.tourType}
+                    </span>
+                  </div>
                 </div>
                 <div className="p-5 sm:p-6">
                   <h3 className="font-space text-2xl font-extrabold uppercase text-[#111820]">{item.title}</h3>
+                  <div className="mt-4 grid grid-cols-2 gap-2">
+                    <div className="rounded-2xl border border-[#111820]/10 bg-white/50 p-3">
+                      <CalendarDays className="h-4 w-4 text-[#D98928]" />
+                      <p className="mt-2 text-[10px] font-bold uppercase tracking-[0.16em] text-[#111820]/52">Duration</p>
+                      <p className="mt-1 text-sm font-semibold text-[#111820]">{item.duration}</p>
+                    </div>
+                    <div className="rounded-2xl border border-[#111820]/10 bg-white/50 p-3">
+                      <TicketCheck className="h-4 w-4 text-[#D98928]" />
+                      <p className="mt-2 text-[10px] font-bold uppercase tracking-[0.16em] text-[#111820]/52">Tour Type</p>
+                      <p className="mt-1 text-sm font-semibold text-[#111820]">{item.tourType}</p>
+                    </div>
+                  </div>
+                  <ul className="mt-4 space-y-2">
+                    {item.details.map(detail => (
+                      <li key={detail} className="flex items-start gap-2 text-sm leading-7 text-[#111820]/80">
+                        <CheckCircle2 className="mt-1.5 h-4 w-4 shrink-0 text-[#D98928]" />
+                        <span>{detail}</span>
+                      </li>
+                    ))}
+                  </ul>
                   <button
                     type="button"
                     onClick={() =>
@@ -478,27 +832,23 @@ export default function OutboundToursClient() {
                         title: item.title,
                         duration: item.duration,
                         image: item.image,
-                        details: item.details
+                        details: item.details,
+                        tourType: item.tourType,
+                        inclusions: item.inclusions,
+                        exclusions: item.exclusions,
+                        itinerary: item.itinerary
                       })
                     }
-                    className="mt-4 inline-flex min-h-10 items-center justify-center gap-2 rounded-full bg-[#111820] px-5 text-[11px] font-bold uppercase tracking-[0.15em] text-white transition hover:bg-[#D98928] md:hidden"
+                    className="mt-6 inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-full bg-[#111820] px-6 text-[11px] font-bold uppercase tracking-[0.15em] text-white transition hover:bg-[#D98928]"
                   >
-                    View Details
+                    Explore Package
                     <ArrowRight className="h-3.5 w-3.5" />
                   </button>
-                  <ul className="mt-4 hidden space-y-2 md:block">
-                    {item.details.map(detail => (
-                      <li key={detail} className="flex items-start gap-2 text-sm leading-7 text-[#111820]/80">
-                        <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#D98928]" />
-                        <span>{detail}</span>
-                      </li>
-                    ))}
-                  </ul>
                   <a
                     href={contact.whatsappHref}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-6 hidden min-h-11 items-center justify-center gap-2 rounded-full bg-[#111820] px-6 text-[11px] font-bold uppercase tracking-[0.15em] text-white transition hover:bg-[#D98928] md:inline-flex"
+                    className="mt-3 inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-full border border-[#111820]/18 px-6 text-[11px] font-bold uppercase tracking-[0.15em] text-[#111820] transition hover:border-[#D98928] hover:text-[#D98928]"
                   >
                     Get Quote
                     <ArrowRight className="h-3.5 w-3.5" />
@@ -553,6 +903,8 @@ export default function OutboundToursClient() {
               }
             }}
             className="hide-scrollbar mt-12 flex snap-x snap-mandatory gap-3 overflow-x-auto pb-2 md:grid md:grid-cols-2 md:gap-5 md:overflow-visible md:pb-0"
+            ref={servicesSlider.containerRef}
+            {...servicesSlider.touchHandlers}
           >
             {thailandTourCollection.map(item => (
               <motion.article
@@ -661,6 +1013,8 @@ export default function OutboundToursClient() {
               }
             }}
             className="hide-scrollbar mt-12 flex snap-x snap-mandatory gap-3 overflow-x-auto pb-2 md:grid md:grid-cols-2 md:gap-5 md:overflow-visible md:pb-0 xl:grid-cols-3"
+            ref={topDestinationsSlider.containerRef}
+            {...topDestinationsSlider.touchHandlers}
           >
             {singaporeTourCollection.map(item => (
               <motion.article
@@ -769,6 +1123,8 @@ export default function OutboundToursClient() {
               }
             }}
             className="hide-scrollbar mt-12 flex snap-x snap-mandatory gap-3 overflow-x-auto pb-2 md:grid md:grid-cols-2 md:gap-5 md:overflow-visible md:pb-0 lg:grid-cols-4"
+            ref={popularPackagesSlider.containerRef}
+            {...popularPackagesSlider.touchHandlers}
           >
             {maldivesTourCollection.map(item => (
               <motion.article
@@ -923,6 +1279,8 @@ export default function OutboundToursClient() {
               }
             }}
             className="hide-scrollbar mt-10 flex snap-x snap-mandatory gap-3 overflow-x-auto pb-2 md:grid md:grid-cols-3 md:gap-5 md:overflow-visible md:pb-0"
+            ref={whyChooseSlider.containerRef}
+            {...whyChooseSlider.touchHandlers}
           >
             {outboundReviews.map(item => (
               <motion.article
@@ -1018,21 +1376,22 @@ export default function OutboundToursClient() {
               </motion.div>
             ) : (
               <form
-                onSubmit={(e) => {
+                onSubmit={async (e) => {
                   e.preventDefault();
                   setIsInquirySubmitting(true);
-                  window.location.href = buildMailtoHref("Outbound Holiday Inquiry - Triple R Holidays", [
-                    ["Full Name", inquiryForm.fullName],
-                    ["Email", inquiryForm.email],
-                    ["Mobile Number", inquiryForm.mobileNumber],
-                    ["Travel Type", inquiryForm.travelType],
-                    ["Travel Category", inquiryForm.travelCategory],
-                    ["Number of Days", inquiryForm.numberOfDays],
-                    ["Preferred Activities", inquiryForm.preferredActivities],
-                    ["Additional Notes", inquiryForm.additionalNotes]
-                  ]);
 
-                  window.setTimeout(() => {
+                  try {
+                    await sendWeb3Form("Outbound Holiday Inquiry - Triple R Holidays", "Outbound Holiday Inquiry", [
+                      ["Full Name", inquiryForm.fullName],
+                      ["Email", inquiryForm.email],
+                      ["Mobile Number", inquiryForm.mobileNumber],
+                      ["Travel Type", inquiryForm.travelType],
+                      ["Travel Category", inquiryForm.travelCategory],
+                      ["Number of Days", inquiryForm.numberOfDays],
+                      ["Preferred Activities", inquiryForm.preferredActivities],
+                      ["Additional Notes", inquiryForm.additionalNotes]
+                    ]);
+
                     setIsInquirySubmitting(false);
                     setInquirySuccess(true);
                     setInquiryForm({
@@ -1045,7 +1404,10 @@ export default function OutboundToursClient() {
                       preferredActivities: "",
                       additionalNotes: ""
                     });
-                  }, 300);
+                  } catch {
+                    setIsInquirySubmitting(false);
+                    window.alert("Sorry, we could not send your inquiry. Please try again or contact us on WhatsApp.");
+                  }
                 }}
                 className="space-y-6"
               >
@@ -1221,7 +1583,7 @@ export default function OutboundToursClient() {
       <AnimatePresence>
         {mobilePackageModal && (
           <motion.div
-            className="fixed inset-0 z-[85] md:hidden"
+            className="fixed inset-0 z-[85]"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -1230,11 +1592,11 @@ export default function OutboundToursClient() {
               type="button"
               aria-label="Close package details"
               onClick={() => setMobilePackageModal(null)}
-              className="absolute inset-0 bg-[#020B16]/70 backdrop-blur-[2px]"
+              className="absolute inset-0 bg-[rgba(2,11,22,0.84)] backdrop-blur-md"
             />
 
             <div
-              className="absolute inset-0 flex items-center justify-center px-4 py-4"
+              className="absolute inset-0 flex items-end justify-center px-3 pb-3 pt-12 sm:items-center sm:p-4"
               style={{
                 paddingTop: "calc(1rem + env(safe-area-inset-top, 0px))",
                 paddingBottom: "calc(1rem + env(safe-area-inset-bottom, 0px))"
@@ -1245,39 +1607,68 @@ export default function OutboundToursClient() {
                 animate={{ y: 0, opacity: 1, scale: 1 }}
                 exit={{ y: 32, opacity: 0, scale: 0.98 }}
                 transition={{ type: "spring", stiffness: 220, damping: 25 }}
-                className="relative w-full max-w-md max-h-full overflow-hidden rounded-[24px] border border-white/12 bg-[#F5F1E8] shadow-[0_24px_70px_rgba(2,8,23,0.55)]"
+                data-lenis-prevent
+                className="relative flex max-h-[calc(100svh-1rem)] w-full max-w-md flex-col overflow-y-auto rounded-t-[26px] rounded-b-[18px] border border-white/12 bg-[#F5F1E8] shadow-[0_28px_90px_rgba(2,8,23,0.58)] sm:rounded-[28px] lg:grid lg:max-h-[min(720px,calc(100vh-2rem))] lg:max-w-6xl lg:grid-cols-[0.86fr_1.14fr] lg:overflow-hidden"
               >
-              <div className="relative h-44 overflow-hidden">
-                <img
-                  src={mobilePackageModal.image}
-                  alt={mobilePackageModal.title}
-                  className="h-full w-full object-cover"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/72 via-black/20 to-transparent" />
+              <div className="relative h-[300px] shrink-0 overflow-hidden sm:h-[360px] lg:h-auto lg:min-h-[720px]">
+                <AnimatePresence mode="sync">
+                  <motion.img
+                    key={mobilePackageImage}
+                    src={mobilePackageImage}
+                    alt={mobilePackageModal.title}
+                    className="absolute inset-0 h-full w-full object-cover"
+                    loading="lazy"
+                    decoding="async"
+                    initial={{ opacity: 0, scale: 1.04 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 1.02 }}
+                    transition={{ duration: 0.55, ease: [0.25, 0.46, 0.45, 0.94] }}
+                  />
+                </AnimatePresence>
+                <div className="absolute inset-0 bg-gradient-to-t from-[#020B16]/28 via-transparent to-[#020B16]/16" />
                 <button
                   type="button"
+                  aria-label="Close package details"
                   onClick={() => setMobilePackageModal(null)}
-                  className="absolute right-3 top-3 grid h-9 w-9 place-items-center rounded-full border border-white/45 bg-black/35 text-white"
+                  className="absolute right-4 top-4 grid h-10 w-10 place-items-center rounded-full border border-white/40 bg-[#020B16]/42 text-white shadow-[0_12px_30px_rgba(2,8,23,0.25)] backdrop-blur-md transition hover:bg-[#D98928] hover:text-[#111820]"
                 >
                   <X className="h-4 w-4" />
                 </button>
               </div>
 
-              <div className="max-h-[calc(100%-11rem)] overflow-y-auto p-5">
-                <p className="text-[11px] font-bold uppercase tracking-[0.15em] text-[#D98928]">
-                  {mobilePackageModal.duration ?? "Outbound Package"}
-                </p>
-                <h3 className="mt-2 font-space text-2xl font-extrabold uppercase leading-tight text-[#111820]">
-                  {mobilePackageModal.title}
-                </h3>
+              <div className="bg-[#F5F1E8] p-4 sm:p-7 lg:max-h-[720px] lg:overflow-y-auto" data-lenis-prevent>
+                <div className="-mx-4 -mt-4 border-b border-[#111820]/10 bg-[#F5F1E8] px-4 pb-4 pt-3 sm:-mx-7 sm:-mt-7 sm:px-7 sm:pt-4">
+                  <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#D98928]">
+                    Package Overview
+                  </p>
+                  <h4 className="mt-1 font-space text-xl font-extrabold uppercase leading-tight text-[#111820] sm:text-2xl">
+                    {mobilePackageModal.title}
+                  </h4>
+                </div>
+
+                <div className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-3">
+                  <div className="rounded-2xl border border-[#111820]/10 bg-white/70 p-4 shadow-[0_12px_30px_rgba(17,24,32,0.06)]">
+                    <Clock3 className="h-4 w-4 text-[#D98928]" />
+                    <p className="mt-2 text-[10px] font-bold uppercase tracking-[0.16em] text-[#111820]/55">Duration</p>
+                    <p className="mt-1 text-sm font-semibold text-[#111820]">{mobilePackageModal.duration}</p>
+                  </div>
+                  <div className="rounded-2xl border border-[#111820]/10 bg-white/70 p-4 shadow-[0_12px_30px_rgba(17,24,32,0.06)]">
+                    <TicketCheck className="h-4 w-4 text-[#D98928]" />
+                    <p className="mt-2 text-[10px] font-bold uppercase tracking-[0.16em] text-[#111820]/55">Tour Type</p>
+                    <p className="mt-1 text-sm font-semibold text-[#111820]">{mobilePackageModal.tourType}</p>
+                  </div>
+                  <div className="rounded-2xl border border-[#111820]/10 bg-white/70 p-4 shadow-[0_12px_30px_rgba(17,24,32,0.06)]">
+                    <Route className="h-4 w-4 text-[#D98928]" />
+                    <p className="mt-2 text-[10px] font-bold uppercase tracking-[0.16em] text-[#111820]/55">Route</p>
+                    <p className="mt-1 text-sm font-semibold text-[#111820]">Malaysia</p>
+                  </div>
+                </div>
 
                 {mobilePackageModal.details?.length ? (
-                  <ul className="mt-4 space-y-2">
+                  <ul className="mt-5 space-y-2 rounded-2xl border border-[#111820]/10 bg-white/55 p-4">
                     {mobilePackageModal.details.map(detail => (
                       <li key={detail} className="flex items-start gap-2 text-sm leading-7 text-[#111820]/82">
-                        <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#D98928]" />
+                        <CheckCircle2 className="mt-1.5 h-4 w-4 shrink-0 text-[#D98928]" />
                         <span>{detail}</span>
                       </li>
                     ))}
@@ -1287,6 +1678,65 @@ export default function OutboundToursClient() {
                     {mobilePackageModal.subtitle}
                   </p>
                 )}
+
+                {mobilePackageModal.inclusions?.length ? (
+                  <section className="mt-5 rounded-2xl border border-[#111820]/10 bg-white/70 p-5 shadow-[0_12px_30px_rgba(17,24,32,0.06)]">
+                    <p className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.18em] text-[#111820]/55">
+                      <CheckCircle2 className="h-4 w-4 text-[#D98928]" />
+                      Tour Inclusions
+                    </p>
+                    <ul className="mt-3 space-y-2.5">
+                      {mobilePackageModal.inclusions.map(inclusion => (
+                        <li key={inclusion} className="flex items-start gap-2 text-sm leading-6 text-[#111820]/80">
+                          <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#D98928]" />
+                          <span>{inclusion}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </section>
+                ) : null}
+
+                {mobilePackageModal.exclusions?.length ? (
+                  <section className="mt-5 rounded-2xl border border-[#111820]/10 bg-white/70 p-5 shadow-[0_12px_30px_rgba(17,24,32,0.06)]">
+                    <p className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.18em] text-[#111820]/55">
+                      <Info className="h-4 w-4 text-[#D98928]" />
+                      Exclusions
+                    </p>
+                    <p className="mt-2 text-sm leading-6 text-[#111820]/80">
+                      {mobilePackageModal.exclusions.join(", ")}
+                    </p>
+                  </section>
+                ) : null}
+
+                {mobilePackageModal.itinerary?.length ? (
+                  <section className="mt-6">
+                    <p className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.18em] text-[#111820]/55">
+                      <Route className="h-4 w-4 text-[#D98928]" />
+                      Itinerary
+                    </p>
+                    <ol className="mt-3 space-y-3">
+                      {mobilePackageModal.itinerary.map(day => (
+                        <li key={`${mobilePackageModal.title}-${day.day}`} className="relative grid grid-cols-[auto_1fr] gap-3 rounded-2xl border border-[#111820]/10 bg-white/70 p-4 shadow-[0_12px_30px_rgba(17,24,32,0.05)]">
+                          <div className="flex flex-col items-center">
+                            <span className="grid h-9 w-9 place-items-center rounded-full bg-[#D98928] text-[10px] font-extrabold text-[#111820]">
+                              {day.day.replace(/\D/g, "") || "•"}
+                            </span>
+                            <span className="mt-2 h-full w-px bg-[#111820]/10" />
+                          </div>
+                          <div>
+                            <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-[#D98928]">
+                              {day.day}
+                            </p>
+                            <h4 className="mt-1 font-space text-lg font-bold uppercase leading-tight text-[#111820]">
+                              {day.title}
+                            </h4>
+                            <p className="mt-2 text-sm leading-6 text-[#111820]/78">{day.description}</p>
+                          </div>
+                        </li>
+                      ))}
+                    </ol>
+                  </section>
+                ) : null}
 
                 <a
                   href={contact.whatsappHref}

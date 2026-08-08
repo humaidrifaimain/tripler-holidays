@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import {
+  Award,
   BadgeCheck,
   CalendarDays,
   Car,
@@ -22,15 +23,16 @@ import {
 import SiteHeader from "@/components/SiteHeader";
 import CountUpStat from "@/components/CountUpStat";
 import AccordionFAQ from "@/components/AccordionFAQ";
+import { useAutoSwipeSlider } from "@/components/AutoSwipeCarousel";
 
 const heroImage =
-  "/images/about/triple-r-office-consultation-clean-optimized.jpg";
+  "/images/about/triple-r-team-office-hero.jpg";
 const storyImage =
   "/images/about/triple-r-office-consultation-clean-optimized.jpg";
 
 const contact = {
-  phone: "(011) 293 4924",
-  phoneHref: "tel:+94112934924",
+  phone: "+94 (77) 666 1272",
+  phoneHref: "tel:+94776661272",
   whatsappHref: "https://wa.me/94767161937",
   email: "hello@triplerholidays.com",
   address: "128/7 A.S.P Liyanage Mawatha, Royal Pearl Garden, Wattala"
@@ -105,27 +107,27 @@ const whyTravelersChooseUsCards = [
   },
   {
     title: "Transparent Pricing",
-    description: "Clear rates with no hidden surprises, so you can plan confidently from day one.",
+    description: "Clear, upfront pricing with no hidden costs.",
     icon: CheckCircle2
   },
   {
     title: "Vetted Partners",
-    description: "We work with trusted hotels, transport providers and local specialists across each route.",
+    description: "We work with carefully selected hotels, transport providers, and local specialists across our destinations.",
     icon: ShieldCheck
   },
   {
     title: "Responsive Support",
-    description: "Fast support before and during your trip through direct communication with our team.",
+    description: "Direct support before, during, and throughout your journey.",
     icon: Phone
   },
   {
     title: "Flexible Options",
-    description: "Adjustable plans, add-ons and route pacing built around your travel profile.",
+    description: "Every itinerary can be tailored to your interests, schedule, and travel style.",
     icon: Compass
   },
   {
     title: "Proven Track Record",
-    description: "Consistently positive traveler feedback and many returning guests.",
+    description: "Trusted by travelers who return and recommend us.",
     icon: Star
   }
 ];
@@ -172,6 +174,10 @@ const travelerReviewCards = [
 const businessRegistrationNumber = "P V 00359539";
 
 export default function AboutClient() {
+  const valuesSlider = useAutoSwipeSlider<HTMLDivElement>({ autoPlayInterval: 3600 });
+  const teamSlider = useAutoSwipeSlider<HTMLDivElement>({ autoPlayInterval: 3800 });
+  const highlightsSlider = useAutoSwipeSlider<HTMLDivElement>({ autoPlayInterval: 4000 });
+
   return (
     <main className="scandi-page light-mode-travel min-h-screen text-[#111820] font-manrope">
       <SiteHeader variant="transparent" ctaLabel="Enquire Now" />
@@ -183,15 +189,15 @@ export default function AboutClient() {
       >
         <img
           src={heroImage}
-          alt="Triple R Holidays branded consultation folder in the company office"
-          className="absolute inset-0 h-full w-full object-cover"
+          alt="Triple R Holidays team at the office"
+          className="absolute inset-0 h-full w-full object-cover object-[52%_center] sm:object-center"
           decoding="async"
           fetchPriority="high"
           data-parallax="12"
           data-hero-media
         />
-        <div className="absolute inset-0 bg-[#082B49]/55" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#082B49]/34 via-[#082B49]/42 to-[#082B49]/62" />
+        <div className="absolute inset-0 bg-[#082B49]/38" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#082B49]/22 via-[#082B49]/28 to-[#082B49]/48" />
         <div className="grain-overlay" />
 
         <div className="absolute inset-0 z-10 mx-auto flex w-full max-w-7xl items-end justify-center px-6 pb-14 sm:px-8 sm:pb-16 lg:pb-20">
@@ -208,9 +214,9 @@ export default function AboutClient() {
               transition={{ delay: 0.18, duration: 0.55 }}
               className="font-space mt-5 text-3xl font-extrabold uppercase leading-tight sm:text-4xl lg:text-5xl text-white drop-shadow-[0_4px_12px_rgba(8,43,73,0.5)]"
             >
-              A Travel Brand Built On
+              More Than A
               <br />
-              <span className="text-[#D98928]">Passion, Precision and Trust</span>
+              <span className="text-[#D98928]">Travel Company</span>
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 16 }}
@@ -218,7 +224,7 @@ export default function AboutClient() {
               transition={{ delay: 0.26, duration: 0.55 }}
               className="mx-auto mt-5 max-w-2xl text-sm leading-relaxed text-[#F5F1E8]/90 sm:text-base sm:leading-8"
             >
-              Dedicated to creating unforgettable travel experiences, we combine local expertise with exceptional service to help you explore Sri Lanka and beyond.
+              For us, travel is personal. Every itinerary, transfer, and tour is planned with the same care we&apos;d expect for our own journey.
             </motion.p>
           </motion.div>
         </div>
@@ -243,13 +249,16 @@ export default function AboutClient() {
             </h2>
             <div className="mx-auto mt-5 max-w-3xl space-y-4 text-center text-sm leading-8 text-[#111820]/78 sm:text-base">
               <p>
-                Triple R Holidays is a team with over 20 years of expertise in the travel industry, specializing in Sri Lanka and key destinations across Asia. Built on strong destination knowledge and hands-on experience, we are committed to delivering reliable and well-crafted travel solutions.
+                Triple R Holidays (Pvt) Ltd is a Sri Lankan travel company specializing in tailor-made holidays and travel services across Sri Lanka, with selected destinations in Asia.
               </p>
               <p>
-                We operate across all major destinations in Sri Lanka, offering carefully curated tour packages, quality hotel selections, and reliable transport services.
+                Backed by our team with 23+ years of combined experience in the travel and tourism industry, we work closely with every client to design journeys that match their interests, travel style, and budget. Our local knowledge and hands-on approach ensure every journey is carefully planned from start to finish.
               </p>
               <p>
-                From planning to execution, we focus on making every journey smooth, simple, and memorable with end-to-end travel support you can trust.
+                We provide customized itineraries, hotel bookings, private transportation, guided tours, airport transfers, and complete travel planning for individuals, families, groups, and corporate travelers. Whether you’re exploring Sri Lanka for the first time or returning to discover more, our team takes care of every detail so you can enjoy your trip without the stress of planning.
+              </p>
+              <p>
+                At Triple R Holidays, we believe great travel starts with understanding our clients. We focus on providing reliable service, honest advice, and thoughtfully planned experiences that create lasting memories. Our goal is simple: to make every journey smooth, enjoyable, and memorable.
               </p>
             </div>
           </motion.div>
@@ -263,7 +272,7 @@ export default function AboutClient() {
           >
             <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
               <div>
-                <span className="text-[11px] font-bold uppercase tracking-[0.24em] text-[#D98928]">Why Clients Trust Us</span>
+                <span className="text-[11px] font-bold uppercase tracking-[0.24em] text-[#D98928]">Why Travelers Trust Us</span>
                 <div className="mt-5 space-y-3">
                   {trustPoints.map(point => (
                     <div
@@ -315,6 +324,8 @@ export default function AboutClient() {
               visible: { transition: { staggerChildren: 0.08 } }
             }}
             className="hide-scrollbar mt-12 flex snap-x snap-mandatory gap-3 overflow-x-auto pb-2 md:grid md:grid-cols-2 md:gap-6 md:overflow-visible md:pb-0 xl:grid-cols-3"
+            ref={valuesSlider.containerRef}
+            {...valuesSlider.touchHandlers}
           >
             {whatWeDoCards.map(item => {
               const Icon = item.icon;
@@ -366,6 +377,8 @@ export default function AboutClient() {
               visible: { transition: { staggerChildren: 0.08 } }
             }}
             className="hide-scrollbar mt-12 flex snap-x snap-mandatory gap-3 overflow-x-auto pb-2 md:grid md:grid-cols-2 md:gap-6 md:overflow-visible md:pb-0 xl:grid-cols-3"
+            ref={teamSlider.containerRef}
+            {...teamSlider.touchHandlers}
           >
             {whyTravelersChooseUsCards.map(item => {
               const Icon = item.icon;
@@ -407,33 +420,91 @@ export default function AboutClient() {
             </p>
           </motion.div>
 
-          <motion.article
-            initial={{ opacity: 0, y: 18 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ type: "spring", stiffness: 90, damping: 15 }}
-            className="mx-auto mt-10 max-w-3xl scandi-soft-card border border-[#111820]/12 p-6 sm:p-8"
-          >
-            <div className="flex items-start gap-4">
-              <span className="grid h-14 w-14 shrink-0 place-items-center rounded-full bg-[#D98928]/18 text-[#D98928]">
-                <BadgeCheck className="h-7 w-7" />
-              </span>
-              <div>
-                <h3 className="text-2xl font-extrabold text-[#111820]">Legal Business Entity</h3>
-                <p className="mt-1 text-sm leading-7 text-[#111820]/78">
-                  Registered under the Companies Act, Sri Lanka
+          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 max-w-5xl mx-auto">
+            {/* Licensed & Registered Card */}
+            <motion.article
+              initial={{ opacity: 0, y: 18 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ type: "spring", stiffness: 90, damping: 15 }}
+              whileHover={{ y: -6 }}
+              className="flex flex-col items-center justify-between text-center rounded-[28px] bg-white p-7 sm:p-9 shadow-[0_10px_30px_rgba(0,0,0,0.05)] border border-[#111820]/08 relative overflow-hidden"
+            >
+              <div className="flex flex-col items-center">
+                <div className="mb-6 grid h-20 w-20 place-items-center rounded-full bg-amber-50 text-[#D98928] ring-8 ring-amber-50/50">
+                  <Award className="h-10 w-10 stroke-[2.2]" />
+                </div>
+                <h3 className="text-xl font-bold text-[#111820] leading-snug">
+                  Licensed & Registered
+                </h3>
+                <div className="mt-2.5 h-1 w-7 rounded-full bg-[#D98928]" />
+                <p className="mt-5 text-sm leading-relaxed text-[#111820]/70">
+                  Officially registered in Sri Lanka and licensed by SLTDA, ensuring trusted, compliant, and professional travel services for every journey.
                 </p>
               </div>
-            </div>
-
-            <div className="mt-6">
-              <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#111820]/58">Business Registration Number</p>
-              <div className="mt-3 inline-flex items-center gap-3 rounded-full border border-[#111820]/16 bg-white/72 px-5 py-3">
-                <span className="text-lg font-black text-[#111820]">BR No:</span>
-                <span className="text-lg font-bold text-[#111820]">{businessRegistrationNumber}</span>
+              <div className="mt-6 pt-4 border-t border-[#111820]/08 w-full text-center">
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-[#111820]/04 px-3.5 py-1.5 text-xs font-semibold text-[#111820]/70">
+                  BR No: {businessRegistrationNumber}
+                </span>
               </div>
-            </div>
-          </motion.article>
+            </motion.article>
+
+            {/* Verified Partner Card */}
+            <motion.article
+              initial={{ opacity: 0, y: 18 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ type: "spring", stiffness: 90, damping: 15, delay: 0.1 }}
+              whileHover={{ y: -6 }}
+              className="flex flex-col items-center justify-between text-center rounded-[28px] bg-white p-7 sm:p-9 shadow-[0_10px_30px_rgba(0,0,0,0.05)] border border-[#111820]/08 relative overflow-hidden"
+            >
+              <div className="flex flex-col items-center">
+                <div className="mb-6 grid h-20 w-20 place-items-center rounded-full bg-amber-50 text-[#D98928] ring-8 ring-amber-50/50">
+                  <BadgeCheck className="h-10 w-10 stroke-[2.2]" />
+                </div>
+                <h3 className="text-xl font-bold text-[#111820] leading-snug">
+                  Verified & Recommended
+                </h3>
+                <div className="mt-2.5 h-1 w-7 rounded-full bg-[#D98928]" />
+                <p className="mt-5 text-sm leading-relaxed text-[#111820]/70">
+                  Endorsed by hundreds of happy travelers with top-rated reviews across TripAdvisor, Google, and major booking platforms.
+                </p>
+              </div>
+              <div className="mt-6 pt-4 border-t border-[#111820]/08 w-full text-center">
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-[#111820]/04 px-3.5 py-1.5 text-xs font-semibold text-[#111820]/70">
+                  4.8★ Rated Service
+                </span>
+              </div>
+            </motion.article>
+
+            {/* Safe & Secure Card */}
+            <motion.article
+              initial={{ opacity: 0, y: 18 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ type: "spring", stiffness: 90, damping: 15, delay: 0.2 }}
+              whileHover={{ y: -6 }}
+              className="flex flex-col items-center justify-between text-center rounded-[28px] bg-white p-7 sm:p-9 shadow-[0_10px_30px_rgba(0,0,0,0.05)] border border-[#111820]/08 relative overflow-hidden sm:col-span-2 lg:col-span-1"
+            >
+              <div className="flex flex-col items-center">
+                <div className="mb-6 grid h-20 w-20 place-items-center rounded-full bg-amber-50 text-[#D98928] ring-8 ring-amber-50/50">
+                  <ShieldCheck className="h-10 w-10 stroke-[2.2]" />
+                </div>
+                <h3 className="text-xl font-bold text-[#111820] leading-snug">
+                  Safe & Guaranteed
+                </h3>
+                <div className="mt-2.5 h-1 w-7 rounded-full bg-[#D98928]" />
+                <p className="mt-5 text-sm leading-relaxed text-[#111820]/70">
+                  100% secure payment options, encrypted data privacy, and transparent booking policies for completely worry-free travel.
+                </p>
+              </div>
+              <div className="mt-6 pt-4 border-t border-[#111820]/08 w-full text-center">
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-[#111820]/04 px-3.5 py-1.5 text-xs font-semibold text-[#111820]/70">
+                  24/7 On-Ground Support
+                </span>
+              </div>
+            </motion.article>
+          </div>
 
           <section className="relative mt-12 overflow-hidden">
             <div className="relative mx-auto max-w-5xl">
@@ -493,7 +564,7 @@ export default function AboutClient() {
                   <p className="mb-5 text-base font-bold text-[#111820]">We Are Accepting</p>
                   <div className="flex flex-wrap items-center justify-center gap-5">
                     <div className="flex flex-col items-center gap-1.5 rounded-xl border border-[#D98928]/30 bg-[#D98928]/10 px-4 py-3">
-                      <span className="text-lg font-extrabold text-[#D98928]">40%</span>
+                      <span className="text-lg font-extrabold text-[#D98928]">50%</span>
                       <span className="text-[9px] font-bold uppercase tracking-wider text-[#D98928]">Advance Payment</span>
                     </div>
 
@@ -539,6 +610,8 @@ export default function AboutClient() {
               visible: { transition: { staggerChildren: 0.1 } }
             }}
             className="hide-scrollbar mt-12 flex snap-x snap-mandatory gap-3 overflow-x-auto pb-2 md:grid md:grid-cols-2 md:gap-6 md:overflow-visible md:pb-0 lg:grid-cols-3"
+            ref={highlightsSlider.containerRef}
+            {...highlightsSlider.touchHandlers}
           >
             {travelerReviewCards.map(card => (
               <motion.article

@@ -78,8 +78,38 @@ export default function HolidayToursHeroShowcase() {
   const stickyRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
   const pinTriggerRef = useRef<ScrollTrigger | null>(null);
+  const activeIndexRef = useRef(0);
+  const wheelLockRef = useRef(false);
+  const wheelUnlockTimerRef = useRef<number | null>(null);
+  const finalSlideReleaseReadyRef = useRef(false);
+  const finalSlideQuietTimerRef = useRef<number | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const total = slides.length;
+
+  const scrollToSlide = (index: number) => {
+    if (typeof window === "undefined" || !containerRef.current) return;
+    const clampedIndex = Math.min(total - 1, Math.max(0, index));
+    const pinTrigger = pinTriggerRef.current;
+    const startScroll = pinTrigger?.start ?? containerRef.current.offsetTop;
+    const endScroll = pinTrigger?.end ?? startScroll + window.innerHeight * scrollDistanceMultiplier;
+    const scrollHeight = Math.max(1, endScroll - startScroll);
+    const targetScroll = startScroll + (clampedIndex / (total - 1)) * scrollHeight;
+
+    const lenisScroll = (window as any).__lenis;
+    if (lenisScroll && typeof lenisScroll.scrollTo === "function") {
+      lenisScroll.scrollTo(targetScroll, {
+        duration: 0.68,
+        lerp: 0.13
+      });
+      return;
+    }
+
+    window.scrollTo({ top: targetScroll, behavior: "smooth" });
+  };
+
+  useEffect(() => {
+    activeIndexRef.current = activeIndex;
+  }, [activeIndex]);
 
   useEffect(() => {
     if (typeof window === "undefined" || !containerRef.current || !trackRef.current) return;
@@ -131,7 +161,6 @@ export default function HolidayToursHeroShowcase() {
 
       const tl = gsap.timeline({ defaults: { ease: "power2.inOut" } });
       timeline = tl;
-      const snapStep = 1 / (total - 1);
 
       pinTrigger = ScrollTrigger.create({
         trigger: containerRef.current,
@@ -142,17 +171,9 @@ export default function HolidayToursHeroShowcase() {
         animation: tl,
         anticipatePin: 1,
         invalidateOnRefresh: false,
-        snap: isMobile
-          ? undefined
-          : {
-              snapTo: snapStep,
-              duration: { min: 0.22, max: 0.42 },
-              delay: 0.05,
-              directional: false,
-              ease: "power2.out"
-            },
         onUpdate: (self) => {
           const currentIndex = Math.min(total - 1, Math.max(0, Math.round(self.progress * (total - 1))));
+          activeIndexRef.current = currentIndex;
           setActiveIndex(previous => (previous === currentIndex ? previous : currentIndex));
         }
       });
@@ -205,34 +226,66 @@ export default function HolidayToursHeroShowcase() {
       resizeObserver.observe(trackRef.current.parentElement);
     }
 
+    const handleWheel = (event: WheelEvent) => {
+      const pinTrigger = pinTriggerRef.current;
+      if (!pinTrigger || Math.abs(event.deltaY) < 10) return;
+
+      const scrollY = window.scrollY || window.pageYOffset;
+      const isInsidePinnedRange = scrollY >= pinTrigger.start - 2 && scrollY <= pinTrigger.end + 2;
+      if (!isInsidePinnedRange) return;
+
+      const direction = event.deltaY > 0 ? 1 : -1;
+      const currentIndex = activeIndexRef.current;
+      const targetIndex = Math.min(total - 1, Math.max(0, currentIndex + direction));
+
+      if (targetIndex === currentIndex) {
+        const isTryingToLeaveFinalSlide = direction > 0 && currentIndex === total - 1;
+        if (!isTryingToLeaveFinalSlide || finalSlideReleaseReadyRef.current) return;
+
+        if (event.cancelable) event.preventDefault();
+        event.stopPropagation();
+        event.stopImmediatePropagation();
+
+        if (finalSlideQuietTimerRef.current) window.clearTimeout(finalSlideQuietTimerRef.current);
+        finalSlideQuietTimerRef.current = window.setTimeout(() => {
+          finalSlideReleaseReadyRef.current = true;
+        }, 320);
+        return;
+      }
+
+      if (event.cancelable) event.preventDefault();
+      event.stopPropagation();
+      event.stopImmediatePropagation();
+
+      if (wheelLockRef.current) return;
+
+      wheelLockRef.current = true;
+      activeIndexRef.current = targetIndex;
+      setActiveIndex(targetIndex);
+      finalSlideReleaseReadyRef.current = targetIndex !== total - 1;
+      if (finalSlideQuietTimerRef.current) window.clearTimeout(finalSlideQuietTimerRef.current);
+      scrollToSlide(targetIndex);
+
+      if (wheelUnlockTimerRef.current) window.clearTimeout(wheelUnlockTimerRef.current);
+      wheelUnlockTimerRef.current = window.setTimeout(() => {
+        wheelLockRef.current = false;
+      }, 1050);
+    };
+
+    window.addEventListener("wheel", handleWheel, { passive: false, capture: true });
+
     return () => {
       cancelAnimationFrame(resizeFrame);
+      window.removeEventListener("wheel", handleWheel, { capture: true });
+      if (wheelUnlockTimerRef.current) window.clearTimeout(wheelUnlockTimerRef.current);
+      if (finalSlideQuietTimerRef.current) window.clearTimeout(finalSlideQuietTimerRef.current);
+      wheelLockRef.current = false;
       if (pinTrigger) pinTrigger.kill();
       if (timeline) timeline.kill();
       pinTriggerRef.current = null;
       resizeObserver.disconnect();
     };
   }, [total]);
-
-  const scrollToSlide = (index: number) => {
-    if (typeof window === "undefined" || !containerRef.current) return;
-    const pinTrigger = pinTriggerRef.current;
-    const startScroll = pinTrigger?.start ?? containerRef.current.offsetTop;
-    const endScroll = pinTrigger?.end ?? startScroll + window.innerHeight * scrollDistanceMultiplier;
-    const scrollHeight = Math.max(1, endScroll - startScroll);
-    const targetScroll = startScroll + (index / (total - 1)) * scrollHeight;
-
-    const lenisScroll = (window as any).__lenis;
-    if (lenisScroll && typeof lenisScroll.scrollTo === "function") {
-      lenisScroll.scrollTo(targetScroll, {
-        duration: 0.55,
-        lerp: 0.14
-      });
-      return;
-    }
-
-    window.scrollTo({ top: targetScroll, behavior: "smooth" });
-  };
 
   const nextSlide = () => {
     const nextIdx = Math.min(activeIndex + 1, total - 1);

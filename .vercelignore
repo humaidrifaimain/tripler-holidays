@@ -4,6 +4,13 @@ public/brand-kit-extract/
 public/images/Triple R Holidays Logo Client Pack/
 antigravity-awesome-skills-main/
 ui-ux-pro-max-skill-main/
+.next
+.next/**
+out
+out/**
+*.zip
+**/*.zip
+tripler-holidays-cpanel-upload-slim.zip
 /*.mp4
 /*.jpeg
 /*.png

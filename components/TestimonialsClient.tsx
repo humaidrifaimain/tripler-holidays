@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Star, Quote, ExternalLink, Sparkles } from "lucide-react";
 import SiteHeader from "@/components/SiteHeader";
+import { useAutoSwipeSlider } from "@/components/AutoSwipeCarousel";
 
 /* ── Facebook & Google brand icons (inline SVG) ── */
 function FacebookIcon({ className }: { className?: string }) {
@@ -84,6 +85,7 @@ const cardVariants = {
 const TRUNCATE_LENGTH = 130;
 
 export default function TestimonialsClient() {
+  const testimonialsSlider = useAutoSwipeSlider<HTMLDivElement>({ autoPlayInterval: 3800 });
   const [expandedCards, setExpandedCards] = useState<Set<number>>(new Set());
 
   function toggleExpand(index: number) {
@@ -112,8 +114,8 @@ export default function TestimonialsClient() {
           data-parallax="12"
           data-hero-media
         />
-        <div className="absolute inset-0 bg-[#082B49]/56" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#082B49]/36 via-[#082B49]/42 to-[#082B49]/64" />
+        <div className="absolute inset-0 bg-[#082B49]/38" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#082B49]/22 via-[#082B49]/28 to-[#082B49]/48" />
         <div className="grain-overlay" />
 
         <div className="absolute inset-0 z-10 mx-auto flex w-full max-w-7xl items-end justify-center px-6 pb-14 sm:px-8 sm:pb-16 lg:pb-20">
@@ -125,13 +127,11 @@ export default function TestimonialsClient() {
             data-hero-content
           >
             <h1 className="font-space text-3xl font-extrabold uppercase leading-tight sm:text-4xl lg:text-5xl text-white drop-shadow-[0_4px_12px_rgba(8,43,73,0.5)]">
-              Testimonials
-              <br />
-              <span className="text-[#D98928]">From Real Travelers</span>
+              What our clients say
             </h1>
 
             <p className="mx-auto mt-5 max-w-2xl text-sm leading-relaxed text-[#F5F1E8]/90 sm:text-base sm:leading-8">
-              They trusted us with their journeys across Sri Lanka and beyond. Here is what they shared after traveling with Triple R Holidays.
+              Genuine feedback from travelers who trusted Triple R Holidays with their journeys.
             </p>
           </motion.div>
         </div>
@@ -179,6 +179,8 @@ export default function TestimonialsClient() {
             viewport={{ once: true, margin: "-80px" }}
             variants={containerVariants}
             className="hide-scrollbar snap-carousel flex snap-x snap-mandatory gap-6 overflow-x-auto pb-2 sm:grid sm:gap-8 sm:overflow-visible sm:pb-0 md:grid-cols-2 lg:grid-cols-3"
+            ref={testimonialsSlider.containerRef}
+            {...testimonialsSlider.touchHandlers}
           >
             {testimonials.map((testimonial, index) => {
               const isExpanded = expandedCards.has(index);
@@ -309,11 +311,11 @@ export default function TestimonialsClient() {
             </p>
             <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:flex-wrap sm:justify-center">
               <a
-                href="https://wa.me/94767161937"
+                href="/holiday-tours#tour-quote"
                 className="premium-cta inline-flex min-h-[52px] w-full items-center justify-center gap-2 px-7 text-sm font-bold uppercase tracking-wide transition sm:w-auto"
                 data-cursor-magnetic
               >
-                Plan My Trip
+                Plan your trip
                 <ExternalLink className="h-3.5 w-3.5" />
               </a>
               <a

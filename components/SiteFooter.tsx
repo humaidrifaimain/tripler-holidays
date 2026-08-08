@@ -7,8 +7,8 @@ import { ChevronDown } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 
 const contact = {
-  phone: "(011) 293 4924",
-  phoneHref: "tel:+94112934924",
+  phone: "+94 (77) 666 1272",
+  phoneHref: "tel:+94776661272",
   email: "hello@triplerholidays.com",
   address: "128/7 A.S.P Liyanage Mawatha, Royal Pearl Garden, Wattala",
   facebookHref: "https://www.facebook.com/share/18yLyfMD4H/?mibextid=wwXIfr",
@@ -165,7 +165,7 @@ export default function SiteFooter() {
             <a
               href={contact.facebookHref}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               aria-label="Facebook"
               className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/25 text-white/85 transition hover:border-[#D98928] hover:text-[#D98928]"
             >
@@ -181,7 +181,7 @@ export default function SiteFooter() {
             <a
               href={contact.instagramHref}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               aria-label="Instagram"
               className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/25 text-white/85 transition hover:border-[#D98928] hover:text-[#D98928]"
             >

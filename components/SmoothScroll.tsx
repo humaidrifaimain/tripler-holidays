@@ -1,13 +1,21 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Lenis from "lenis";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 
 export default function SmoothScroll({ children }: { children: React.ReactNode }) {
+  const [isReady, setIsReady] = useState(false);
+
   useEffect(() => {
-    if (typeof window === "undefined") return;
+    // Defer smooth scroll initialization to after first paint
+    const timer = setTimeout(() => setIsReady(true), 0);
+    return () => clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    if (typeof window === "undefined" || !isReady) return;
 
     gsap.registerPlugin(ScrollTrigger);
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -41,7 +49,7 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
       lenis.destroy();
       delete (window as any).__lenis;
     };
-  }, []);
+  }, [isReady]);
 
   return <>{children}</>;
 }

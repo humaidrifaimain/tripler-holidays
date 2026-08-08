@@ -1,0 +1,21 @@
+{
+  "name": "Triple R Holidays",
+  "short_name": "Triple R",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "theme_color": "#082B49",
+  "background_color": "#F5F1E8",
+  "display": "standalone"
+}

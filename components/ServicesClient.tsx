@@ -48,7 +48,7 @@ const services = [
     description:
       "Guest movement, accommodation and transport planning for meetings, conferences and business gatherings.",
     icon: BriefcaseBusiness,
-    image: "/images/services/core/conference-events.jpg",
+    image: "/images/services/core/conference-events.jpeg",
     points: ["Venue travel coordination", "Group transport flow", "Clear timeline planning"]
   },
   {
@@ -75,7 +75,7 @@ const process = [
   "Confirm and travel with a single coordination point."
 ];
 
-const heroHookSentence = "Driven by experience. Defined by service.";
+const heroHookSentence = "Professional travel and transport solutions.";
 const servicesHeroImage =
   "/images/services/services-hero-fleet.jpg";
 
@@ -99,8 +99,8 @@ export default function ServicesClient() {
           data-parallax="12"
           data-hero-media
         />
-        <div className="absolute inset-0 bg-[#082B49]/56" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#082B49]/36 via-[#082B49]/40 to-[#082B49]/62" />
+        <div className="absolute inset-0 bg-[#082B49]/38" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#082B49]/22 via-[#082B49]/26 to-[#082B49]/48" />
         <div className="grain-overlay" />
 
         <div className="absolute inset-0 z-10 mx-auto flex w-full max-w-7xl items-end justify-center px-6 pb-14 sm:px-8 sm:pb-16 lg:pb-20">
@@ -112,9 +112,7 @@ export default function ServicesClient() {
             data-hero-content
           >
             <h1 className="font-space text-3xl font-extrabold uppercase leading-tight sm:text-4xl lg:text-5xl text-white drop-shadow-[0_4px_12px_rgba(8,43,73,0.5)]">
-             WHERE EVERY
-              <br />
-              <span className="text-[#D98928]">JOURNEY BEGINS</span>
+              OUR SERVICES
             </h1>
             <p className="mt-4 text-sm font-semibold tracking-[0.08em] text-white/90 sm:text-base">
               {heroHookSentence}
@@ -126,9 +124,9 @@ export default function ServicesClient() {
       <section id="services-core" className="relative overflow-hidden">
         <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:py-24">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-10 max-w-2xl sm:mb-20">
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#D98928]">TRIPLE R HOLIDAYS</span>
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#B96B16]">TRIPLE R HOLIDAYS</span>
             <h2 className="font-space fluid-title mt-4 font-bold uppercase text-[#111820]">What We Offer</h2>
-            <p className="mt-5 text-sm leading-8 text-[#111820]/65 sm:text-base">From Sri Lanka tours to outbound holidays, hotel stays, transport and event travel, our team keeps every detail practical, personal and easy to follow.</p>
+            <p className="mt-5 text-sm font-medium leading-8 text-[#111820]/84 sm:text-base">From Sri Lanka tours to outbound holidays, hotel stays, transport and event travel, our team keeps every detail practical, personal and easy to follow.</p>
           </motion.div>
           {/* Mobile: simple card stack | Desktop: left/right alternating with vertical line */}
           <div className="relative">
@@ -155,24 +153,24 @@ export default function ServicesClient() {
                       </span>
                     </div>
                     <div className="mt-4 scandi-soft-card border border-[#111820]/10 p-4">
-                      <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-[#D98928]">Service {String(index + 1).padStart(2, '0')}</span>
+                      <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-[#B96B16]">Service {String(index + 1).padStart(2, '0')}</span>
                       <h3 className="font-space mt-2 text-xl font-bold uppercase tracking-tight text-[#111820]">{service.title}</h3>
-                      <p className="mt-2 text-sm leading-7 text-[#111820]/60">{service.description}</p>
+                      <p className="mt-2 text-sm font-medium leading-7 text-[#111820]/84">{service.description}</p>
                       <div className="mt-3 flex flex-wrap gap-2">
                         {service.points.map(point => (
-                          <span key={point} className="inline-flex items-center gap-1.5 rounded-full border border-[#111820]/12 bg-[#111820]/5 px-3 py-1.5 text-[11px] font-semibold text-[#111820]/70">{point}</span>
+                          <span key={point} className="inline-flex items-center gap-1.5 rounded-full border border-[#111820]/18 bg-white/55 px-3 py-1.5 text-[11px] font-bold text-[#111820]/86">{point}</span>
                         ))}
                       </div>
                     </div>
                   </div>
                   {/* Desktop: alternating left/right layout */}
                   <div className={`hidden lg:block ${isEven ? 'lg:pr-16 lg:text-right' : 'lg:pl-16 lg:col-start-2'}`}>
-                    <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-[#D98928]">Service {String(index + 1).padStart(2, '0')}</span>
+                    <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-[#B96B16]">Service {String(index + 1).padStart(2, '0')}</span>
                     <h3 className="font-space mt-3 text-3xl font-bold uppercase tracking-tight text-[#111820] sm:text-4xl">{service.title}</h3>
-                    <p className="mt-4 text-sm leading-8 text-[#111820]/60 max-w-md" style={{ marginLeft: isEven ? 'auto' : undefined }}>{service.description}</p>
+                    <p className="mt-4 text-sm font-medium leading-8 text-[#111820]/84 max-w-md" style={{ marginLeft: isEven ? 'auto' : undefined }}>{service.description}</p>
                     <div className={`mt-5 flex flex-wrap gap-2 ${isEven ? 'lg:justify-end' : ''}`}>
                       {service.points.map(point => (
-                        <span key={point} className="inline-flex items-center gap-1.5 rounded-full border border-[#111820]/12 bg-[#111820]/5 px-3 py-1.5 text-[11px] font-semibold text-[#111820]/70">{point}</span>
+                        <span key={point} className="inline-flex items-center gap-1.5 rounded-full border border-[#111820]/18 bg-white/55 px-3 py-1.5 text-[11px] font-bold text-[#111820]/86">{point}</span>
                       ))}
                     </div>
                   </div>
@@ -195,7 +193,7 @@ export default function ServicesClient() {
             })}
           </div>
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mt-20 max-w-lg">
-            <p className="text-sm leading-8 text-[#111820]/50">No need to worry about routes, schedules, or finding places — everything is already organized. We&apos;ll show you where to go, what to see, and where to stay, so you can simply <span className="italic text-[#D98928] font-semibold">enjoy the journey.</span></p>
+            <p className="text-sm font-medium leading-8 text-[#111820]/84">No need to worry about routes, schedules, or finding places — everything is already organized. We&apos;ll show you where to go, what to see, and where to stay, so you can simply <span className="italic text-[#B96B16] font-bold">enjoy the journey.</span></p>
           </motion.div>
         </div>
       </section>
@@ -203,9 +201,9 @@ export default function ServicesClient() {
       <section className="relative px-4 py-12 sm:px-6 lg:py-28 overflow-hidden bg-gradient-to-b from-[#F5F1E8] via-[#F5F1E8] to-[#F5F1E8]">
         <div className="mx-auto max-w-7xl">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-16">
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#D98928]">Our Process</span>
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#B96B16]">Our Process</span>
             <h2 className="font-space fluid-title mt-4 font-bold uppercase text-[#111820]">How We Deliver</h2>
-            <p className="mx-auto mt-4 max-w-2xl text-base leading-8 text-[#111820]/65">Travel execution built with practical planning and a single coordination rhythm.</p>
+            <p className="mx-auto mt-4 max-w-2xl text-base font-medium leading-8 text-[#111820]/84">Travel execution built with practical planning and a single coordination rhythm.</p>
           </motion.div>
 
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }} variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.07 } } }} className="relative mx-auto max-w-5xl">
@@ -248,15 +246,15 @@ export default function ServicesClient() {
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.12, delayChildren: 0.2 } } }} className="mt-20 grid gap-6 md:grid-cols-3 max-w-4xl mx-auto">
             {process.map((step, index) => (
               <motion.div key={step} variants={{ hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 100, damping: 15 } } }} className="text-center">
-                <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-[#D98928]/20 bg-[#D98928]/8 text-[#D98928] font-space text-lg font-bold">{String(index + 1).padStart(2, '0')}</span>
-                <p className="mt-4 text-sm leading-7 text-[#111820]/80 max-w-xs mx-auto">{step}</p>
+                <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-[#D98928]/28 bg-[#D98928]/10 text-[#B96B16] font-space text-lg font-bold">{String(index + 1).padStart(2, '0')}</span>
+                <p className="mt-4 text-sm font-medium leading-7 text-[#111820]/86 max-w-xs mx-auto">{step}</p>
               </motion.div>
             ))}
           </motion.div>
 
           <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mt-12 text-center">
             <a href={contact.whatsappHref} className="inline-flex items-center gap-3 bg-[#111820] hover:bg-[#D98928] text-white pl-7 pr-2 py-2.5 rounded-full font-bold uppercase tracking-wider text-xs transition-all duration-300 shadow-lg group">
-              Plan Service Package
+              Plan your trip
               <span className="grid h-8 w-8 place-items-center rounded-full bg-white text-[#111820] transition-transform duration-300 group-hover:rotate-45"><ArrowRight className="h-4 w-4" /></span>
             </a>
           </motion.div>

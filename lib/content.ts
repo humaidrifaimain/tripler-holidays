@@ -30,8 +30,8 @@ export const destinations = [
 ];
 
 export const stats = [
-  { value: 20, suffix: "+", label: "Years Combined Industry Experience" },
-  { value: 6, suffix: "", label: "Core Travel Services" },
-  { value: 4, suffix: "", label: "Outbound Package Countries" },
-  { value: 100, suffix: "%", label: "Tailor-Made Travel Planning" }
+  { value: 24, suffix: "/7", label: "Journey Support" },
+  { value: 15, suffix: "+", label: "Years Industry Expertise" },
+  { value: 50, suffix: "+", label: "Vehicles" },
+  { value: 100, suffix: "+", label: "Destination Partners" }
 ];

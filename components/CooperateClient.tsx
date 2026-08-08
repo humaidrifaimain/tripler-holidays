@@ -18,6 +18,7 @@ import {
   Users
 } from "lucide-react";
 import SiteHeader from "@/components/SiteHeader";
+import { sendWeb3FormData } from "@/lib/web3forms";
 
 const cooperationOptions = [
   {
@@ -107,8 +108,8 @@ const partnershipSteps = [
 ];
 
 const contact = {
-  phone: "(011) 293 4924",
-  phoneHref: "tel:+94112934924",
+  phone: "+94 (77) 666 1272",
+  phoneHref: "tel:+94776661272",
   whatsappHref: "https://wa.me/94767161937",
   email: "hello@triplerholidays.com",
   address: "128/7 A.S.P Liyanage Mawatha, Royal Pearl Garden, Wattala"
@@ -116,7 +117,7 @@ const contact = {
 
 export default function CooperateClient() {
   return (
-    <main className="scandi-page min-h-screen text-[#111820] font-manrope">
+    <main className="scandi-page flex min-h-screen flex-col text-[#111820] font-manrope">
       <SiteHeader variant="transparent" ctaLabel="Partner With Us" ctaHref="/cooperate#contact" />
 
       <section className="photo-text-hero hero-mobile relative w-full overflow-hidden text-white">
@@ -126,18 +127,16 @@ export default function CooperateClient() {
           className="absolute inset-0 h-full w-full object-cover object-center"
           data-hero-media
         />
-        <div className="absolute inset-0 bg-[#082B49]/55" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#082B49]/36 via-[#082B49]/44 to-[#082B49]/64" />
+        <div className="absolute inset-0 bg-[#082B49]/38" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#082B49]/22 via-[#082B49]/28 to-[#082B49]/48" />
         <div className="grain-overlay" />
         <div className="absolute inset-0 z-10 mx-auto flex w-full max-w-7xl items-end justify-center px-6 pb-14 sm:px-8 sm:pb-16 lg:pb-20">
           <div className="max-w-3xl text-center" data-hero-content>
             <h1 className="font-space text-3xl font-extrabold uppercase leading-tight sm:text-4xl lg:text-5xl text-white drop-shadow-[0_4px_12px_rgba(8,43,73,0.5)]">
-              Partnership & Growth
-              <br />
-              <span className="text-[#D98928]">Programs</span>
+              Corporate Travel Solutions
             </h1>
             <p className="mx-auto mt-5 max-w-2xl text-sm leading-relaxed text-[#F5F1E8]/90 sm:text-base sm:leading-8">
-              Partnership solutions designed for travel professionals, agencies, and corporate teams.
+              Your trusted partner for business travel.
             </p>
           </div>
         </div>
@@ -187,7 +186,7 @@ export default function CooperateClient() {
         </div>
       </section>
 
-      <section id="contact" className="px-4 pb-12 sm:px-6 lg:pb-24">
+      <section id="contact" className="order-last px-4 pb-12 sm:px-6 lg:pb-24">
         <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.95fr_1.05fr]">
           {/* Contact info cards — order-2 on mobile (below form), order-1 on desktop (left column) */}
           <motion.div
@@ -285,14 +284,26 @@ export default function CooperateClient() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ type: "spring", stiffness: 80, damping: 15 }}
-            action={`mailto:${contact.email}`}
-            method="post"
-            encType="text/plain"
+            onSubmit={async (event) => {
+              event.preventDefault();
+              const form = event.currentTarget;
+              try {
+                await sendWeb3FormData(
+                  "Partnership Inquiry - Triple R Holidays",
+                  "Corporate Partnership Form",
+                  new FormData(form)
+                );
+                form.reset();
+                window.alert("Thank you. Your partnership inquiry has been sent.");
+              } catch {
+                window.alert("Sorry, we could not send your inquiry. Please try again or contact us on WhatsApp.");
+              }
+            }}
             className="scandi-soft-card p-6 sm:p-8 order-1 lg:order-2"
           >
-            <h2 className="font-space fluid-title font-bold uppercase">Partner With Us Form</h2>
+            <h2 className="font-space fluid-title font-bold uppercase">Corporate Inquiry Form</h2>
             <p className="mt-3 text-sm leading-7 scandi-text-muted">
-              Share your company and partnership goals. We will send the next step quickly.
+              Complete the form below and our team will get back to you shortly.
             </p>
 
             <div className="mt-6 grid gap-4 sm:grid-cols-2">

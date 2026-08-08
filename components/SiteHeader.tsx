@@ -310,7 +310,7 @@ export default function SiteHeader({
 
               <div className="flex items-center justify-center gap-1.5 pt-2 text-[8px] font-bold uppercase tracking-[0.16em] text-white/35">
                 <span>Hotline:</span>
-                <span className="text-white/60">(011) 293 4924</span>
+                <span className="text-white/60">+94 (77) 666 1272</span>
               </div>
             </motion.div>
           </motion.div>

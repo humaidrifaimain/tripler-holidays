@@ -1,102 +1,317 @@
 "use client";
 
-import { useState } from "react";
-import Link from "next/link";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   ArrowRight,
   CalendarDays,
   Car,
+  CheckCircle2,
+  Clock3,
   Hotel,
+  Info,
   ShieldCheck,
   Sparkles,
   Star,
+  TicketCheck,
   Users,
   X,
-  MapPin
+  MapPin,
+  Route
 } from "lucide-react";
 import SiteHeader from "@/components/SiteHeader";
 import AccordionFAQ from "@/components/AccordionFAQ";
+import { sendWeb3Form } from "@/lib/web3forms";
+import { useAutoSwipeSlider } from "@/components/AutoSwipeCarousel";
+import rawWtiInboundPackages from "@/lib/wtiInboundPackages.json";
 
 const contact = {
-  phone: "(011) 293 4924",
+  phone: "+94 (77) 666 1272",
   whatsappHref: "https://wa.me/94767161937",
   email: "hello@triplerholidays.com"
 };
 
+type WtiInboundPackage = {
+  id: number;
+  name: string;
+  destination: string;
+  duration: string;
+  tourtype: string;
+  groupsize: string;
+  guide: string;
+  people: string;
+  description: string;
+  priceIncludes: string[];
+  priceExcludes: string[];
+  CancellationPolicy: string[];
+  itinerary: Array<{
+    title: string;
+    description: string;
+  }>;
+};
+
+const wtiInboundPackages = rawWtiInboundPackages as WtiInboundPackage[];
+const wtiInboundPackageById = new Map(wtiInboundPackages.map(pkg => [pkg.id, pkg]));
+
+const formatPackageDuration = (duration: string) =>
+  duration
+    .replace(/(\d+)\s*Nights?\s*(\d+)\s*Days?/i, "$1 Nights / $2 Days")
+    .replace(/(\d+)\s*Days?\s*(\d+)\s*Nights?/i, "$2 Nights / $1 Days");
+
 const sriLankanPics = {
-  hillCountry: "/images/srilankan-pics/IMG_9822.jpg",
-  templeBuddha: "/images/srilankan-pics/IMG_0777.jpg",
-  templeRows: "/images/srilankan-pics/IMG_0775.jpg",
-  cityTemple: "/images/srilankan-pics/IMG_1581.jpg",
-  beachBlue: "/images/srilankan-pics/IMG_0016.jpg",
-  beachSunset: "/images/srilankan-pics/IMG_3479.jpg",
-  luxuryCoast: "/images/srilankan-pics/IMG_6911.jpg",
+  hillCountry: "/images/new%20pic/hero-gallery-c29f7dfb-800x450.jpeg",
+  templeBuddha: "/images/new%20pic/Rangiri-Dambulla-Cave-Temple-Sri-Lanka.jpg",
+  templeRows: "/images/new%20pic/Sigiriya-28.jpg",
+  cityTemple: "/images/new%20pic/38ac01f0-e4ac-11f0-b763-995cd5778bcc.jpg",
+  beachBlue: "/images/new%20pic/aerial-view-tropical-coastline-beach-islet.jpg",
+  beachSunset: "/images/new%20pic/The_Common_Wanderer_-2.jpg",
+  luxuryCoast: "/images/new%20pic/aerial+view+to+north.jpg",
   riverSafari: "/images/srilankan-pics/IMG_1254.jpg",
-  wildlifeElephant: "/images/srilankan-pics/IMG_0070.jpg",
-  safariRoad: "/images/srilankan-pics/IMG_0043.jpg",
+  wildlifeElephant: "/images/new%20pic/article_1751903499355_0.jpg",
+  safariRoad: "/images/new%20pic/SRI-middle-rectangle-139041303303132.jpg",
   peraheraElephant: "/images/srilankan-pics/IMG_6800.jpg",
   peraheraUmbrella: "/images/srilankan-pics/IMG_7964.jpg"
 };
 
-const buildMailtoHref = (subject: string, fields: Array<[string, string]>) => {
-  const body = fields
-    .filter(([, value]) => value.trim().length > 0)
-    .map(([label, value]) => `${label}: ${value}`)
-    .join("\n");
-
-  return `mailto:${contact.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-};
-
-const sriLankaHeroImage =
-  "/images/holiday-tours-hero-4k-v2.jpg";
+const sriLankaHeroSlides = [
+  {
+    image: "/images/holiday-tours/cultural-exploration-kandy.jpg",
+    alt: "Cultural exploration in Kandy"
+  },
+  {
+    image: "/images/holiday-tours-hero-4k-v2.jpg",
+    alt: "Blue train passing through Sri Lanka's misty hill country"
+  },
+  {
+    image: "/images/new%20pic/01NUWA-IM0001-nuwara-eliya.jpeg",
+    alt: "Nine Arches Bridge in Sri Lanka's hill country"
+  },
+  {
+    image: "/images/new%20pic/The_Common_Wanderer_-2.jpg",
+    alt: "Sri Lanka tropical coastline from above"
+  },
+  {
+    image: "/images/new%20pic/aerial+view+to+north.jpg",
+    alt: "Sri Lanka luxury coastline from above"
+  }
+];
 
 const inCountryPackages = [
   {
     id: 1,
-    title: "Sri Lanka Grand Multi-City Tour",
-    duration: "14 nights / 15 days",
-    route: "Veyangoda, Sigiriya, Trincomalee, Kandy, Nuwara Eliya, Yala, Mirissa, Bentota, Colombo",
+    title: "Round Tour Cultural 7N8D",
+    duration: "7 Nights / 8 Days",
+    route: "Anamaduwa, Habarana, Sigiriya, Dambulla, Kandy, Nuwara Eliya, Colombo",
     image: sriLankanPics.cityTemple,
-    badge: "Signature island route",
-    idealFor: "Groups, families and first-time visitors",
-    highlights: ["Sigiriya Rock", "Kandy heritage", "Tea country", "Yala safari", "South coast beaches"],
+    badge: "$1450 PP",
+    idealFor: "Group tours and cultural explorers",
+    travellers: "5 persons",
+    highlights: ["Sigiriya Rock Fortress", "Dambulla Cave Temple", "Temple of the Tooth", "Polonnaruwa", "Kandy Cultural Show"],
     href: contact.whatsappHref
   },
   {
     id: 2,
-    title: "Cultural Triangle & Kandy",
-    duration: "5 nights / 6 days",
-    route: "Dambulla, Sigiriya, Matale, Kandy",
+    title: "Round Tour Cultural 5N6D",
+    duration: "5 Nights / 6 Days",
+    route: "Negombo, Habarana, Sigiriya, Kandy, Nuwara Eliya, Colombo",
     image: sriLankanPics.templeBuddha,
-    badge: "Ancient kingdoms",
-    idealFor: "History lovers and compact group tours",
-    highlights: ["Cave Temple", "Village tour", "Spice garden", "Temple of the Tooth"],
+    badge: "$1110 PP",
+    idealFor: "Compact cultural vacations",
+    travellers: "15 persons",
+    highlights: ["Pinnawala Elephant Orphanage", "Sigiriya Rock Climb", "Village Tour", "Peradeniya Botanical Garden", "Colombo City Tour"],
     href: contact.whatsappHref
   },
   {
     id: 3,
-    title: "Hill Country Scenic Escape",
-    duration: "4 nights / 5 days",
-    route: "Kandy, Ramboda, Nuwara Eliya, Ella",
+    title: "Central Hills and South",
+    duration: "7 Nights / 8 Days",
+    route: "Negombo, Kandy, Nuwara Eliya, Udawalawe, Bentota, Colombo",
     image: sriLankanPics.hillCountry,
-    badge: "Highland escape",
-    idealFor: "Couples, families and slow scenic travel",
-    highlights: ["Tea factory", "Waterfalls", "Gregory Lake", "Nine Arch Bridge"],
+    badge: "$1249 PP",
+    idealFor: "Hill country, wildlife and south coast routes",
+    travellers: "12 persons",
+    highlights: ["Pinnawala Elephant Orphanage", "Kandy Cultural Program", "Tea Factory", "Udawalawe Elephant Transit Home", "Galle Fort"],
     href: contact.whatsappHref
   },
   {
     id: 4,
-    title: "South Coast Beach Trail",
-    duration: "5 nights / 6 days",
-    route: "Mirissa, Weligama, Galle, Hikkaduwa, Bentota",
+    title: "Round Tour Cultural 9N10D",
+    duration: "9 Nights / 10 Days",
+    route: "Negombo, Habarana, Kandy, Nuwara Eliya, Ella, Mirissa, Colombo",
     image: sriLankanPics.beachSunset,
-    badge: "Coastal trail",
-    idealFor: "Beach breaks, friends and leisure groups",
-    highlights: ["Whale watching", "Surfing", "Galle Fort", "Madu River safari"],
+    badge: "$1799 PP",
+    idealFor: "Extended culture, wildlife and beach stays",
+    travellers: "5 persons",
+    highlights: ["Minneriya Jeep Safari", "Sigiriya Rock Fortress", "Nine Arch Bridge", "Whale Watching", "Mirissa Beach"],
+    href: contact.whatsappHref
+  },
+  {
+    id: 15,
+    title: "Round Tour Cultural 3N4D",
+    duration: "3 Nights / 4 Days",
+    route: "Habarana, Sigiriya, Kandy, Nuwara Eliya, Colombo",
+    image: sriLankanPics.wildlifeElephant,
+    badge: "$999 PP",
+    idealFor: "Short cultural group tours",
+    travellers: "20 persons",
+    highlights: ["Minneriya Jeep Safari", "Sigiriya Rock Fortress", "Kandy Cultural Show", "Ramboda Waterfall", "Colombo City Tour"],
+    href: contact.whatsappHref
+  },
+  {
+    id: 16,
+    title: "Round Tour Iran Cultural 9N10D",
+    duration: "9 Nights / 10 Days",
+    route: "Negombo, Kandy, Nuwara Eliya, Ella, Mirissa, Colombo",
+    image: sriLankanPics.templeRows,
+    badge: "$1234 PP",
+    idealFor: "Iran market cultural group tours",
+    travellers: "15 persons",
+    highlights: ["Temple of the Tooth", "Sigiriya Rock Fortress", "Dowa Ancient Rock Temple", "Udawalawe Elephant Transit Home", "Mirissa Beach"],
+    href: contact.whatsappHref
+  },
+  {
+    id: 5,
+    title: "Ramayana Yatra Kataragama 6N7D",
+    duration: "6 Nights / 7 Days",
+    route: "Anuradhapura, Jaffna, Sigiriya, Kandy, Nuwara Eliya, Kataragama, Colombo",
+    image: sriLankanPics.peraheraUmbrella,
+    badge: "INR 38,000 PP",
+    idealFor: "Ramayana pilgrimage groups",
+    travellers: "25 persons",
+    highlights: ["Munneshwaram Temple", "Seetha Amman Temple", "Kataragama Temple", "Nallur Kandaswamy Temple", "Sigiriya Rock Fortress"],
+    href: contact.whatsappHref
+  },
+  {
+    id: 6,
+    title: "Ramayana Yatra Northern 5N6D",
+    duration: "5 Nights / 6 Days",
+    route: "Anuradhapura, Trincomalee, Sigiriya, Kandy, Nuwara Eliya, Colombo",
+    image: sriLankanPics.beachBlue,
+    badge: "INR 35,000 PP",
+    idealFor: "Northern Ramayana pilgrimage routes",
+    travellers: "25 persons",
+    highlights: ["Munneshwaram Temple", "Manavari Temple", "Koneshwaram Temple", "Hanuman Temple", "Temple of the Tooth"],
+    href: contact.whatsappHref
+  },
+  {
+    id: 7,
+    title: "Ramayana Yatra Northeast Part 4N5D",
+    duration: "4 Nights / 5 Days",
+    route: "Anuradhapura, Trincomalee, Sigiriya, Kandy, Nuwara Eliya, Colombo",
+    image: sriLankanPics.safariRoad,
+    badge: "INR 33,000 PP",
+    idealFor: "Short Ramayana pilgrimage groups",
+    travellers: "25 persons",
+    highlights: ["Munneshwaram Temple", "Manavari Temple", "Koneshwaram Temple", "Hanuman Temple", "Temple of the Tooth"],
+    href: contact.whatsappHref
+  },
+  {
+    id: 18,
+    title: "Health Screening and Leisure 6N7D - Seychelles Nationality",
+    duration: "6 Nights / 7 Days",
+    route: "Colombo, Habarana, Kandy, Nuwara Eliya, Colombo",
+    image: sriLankanPics.luxuryCoast,
+    badge: "USD 1545 PP",
+    idealFor: "Seychelles nationality wellness and leisure guests",
+    travellers: "2 persons",
+    highlights: ["Health screenings", "Pinnawala Elephant Orphanage", "Dambulla Golden Temple", "Ayurveda Spa", "Tea Factory Tour"],
+    href: contact.whatsappHref
+  },
+  {
+    id: 19,
+    title: "Round Tour Cultural 3N4D - Seychelles Nationality",
+    duration: "3 Nights / 4 Days",
+    route: "Habarana, Sigiriya, Kandy, Nuwara Eliya, Colombo",
+    image: sriLankanPics.cityTemple,
+    badge: "USD 1249 PP",
+    idealFor: "Seychelles nationality compact cultural tours",
+    travellers: "2 persons",
+    highlights: ["Dambulla Golden Temple", "Sigiriya Rock Fortress", "Temple of the Tooth", "Minneriya Jeep Safari", "Gregory Lake"],
+    href: contact.whatsappHref
+  },
+  {
+    id: 20,
+    title: "Round Tour Cultural 13N14D - Azerbaijan Nationality",
+    duration: "13 Nights / 14 Days",
+    route: "Negombo, Habarana, Kandy, Nuwara Eliya, Ella, Udawalawe, Mirissa, Bentota, Colombo",
+    image: sriLankanPics.riverSafari,
+    badge: "USD 1995 PP",
+    idealFor: "Azerbaijan nationality extended island tours",
+    travellers: "2 persons",
+    highlights: ["Negombo", "Dambulla Cave Temple", "Scenic train ride", "Little Adam's Peak", "Whale Watching"],
     href: contact.whatsappHref
   }
-];
+].map(pkg => {
+  const source = wtiInboundPackageById.get(pkg.id);
+
+  return {
+    ...pkg,
+    title: source?.name ?? pkg.title,
+    duration: source ? formatPackageDuration(source.duration) : pkg.duration,
+    travellers: source?.people ? `${source.people} persons` : pkg.travellers,
+    tourType: source?.tourtype ?? "Inbound Tour",
+    sourceGroupSize: source?.groupsize ?? "",
+    guide: source?.guide ?? "",
+    description: source?.description ?? pkg.highlights.join(". "),
+    inclusions: source?.priceIncludes ?? [],
+    exclusions: source?.priceExcludes ?? [],
+    cancellationPolicy: source?.CancellationPolicy ?? [],
+    itinerary:
+      source?.itinerary.map((day, index) => ({
+        day: `Day ${index + 1}`,
+        title: day.title.trim(),
+        description: day.description
+      })) ?? []
+  };
+});
+
+type InCountryPackage = (typeof inCountryPackages)[number];
+
+function uniqueImages(images: string[]) {
+  return images.filter((image, index) => images.indexOf(image) === index).slice(0, 3);
+}
+
+const inboundPackageGalleryById: Record<number, string[]> = {
+  1: [sriLankanPics.cityTemple, sriLankanPics.templeBuddha, sriLankanPics.templeRows],
+  2: [sriLankanPics.templeBuddha, sriLankanPics.cityTemple, "/images/holiday-tours/cultural-exploration-kandy.jpg"],
+  3: [sriLankanPics.hillCountry, sriLankanPics.wildlifeElephant, sriLankanPics.luxuryCoast],
+  4: [sriLankanPics.beachSunset, sriLankanPics.luxuryCoast, "/images/new%20pic/01NUWA-IM0001-nuwara-eliya.jpeg"],
+  5: [sriLankanPics.peraheraUmbrella, sriLankanPics.peraheraElephant, sriLankanPics.templeBuddha],
+  6: [sriLankanPics.beachBlue, sriLankanPics.templeBuddha, "/images/attractions/trincomalee-uppveli-beach.jpg"],
+  7: [sriLankanPics.safariRoad, sriLankanPics.beachBlue, sriLankanPics.templeRows],
+  15: [sriLankanPics.wildlifeElephant, sriLankanPics.safariRoad, sriLankanPics.templeRows],
+  16: [sriLankanPics.templeRows, "/images/holiday-tours/cultural-exploration-kandy.jpg", sriLankanPics.beachSunset],
+  18: [sriLankanPics.luxuryCoast, sriLankanPics.hillCountry, sriLankanPics.templeBuddha],
+  19: [sriLankanPics.cityTemple, sriLankanPics.wildlifeElephant, sriLankanPics.hillCountry],
+  20: [sriLankanPics.riverSafari, sriLankanPics.beachSunset, "/images/new%20pic/01NUWA-IM0001-nuwara-eliya.jpeg"]
+};
+
+function getInboundPackageImages(pkg: InCountryPackage) {
+  const configuredImages = inboundPackageGalleryById[pkg.id];
+  if (configuredImages?.length) {
+    return uniqueImages([pkg.image, ...configuredImages]);
+  }
+
+  const route = pkg.route.toLowerCase();
+
+  if (route.includes("mirissa") || route.includes("bentota")) {
+    return uniqueImages([pkg.image, sriLankanPics.beachSunset, sriLankanPics.luxuryCoast]);
+  }
+
+  if (route.includes("kataragama") || route.includes("jaffna") || route.includes("trincomalee")) {
+    return uniqueImages([pkg.image, sriLankanPics.peraheraUmbrella, sriLankanPics.beachBlue]);
+  }
+
+  if (route.includes("udawalawe")) {
+    return uniqueImages([pkg.image, sriLankanPics.wildlifeElephant, sriLankanPics.safariRoad]);
+  }
+
+  if (route.includes("nuwara eliya") || route.includes("ella")) {
+    return uniqueImages([pkg.image, sriLankanPics.hillCountry, "/images/new%20pic/01NUWA-IM0001-nuwara-eliya.jpeg"]);
+  }
+
+  return uniqueImages([pkg.image, sriLankanPics.templeBuddha, sriLankanPics.templeRows]);
+}
 
 const sriLankaInclusions = [
   { title: "Private chauffeur tours", icon: Car },
@@ -166,6 +381,13 @@ const sriLankaFaqs = [
 ];
 
 export default function HolidayToursClient() {
+  const categoriesSlider = useAutoSwipeSlider<HTMLDivElement>({ autoPlayInterval: 3600 });
+  const reviewsSlider = useAutoSwipeSlider<HTMLDivElement>({ autoPlayInterval: 4000 });
+  const [activeHeroSlide, setActiveHeroSlide] = useState(0);
+  const [selectedPackage, setSelectedPackage] = useState<InCountryPackage | null>(null);
+  const [packageImageIndex, setPackageImageIndex] = useState(0);
+  const currentHeroSlide = sriLankaHeroSlides[activeHeroSlide] ?? sriLankaHeroSlides[0];
+
   const [inquiryForm, setInquiryForm] = useState({
     fullName: "",
     email: "",
@@ -179,26 +401,57 @@ export default function HolidayToursClient() {
   const [isInquirySubmitting, setIsInquirySubmitting] = useState(false);
   const [inquirySuccess, setInquirySuccess] = useState(false);
 
+  useEffect(() => {
+    const timer = window.setInterval(() => {
+      setActiveHeroSlide(index => (index + 1) % sriLankaHeroSlides.length);
+    }, 2500);
+
+    return () => window.clearInterval(timer);
+  }, []);
+
+  useEffect(() => {
+    setPackageImageIndex(0);
+    if (!selectedPackage) return;
+
+    const images = getInboundPackageImages(selectedPackage);
+    const timer = window.setInterval(() => {
+      setPackageImageIndex(index => (index + 1) % images.length);
+    }, 1600);
+
+    return () => window.clearInterval(timer);
+  }, [selectedPackage]);
+
+  const selectedPackageImages = selectedPackage ? getInboundPackageImages(selectedPackage) : [];
+  const selectedPackageImage = selectedPackageImages[packageImageIndex % selectedPackageImages.length] ?? selectedPackage?.image;
+
   return (
     <main className="holiday-page-bg light-mode-travel min-h-screen text-[#111820] font-manrope">
       <SiteHeader variant="transparent" ctaLabel="Get Quote" ctaHref="/holiday-tours#tour-quote" />
 
       <section
-        className="photo-text-hero hero-mobile relative w-full overflow-hidden text-white [--hero-image-brightness:0.78]"
+        className="photo-text-hero hero-mobile relative w-full overflow-hidden text-white [--hero-image-brightness:0.68]"
         data-hero-pin
         data-hero-pin-distance="108"
       >
-        <img
-          src={sriLankaHeroImage}
-          alt="Clear Sri Lanka landscape"
-          className="absolute inset-0 h-full w-full object-cover"
-          decoding="async"
-          fetchPriority="high"
-          data-parallax="12"
-          data-hero-media
-        />
-        <div className="absolute inset-0 bg-[#082B49]/36" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#082B49]/22 via-[#082B49]/24 to-[#082B49]/52" />
+        <AnimatePresence mode="sync">
+          <motion.img
+            key={currentHeroSlide.image}
+            src={currentHeroSlide.image}
+            alt={currentHeroSlide.alt}
+            className="absolute inset-0 h-full w-full object-cover will-change-transform"
+            decoding="async"
+            fetchPriority={activeHeroSlide === 0 ? "high" : "auto"}
+            data-parallax="12"
+            data-hero-media
+            initial={{ opacity: 0, scale: 1.08, filter: "blur(10px)" }}
+            animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+            exit={{ opacity: 0, scale: 1.025, filter: "blur(6px)" }}
+            transition={{ duration: 0.75, ease: [0.25, 0.46, 0.45, 0.94] }}
+          />
+        </AnimatePresence>
+        <div className="absolute inset-0 bg-[#082B49]/40" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#082B49]/28 via-[#082B49]/24 to-[#082B49]/62" />
+        <div className="absolute inset-x-0 bottom-0 h-80 bg-gradient-to-t from-[#082B49]/88 via-[#082B49]/54 to-transparent" />
 
         <div className="absolute inset-0 z-10 mx-auto flex w-full max-w-7xl items-end justify-center px-6 pb-14 sm:px-8 sm:pb-16 lg:pb-20">
           <motion.div
@@ -251,6 +504,8 @@ export default function HolidayToursClient() {
                 visible: { transition: { staggerChildren: 0.08 } }
               }}
               className="hide-scrollbar snap-carousel flex snap-x snap-mandatory gap-3 overflow-x-auto pb-2 sm:grid sm:grid-cols-2 sm:gap-6 sm:overflow-visible sm:pb-0 lg:grid-cols-4"
+              ref={categoriesSlider.containerRef}
+              {...categoriesSlider.touchHandlers}
             >
               {[
                 {
@@ -360,7 +615,7 @@ export default function HolidayToursClient() {
                 transition: { staggerChildren: 0.08 }
               }
             }}
-            className="hide-scrollbar snap-carousel mt-10 flex snap-x snap-mandatory gap-3 overflow-x-auto pb-2 md:hidden"
+            className="mt-10 grid gap-5 md:hidden"
           >
             {inCountryPackages.map(pkg => (
               <motion.article
@@ -369,209 +624,99 @@ export default function HolidayToursClient() {
                   hidden: { opacity: 0, y: 18 },
                   visible: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 95, damping: 15 } }
                 }}
-                className="min-w-[82vw] snap-start"
+                className="w-full"
               >
-                <Link
-                  href={pkg.href}
-                  className="group relative block min-h-[320px] overflow-hidden rounded-[22px] border border-[#111820]/15 bg-[#082B49]"
+                <button
+                  type="button"
+                  onClick={() => setSelectedPackage(pkg)}
+                  className="group block w-full overflow-hidden rounded-[22px] border border-[#111820]/15 bg-[#061826] text-left shadow-[0_18px_38px_rgba(17,24,32,0.16)]"
                 >
-                  <img
-                    src={pkg.image}
-                    alt={pkg.title}
-                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105 [filter:saturate(1.08)_contrast(1.04)]"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
-                  <span className="absolute left-3 right-3 top-3 z-20 inline-flex w-fit max-w-[calc(100%-1.5rem)] flex-wrap items-center gap-x-1.5 gap-y-0.5 rounded-2xl border border-[#D98928]/80 bg-[#082B49]/95 px-2.5 py-1 text-[9px] font-black uppercase leading-4 tracking-[0.08em] text-white shadow-[0_8px_22px_rgba(8,43,73,0.35)] backdrop-blur-sm">
-                    <span>{pkg.duration}</span>
-                    <span className="text-[#D98928]">/</span>
-                    <span className="text-[#F2B24D]">{pkg.badge}</span>
-                  </span>
-                  <div className="absolute inset-x-0 bottom-0 z-10 flex flex-col justify-end p-4 pt-20 text-white">
-                    <h3 className="font-space max-w-[15rem] text-base font-extrabold uppercase leading-tight min-[380px]:max-w-[17rem]">
+                  <div className="relative h-[190px] overflow-hidden bg-[#082B49]">
+                    <img
+                      src={pkg.image}
+                      alt={pkg.title}
+                      className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105 [filter:saturate(1.08)_contrast(1.04)]"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#061826]/28 via-transparent to-black/10" />
+                    <span className="absolute left-4 top-4 z-20 inline-flex w-fit max-w-[calc(100%-2rem)] rounded-full border border-[#F2B24D] bg-[#061826] px-3.5 py-1.5 text-[9px] font-black uppercase leading-4 tracking-[0.08em] text-white shadow-[0_10px_26px_rgba(4,22,36,0.62)]">
+                      <span>{pkg.duration}</span>
+                    </span>
+                  </div>
+                  <div className="min-h-[168px] border-t border-white/10 bg-[#061826] p-4 text-white">
+                    <h3 className="font-space text-base font-extrabold uppercase leading-tight text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.35)]">
                       {pkg.title}
                     </h3>
-                    <p className="mt-2 line-clamp-3 text-[10px] leading-5 text-white/75">{pkg.route}</p>
+                    <p className="mt-2 line-clamp-2 text-[11px] font-medium leading-5 text-white/88">{pkg.route}</p>
+                    <p className="mt-3 text-[10px] font-black uppercase leading-4 tracking-[0.1em] text-[#F2B24D]">
+                      {pkg.idealFor}
+                    </p>
+                    <p className="mt-1.5 text-[11px] font-bold text-white/92">
+                      Group size: {pkg.travellers}
+                    </p>
                   </div>
-                </Link>
+                </button>
               </motion.article>
             ))}
           </motion.div>
 
-          {/* Dynamic 3-Column Mosaic Grid Layout */}
-          <motion.div 
+          <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={{
               hidden: {},
               visible: {
-                transition: { staggerChildren: 0.1 }
+                transition: { staggerChildren: 0.06 }
               }
             }}
-            className="mt-12 hidden grid-cols-1 gap-6 items-stretch md:grid md:grid-cols-2 lg:grid-cols-3"
+            className="mt-12 hidden grid-cols-1 gap-5 md:grid md:grid-cols-2 xl:grid-cols-3"
           >
-            
-            {/* Column 1: Package 1 (Tall Card) */}
-            <motion.div
-              variants={{
-                hidden: { opacity: 0, y: 30 },
-                visible: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 90, damping: 15 } }
-              }}
-              className="flex flex-col h-full min-h-[480px]"
-            >
-              <Link 
-                href={inCountryPackages[0].href} 
-                className="group relative flex-1 flex flex-col justify-end overflow-hidden rounded-[32px] border border-[#111820]/15 bg-[#082B49] text-left p-8 transition-all duration-300 hover:shadow-[0_30px_60px_rgba(17,24,32,0.22)]"
-              >
-                <img
-                  src={inCountryPackages[0].image}
-                  alt={inCountryPackages[0].title}
-                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105 [filter:saturate(1.08)_contrast(1.04)]"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
-                
-                <span className="absolute left-6 right-6 top-6 inline-flex w-fit max-w-[calc(100%-3rem)] flex-wrap items-center gap-x-2 gap-y-1 rounded-2xl border border-[#D98928]/80 bg-[#082B49]/95 px-3.5 py-1.5 text-[10px] font-black uppercase leading-4 tracking-[0.1em] text-white shadow-[0_8px_24px_rgba(8,43,73,0.35)] backdrop-blur-sm">
-                  <span>{inCountryPackages[0].duration}</span>
-                  <span className="text-[#D98928]">/</span>
-                  <span className="text-[#F2B24D]">{inCountryPackages[0].badge}</span>
-                </span>
-
-                <div className="relative z-10 text-white">
-                  <h3 className="font-space text-2xl lg:text-3xl font-extrabold uppercase mt-1 leading-tight">
-                    {inCountryPackages[0].title}
-                  </h3>
-                  <p className="mt-3 text-xs lg:text-sm text-white/70 leading-relaxed max-w-sm line-clamp-3">
-                    {inCountryPackages[0].route}
-                  </p>
-                  <p className="mt-2 text-xs font-semibold text-[#D98928]">
-                    Ideal for: {inCountryPackages[0].idealFor}
-                  </p>
-                </div>
-              </Link>
-            </motion.div>
-
-            {/* Column 2: Package 2 & Package 3 (Stacked Medium Cards) */}
-            <div className="flex flex-col gap-6 h-full justify-between">
-              
-              {/* Package 2 (Medium Card) */}
-              <motion.div
+            {inCountryPackages.map(pkg => (
+              <motion.article
+                key={`desktop-${pkg.id}`}
                 variants={{
-                  hidden: { opacity: 0, y: 30 },
-                  visible: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 90, damping: 15 } }
+                  hidden: { opacity: 0, y: 24 },
+                  visible: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 95, damping: 16 } }
                 }}
-                className="flex flex-col flex-1 min-h-[228px]"
+                className="min-h-[390px]"
               >
-                <Link 
-                  href={inCountryPackages[1].href} 
-                  className="group relative flex-1 flex flex-col justify-end overflow-hidden rounded-[32px] border border-[#111820]/15 bg-[#082B49] text-left p-6 transition-all duration-300 hover:shadow-[0_30px_60px_rgba(17,24,32,0.22)]"
+                <button
+                  type="button"
+                  onClick={() => setSelectedPackage(pkg)}
+                  className="group flex h-full w-full flex-col overflow-hidden rounded-[24px] border border-[#111820]/15 bg-[#061826] text-left shadow-[0_18px_42px_rgba(17,24,32,0.16)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_28px_58px_rgba(17,24,32,0.24)]"
                 >
-                  <img
-                    src={inCountryPackages[1].image}
-                    alt={inCountryPackages[1].title}
-                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105 [filter:saturate(1.08)_contrast(1.04)]"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
-                  <span className="absolute left-6 right-6 top-6 inline-flex w-fit max-w-[calc(100%-3rem)] flex-wrap items-center gap-x-2 gap-y-1 rounded-2xl border border-[#D98928]/80 bg-[#082B49]/95 px-3.5 py-1.5 text-[10px] font-black uppercase leading-4 tracking-[0.1em] text-white shadow-[0_8px_24px_rgba(8,43,73,0.35)] backdrop-blur-sm">
-                    <span>{inCountryPackages[1].duration}</span>
-                    <span className="text-[#D98928]">/</span>
-                    <span className="text-[#F2B24D]">{inCountryPackages[1].badge}</span>
-                  </span>
-                  <div className="relative z-10 text-white">
-                    <h3 className="font-space text-xl font-extrabold uppercase mt-1 leading-tight">
-                      {inCountryPackages[1].title}
+                  <div className="relative h-[215px] overflow-hidden bg-[#082B49]">
+                    <img
+                      src={pkg.image}
+                      alt={pkg.title}
+                      className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105 [filter:saturate(1.08)_contrast(1.04)]"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#061826]/32 via-transparent to-black/10" />
+                    <span className="absolute left-6 top-6 z-20 inline-flex w-fit max-w-[calc(100%-3rem)] rounded-full border border-[#F2B24D] bg-[#061826] px-5 py-2 text-[10px] font-black uppercase leading-4 tracking-[0.1em] text-white shadow-[0_10px_30px_rgba(4,22,36,0.64)]">
+                      <span>{pkg.duration}</span>
+                    </span>
+                  </div>
+                  <div className="flex flex-1 flex-col border-t border-white/10 bg-[#061826] p-5 text-white lg:p-6">
+                    <h3 className="font-space text-xl font-extrabold uppercase leading-tight text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.36)]">
+                      {pkg.title}
                     </h3>
-                    <p className="mt-2 text-xs text-white/70 leading-relaxed line-clamp-2">
-                      {inCountryPackages[1].route}
+                    <p className="mt-3 line-clamp-2 text-sm font-medium leading-6 text-white/88">
+                      {pkg.route}
+                    </p>
+                    <p className="mt-4 text-[11px] font-black uppercase leading-5 tracking-[0.1em] text-[#F2B24D]">
+                      {pkg.idealFor}
+                    </p>
+                    <p className="mt-2 text-xs font-bold text-white/92">
+                      Group size: {pkg.travellers}
                     </p>
                   </div>
-                </Link>
-              </motion.div>
-
-              {/* Package 3 (Medium Card) */}
-              <motion.div
-                variants={{
-                  hidden: { opacity: 0, y: 30 },
-                  visible: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 90, damping: 15 } }
-                }}
-                className="flex flex-col flex-1 min-h-[228px]"
-              >
-                <Link 
-                  href={inCountryPackages[2].href} 
-                  className="group relative flex-1 flex flex-col justify-end overflow-hidden rounded-[32px] border border-[#111820]/15 bg-[#082B49] text-left p-6 transition-all duration-300 hover:shadow-[0_30px_60px_rgba(17,24,32,0.22)]"
-                >
-                  <img
-                    src={inCountryPackages[2].image}
-                    alt={inCountryPackages[2].title}
-                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105 [filter:saturate(1.08)_contrast(1.04)]"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
-                  <span className="absolute left-6 right-6 top-6 inline-flex w-fit max-w-[calc(100%-3rem)] flex-wrap items-center gap-x-2 gap-y-1 rounded-2xl border border-[#D98928]/80 bg-[#082B49]/95 px-3.5 py-1.5 text-[10px] font-black uppercase leading-4 tracking-[0.1em] text-white shadow-[0_8px_24px_rgba(8,43,73,0.35)] backdrop-blur-sm">
-                    <span>{inCountryPackages[2].duration}</span>
-                    <span className="text-[#D98928]">/</span>
-                    <span className="text-[#F2B24D]">{inCountryPackages[2].badge}</span>
-                  </span>
-                  <div className="relative z-10 text-white">
-                    <h3 className="font-space text-xl font-extrabold uppercase mt-1 leading-tight">
-                      {inCountryPackages[2].title}
-                    </h3>
-                    <p className="mt-2 text-xs text-white/70 leading-relaxed line-clamp-2">
-                      {inCountryPackages[2].route}
-                    </p>
-                  </div>
-                </Link>
-              </motion.div>
-
-            </div>
-
-            {/* Column 3: Package 4 (Tall Card) */}
-            <motion.div
-              variants={{
-                hidden: { opacity: 0, y: 30 },
-                visible: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 90, damping: 15 } }
-              }}
-              className="flex flex-col h-full min-h-[480px] md:col-span-2 lg:col-span-1"
-            >
-              <Link 
-                href={inCountryPackages[3].href} 
-                className="group relative flex-1 flex flex-col justify-end overflow-hidden rounded-[32px] border border-[#111820]/15 bg-[#082B49] text-left p-8 transition-all duration-300 hover:shadow-[0_30px_60px_rgba(17,24,32,0.22)]"
-              >
-                <img
-                  src={inCountryPackages[3].image}
-                  alt={inCountryPackages[3].title}
-                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105 [filter:saturate(1.08)_contrast(1.04)]"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
-                
-                <span className="absolute left-6 right-6 top-6 inline-flex w-fit max-w-[calc(100%-3rem)] flex-wrap items-center gap-x-2 gap-y-1 rounded-2xl border border-[#D98928]/80 bg-[#082B49]/95 px-3.5 py-1.5 text-[10px] font-black uppercase leading-4 tracking-[0.1em] text-white shadow-[0_8px_24px_rgba(8,43,73,0.35)] backdrop-blur-sm">
-                  <span>{inCountryPackages[3].duration}</span>
-                  <span className="text-[#D98928]">/</span>
-                  <span className="text-[#F2B24D]">{inCountryPackages[3].badge}</span>
-                </span>
-
-                <div className="relative z-10 text-white">
-                  <h3 className="font-space text-2xl lg:text-3xl font-extrabold uppercase mt-1 leading-tight">
-                    {inCountryPackages[3].title}
-                  </h3>
-                  <p className="mt-3 text-xs lg:text-sm text-white/70 leading-relaxed max-w-sm line-clamp-3">
-                    {inCountryPackages[3].route}
-                  </p>
-                  <p className="mt-2 text-xs font-semibold text-[#D98928]">
-                    Ideal for: {inCountryPackages[3].idealFor}
-                  </p>
-                </div>
-              </Link>
-            </motion.div>
-
+                </button>
+              </motion.article>
+            ))}
           </motion.div>
         </div>
       </section>
@@ -668,6 +813,8 @@ export default function HolidayToursClient() {
               }
             }}
             className="hide-scrollbar snap-carousel mt-10 flex snap-x snap-mandatory gap-3 overflow-x-auto pb-2 md:grid md:grid-cols-3 md:gap-5 md:overflow-visible md:pb-0"
+            ref={reviewsSlider.containerRef}
+            {...reviewsSlider.touchHandlers}
           >
             {sriLankaReviews.map(item => (
               <motion.article
@@ -762,21 +909,22 @@ export default function HolidayToursClient() {
               </motion.div>
             ) : (
               <form
-                onSubmit={(e) => {
+                onSubmit={async (e) => {
                   e.preventDefault();
                   setIsInquirySubmitting(true);
-                  window.location.href = buildMailtoHref("Sri Lanka Tour Inquiry - Triple R Holidays", [
-                    ["Full Name", inquiryForm.fullName],
-                    ["Email", inquiryForm.email],
-                    ["Mobile Number", inquiryForm.mobileNumber],
-                    ["Travel Type", inquiryForm.travelType],
-                    ["Travel Category", inquiryForm.travelCategory],
-                    ["Number of Days", inquiryForm.numberOfDays],
-                    ["Preferred Activities", inquiryForm.preferredActivities],
-                    ["Additional Notes", inquiryForm.additionalNotes]
-                  ]);
 
-                  window.setTimeout(() => {
+                  try {
+                    await sendWeb3Form("Sri Lanka Tour Inquiry - Triple R Holidays", "Sri Lanka Tour Inquiry", [
+                      ["Full Name", inquiryForm.fullName],
+                      ["Email", inquiryForm.email],
+                      ["Mobile Number", inquiryForm.mobileNumber],
+                      ["Travel Type", inquiryForm.travelType],
+                      ["Travel Category", inquiryForm.travelCategory],
+                      ["Number of Days", inquiryForm.numberOfDays],
+                      ["Preferred Activities", inquiryForm.preferredActivities],
+                      ["Additional Notes", inquiryForm.additionalNotes]
+                    ]);
+
                     setIsInquirySubmitting(false);
                     setInquirySuccess(true);
                     setInquiryForm({
@@ -789,7 +937,10 @@ export default function HolidayToursClient() {
                       preferredActivities: "",
                       additionalNotes: ""
                     });
-                  }, 300);
+                  } catch {
+                    setIsInquirySubmitting(false);
+                    window.alert("Sorry, we could not send your inquiry. Please try again or contact us on WhatsApp.");
+                  }
                 }}
                 className="space-y-6"
               >
@@ -962,6 +1113,211 @@ export default function HolidayToursClient() {
           </AnimatePresence>
         </motion.div>
       </section>
+
+      <AnimatePresence>
+        {selectedPackage && (
+          <motion.div
+            className="fixed inset-0 z-[85]"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <button
+              type="button"
+              aria-label="Close package details"
+              onClick={() => setSelectedPackage(null)}
+              className="absolute inset-0 bg-[rgba(2,11,22,0.84)] backdrop-blur-md"
+            />
+
+            <div
+              className="absolute inset-0 flex items-end justify-center px-3 pb-3 pt-12 sm:items-center sm:p-4"
+              style={{
+                paddingTop: "calc(1rem + env(safe-area-inset-top, 0px))",
+                paddingBottom: "calc(1rem + env(safe-area-inset-bottom, 0px))"
+              }}
+            >
+              <motion.div
+                initial={{ y: 40, opacity: 0, scale: 0.98 }}
+                animate={{ y: 0, opacity: 1, scale: 1 }}
+                exit={{ y: 32, opacity: 0, scale: 0.98 }}
+                transition={{ type: "spring", stiffness: 220, damping: 25 }}
+                data-lenis-prevent
+                className="relative flex max-h-[calc(100svh-1rem)] w-full max-w-md flex-col overflow-y-auto rounded-t-[26px] rounded-b-[18px] border border-white/12 bg-[#F5F1E8] shadow-[0_28px_90px_rgba(2,8,23,0.58)] sm:rounded-[28px] lg:grid lg:max-h-[min(760px,calc(100vh-2rem))] lg:max-w-6xl lg:grid-cols-[0.86fr_1.14fr] lg:overflow-hidden"
+              >
+                <div className="relative h-[300px] shrink-0 overflow-hidden sm:h-[360px] lg:h-auto lg:min-h-[760px]">
+                  <AnimatePresence mode="sync">
+                    <motion.img
+                      key={selectedPackageImage}
+                      src={selectedPackageImage}
+                      alt={selectedPackage.title}
+                      className="absolute inset-0 h-full w-full object-cover"
+                      loading="lazy"
+                      decoding="async"
+                      initial={{ opacity: 0, scale: 1.04 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 1.02 }}
+                      transition={{ duration: 0.55, ease: [0.25, 0.46, 0.45, 0.94] }}
+                    />
+                  </AnimatePresence>
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#020B16]/28 via-transparent to-[#020B16]/16" />
+                  <button
+                    type="button"
+                    aria-label="Close package details"
+                    onClick={() => setSelectedPackage(null)}
+                    className="absolute right-4 top-4 grid h-10 w-10 place-items-center rounded-full border border-white/40 bg-[#020B16]/42 text-white shadow-[0_12px_30px_rgba(2,8,23,0.25)] backdrop-blur-md transition hover:bg-[#D98928] hover:text-[#111820]"
+                  >
+                    <X className="h-4 w-4" />
+                  </button>
+                </div>
+
+                <div className="bg-[#F5F1E8] p-4 sm:p-7 lg:max-h-[760px] lg:overflow-y-auto" data-lenis-prevent>
+                  <div className="-mx-4 -mt-4 border-b border-[#111820]/10 bg-[#F5F1E8] px-4 pb-4 pt-3 sm:-mx-7 sm:-mt-7 sm:px-7 sm:pt-4">
+                    <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#D98928]">
+                      Package Overview
+                    </p>
+                    <h4 className="mt-1 font-space text-xl font-extrabold uppercase leading-tight text-[#111820] sm:text-2xl">
+                      {selectedPackage.title}
+                    </h4>
+                  </div>
+
+                  <div className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-3">
+                    <div className="rounded-2xl border border-[#111820]/10 bg-white/70 p-4 shadow-[0_12px_30px_rgba(17,24,32,0.06)]">
+                      <Clock3 className="h-4 w-4 text-[#D98928]" />
+                      <p className="mt-2 text-[10px] font-bold uppercase tracking-[0.16em] text-[#111820]/55">Duration</p>
+                      <p className="mt-1 text-sm font-semibold text-[#111820]">{selectedPackage.duration}</p>
+                    </div>
+                    <div className="rounded-2xl border border-[#111820]/10 bg-white/70 p-4 shadow-[0_12px_30px_rgba(17,24,32,0.06)]">
+                      <Users className="h-4 w-4 text-[#D98928]" />
+                      <p className="mt-2 text-[10px] font-bold uppercase tracking-[0.16em] text-[#111820]/55">Group Size</p>
+                      <p className="mt-1 text-sm font-semibold text-[#111820]">{selectedPackage.travellers}</p>
+                    </div>
+                    <div className="rounded-2xl border border-[#111820]/10 bg-white/70 p-4 shadow-[0_12px_30px_rgba(17,24,32,0.06)]">
+                      <Route className="h-4 w-4 text-[#D98928]" />
+                      <p className="mt-2 text-[10px] font-bold uppercase tracking-[0.16em] text-[#111820]/55">Tour Type</p>
+                      <p className="mt-1 text-sm font-semibold text-[#111820]">{selectedPackage.tourType}</p>
+                    </div>
+                  </div>
+
+                  {selectedPackage.guide ? (
+                    <div className="mt-3 rounded-2xl border border-[#111820]/10 bg-white/70 p-4 shadow-[0_12px_30px_rgba(17,24,32,0.06)]">
+                      <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-[#111820]/55">Guide</p>
+                      <p className="mt-1 text-sm font-semibold leading-6 text-[#111820]">{selectedPackage.guide}</p>
+                    </div>
+                  ) : null}
+
+                  <section className="mt-5 rounded-2xl border border-[#111820]/10 bg-white/60 p-5 shadow-[0_12px_30px_rgba(17,24,32,0.05)]">
+                    <p className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.18em] text-[#111820]/55">
+                      <Info className="h-4 w-4 text-[#D98928]" />
+                      Details
+                    </p>
+                    <div className="mt-3 space-y-3 text-sm leading-7 text-[#111820]/80">
+                      {selectedPackage.description.split("\n").filter(Boolean).map(paragraph => (
+                        <p key={paragraph}>{paragraph}</p>
+                      ))}
+                    </div>
+                  </section>
+
+                  {selectedPackage.inclusions.length ? (
+                    <section className="mt-5 rounded-2xl border border-[#111820]/10 bg-white/70 p-5 shadow-[0_12px_30px_rgba(17,24,32,0.06)]">
+                      <p className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.18em] text-[#111820]/55">
+                        <CheckCircle2 className="h-4 w-4 text-[#D98928]" />
+                        Price Includes
+                      </p>
+                      <ul className="mt-3 space-y-2.5">
+                        {selectedPackage.inclusions.map(inclusion => (
+                          <li key={inclusion} className="flex items-start gap-2 text-sm leading-6 text-[#111820]/80">
+                            <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#D98928]" />
+                            <span>{inclusion}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </section>
+                  ) : null}
+
+                  {selectedPackage.exclusions.length ? (
+                    <section className="mt-5 rounded-2xl border border-[#111820]/10 bg-white/70 p-5 shadow-[0_12px_30px_rgba(17,24,32,0.06)]">
+                      <p className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.18em] text-[#111820]/55">
+                        <Info className="h-4 w-4 text-[#D98928]" />
+                        Price Excludes
+                      </p>
+                      <ul className="mt-3 space-y-2.5">
+                        {selectedPackage.exclusions.map(exclusion => (
+                          <li key={exclusion} className="flex items-start gap-2 text-sm leading-6 text-[#111820]/80">
+                            <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#111820]/45" />
+                            <span>{exclusion}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </section>
+                  ) : null}
+
+                  {selectedPackage.cancellationPolicy.length ? (
+                    <section className="mt-5 rounded-2xl border border-[#111820]/10 bg-white/70 p-5 shadow-[0_12px_30px_rgba(17,24,32,0.06)]">
+                      <p className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.18em] text-[#111820]/55">
+                        <ShieldCheck className="h-4 w-4 text-[#D98928]" />
+                        Cancellation Policy
+                      </p>
+                      <ul className="mt-3 space-y-2.5">
+                        {selectedPackage.cancellationPolicy.map(policy => (
+                          <li key={policy} className="flex items-start gap-2 text-sm leading-6 text-[#111820]/80">
+                            <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#D98928]" />
+                            <span>{policy}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </section>
+                  ) : null}
+
+                  {selectedPackage.itinerary.length ? (
+                    <section className="mt-6">
+                      <p className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.18em] text-[#111820]/55">
+                        <Route className="h-4 w-4 text-[#D98928]" />
+                        Itinerary
+                      </p>
+                      <ol className="mt-3 space-y-3">
+                        {selectedPackage.itinerary.map(day => (
+                          <li key={`${selectedPackage.id}-${day.day}-${day.title}`} className="relative grid grid-cols-[auto_1fr] gap-3 rounded-2xl border border-[#111820]/10 bg-white/70 p-4 shadow-[0_12px_30px_rgba(17,24,32,0.05)]">
+                            <div className="flex flex-col items-center">
+                              <span className="grid h-9 w-9 place-items-center rounded-full bg-[#D98928] text-[10px] font-extrabold text-[#111820]">
+                                {day.day.replace(/\D/g, "")}
+                              </span>
+                              <span className="mt-2 h-full w-px bg-[#111820]/10" />
+                            </div>
+                            <div>
+                              <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-[#D98928]">
+                                {day.day}
+                              </p>
+                              <h4 className="mt-1 font-space text-lg font-bold uppercase leading-tight text-[#111820]">
+                                {day.title}
+                              </h4>
+                              <div className="mt-2 space-y-2 text-sm leading-6 text-[#111820]/78">
+                                {day.description.split("\n").filter(Boolean).map(line => (
+                                  <p key={line}>{line}</p>
+                                ))}
+                              </div>
+                            </div>
+                          </li>
+                        ))}
+                      </ol>
+                    </section>
+                  ) : null}
+
+                  <a
+                    href={contact.whatsappHref}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-6 inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-full bg-[#111820] px-6 text-[11px] font-bold uppercase tracking-[0.15em] text-white transition hover:bg-[#D98928]"
+                    onClick={() => setSelectedPackage(null)}
+                  >
+                    Get Quote
+                    <ArrowRight className="h-3.5 w-3.5" />
+                  </a>
+                </div>
+              </motion.div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
     </main>
   );

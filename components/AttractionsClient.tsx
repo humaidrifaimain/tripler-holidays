@@ -166,8 +166,8 @@ export default function AttractionsClient() {
           data-parallax="12"
           data-hero-media
         />
-        <div className="absolute inset-0 bg-[#082B49]/55" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#082B49]/34 via-[#082B49]/42 to-[#082B49]/64" />
+        <div className="absolute inset-0 bg-[#082B49]/38" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#082B49]/22 via-[#082B49]/28 to-[#082B49]/48" />
         <div className="grain-overlay" />
 
         <div className="absolute inset-0 z-10 mx-auto flex w-full max-w-7xl items-end justify-center px-6 pb-14 sm:px-8 sm:pb-16 lg:pb-20">
