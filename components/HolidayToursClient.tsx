@@ -57,16 +57,16 @@ const formatPackageDuration = (duration: string) =>
     .replace(/(\d+)\s*Days?\s*(\d+)\s*Nights?/i, "$2 Nights / $1 Days");
 
 const sriLankanPics = {
-  hillCountry: "/images/new%20pic/hero-gallery-c29f7dfb-800x450.jpeg",
-  templeBuddha: "/images/new%20pic/Rangiri-Dambulla-Cave-Temple-Sri-Lanka.jpg",
-  templeRows: "/images/new%20pic/Sigiriya-28.jpg",
-  cityTemple: "/images/new%20pic/38ac01f0-e4ac-11f0-b763-995cd5778bcc.jpg",
-  beachBlue: "/images/new%20pic/aerial-view-tropical-coastline-beach-islet.jpg",
-  beachSunset: "/images/new%20pic/The_Common_Wanderer_-2.jpg",
-  luxuryCoast: "/images/new%20pic/aerial+view+to+north.jpg",
+  hillCountry: "/images/new-pic/hero-gallery-c29f7dfb-800x450.jpeg",
+  templeBuddha: "/images/new-pic/Rangiri-Dambulla-Cave-Temple-Sri-Lanka.jpg",
+  templeRows: "/images/new-pic/Sigiriya-28.jpg",
+  cityTemple: "/images/new-pic/38ac01f0-e4ac-11f0-b763-995cd5778bcc.jpg",
+  beachBlue: "/images/new-pic/aerial-view-tropical-coastline-beach-islet.jpg",
+  beachSunset: "/images/new-pic/The_Common_Wanderer_-2.jpg",
+  luxuryCoast: "/images/new-pic/aerial-view-to-north.jpg",
   riverSafari: "/images/srilankan-pics/IMG_1254.jpg",
-  wildlifeElephant: "/images/new%20pic/article_1751903499355_0.jpg",
-  safariRoad: "/images/new%20pic/SRI-middle-rectangle-139041303303132.jpg",
+  wildlifeElephant: "/images/new-pic/article_1751903499355_0.jpg",
+  safariRoad: "/images/new-pic/SRI-middle-rectangle-139041303303132.jpg",
   peraheraElephant: "/images/srilankan-pics/IMG_6800.jpg",
   peraheraUmbrella: "/images/srilankan-pics/IMG_7964.jpg"
 };
@@ -228,7 +228,7 @@ const inboundPackageGalleryById: Record<number, string[]> = {
   1: [sriLankanPics.cityTemple, sriLankanPics.templeBuddha, sriLankanPics.templeRows],
   2: [sriLankanPics.templeBuddha, sriLankanPics.cityTemple, "/images/holiday-tours/cultural-exploration-kandy.jpg"],
   3: [sriLankanPics.hillCountry, sriLankanPics.wildlifeElephant, sriLankanPics.luxuryCoast],
-  4: [sriLankanPics.beachSunset, sriLankanPics.luxuryCoast, "/images/new%20pic/01NUWA-IM0001-nuwara-eliya.jpeg"],
+  4: [sriLankanPics.beachSunset, sriLankanPics.luxuryCoast, "/images/new-pic/01NUWA-IM0001-nuwara-eliya.jpeg"],
   5: [sriLankanPics.peraheraUmbrella, sriLankanPics.peraheraElephant, sriLankanPics.templeBuddha],
   6: [sriLankanPics.beachBlue, sriLankanPics.templeBuddha, "/images/attractions/trincomalee-uppveli-beach.jpg"],
   7: [sriLankanPics.safariRoad, sriLankanPics.beachBlue, sriLankanPics.templeRows],
@@ -236,7 +236,7 @@ const inboundPackageGalleryById: Record<number, string[]> = {
   16: [sriLankanPics.templeRows, "/images/holiday-tours/cultural-exploration-kandy.jpg", sriLankanPics.beachSunset],
   18: [sriLankanPics.luxuryCoast, sriLankanPics.hillCountry, sriLankanPics.templeBuddha],
   19: [sriLankanPics.cityTemple, sriLankanPics.wildlifeElephant, sriLankanPics.hillCountry],
-  20: [sriLankanPics.riverSafari, sriLankanPics.beachSunset, "/images/new%20pic/01NUWA-IM0001-nuwara-eliya.jpeg"]
+  20: [sriLankanPics.riverSafari, sriLankanPics.beachSunset, "/images/new-pic/01NUWA-IM0001-nuwara-eliya.jpeg"]
 };
 
 function getInboundPackageImages(pkg: InCountryPackage) {
@@ -260,7 +260,7 @@ function getInboundPackageImages(pkg: InCountryPackage) {
   }
 
   if (route.includes("nuwara eliya") || route.includes("ella")) {
-    return uniqueImages([pkg.image, sriLankanPics.hillCountry, "/images/new%20pic/01NUWA-IM0001-nuwara-eliya.jpeg"]);
+    return uniqueImages([pkg.image, sriLankanPics.hillCountry, "/images/new-pic/01NUWA-IM0001-nuwara-eliya.jpeg"]);
   }
 
   return uniqueImages([pkg.image, sriLankanPics.templeBuddha, sriLankanPics.templeRows]);

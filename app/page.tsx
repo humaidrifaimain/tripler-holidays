@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     url: "/",
     images: [
       {
-        url: "/images/new%20pic/aerial+view+to+north.jpg",
+        url: "/images/new-pic/aerial-view-to-north.jpg",
         width: 2048,
         height: 1365,
         alt: "Sri Lanka coastal resort and tropical landscape"
@@ -50,7 +50,7 @@ function LandingLoader() {
 export default function Home() {
   return (
     <>
-      <link rel="preload" href="/images/new%20pic/aerial+view+to+north.jpg" as="image" type="image/jpeg" />
+      <link rel="preload" href="/images/new-pic/aerial-view-to-north.jpg" as="image" type="image/jpeg" />
       <link rel="preload" href="/images/home/ella-nine-arches-4k.jpg" as="image" type="image/jpeg" />
       <PageReveal />
       <Suspense fallback={<LandingLoader />}>

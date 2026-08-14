@@ -53,7 +53,7 @@ const whyBookItems = [
 
 const heroSlides = [
   {
-    image: "/images/new%20pic/aerial+view+to+north.jpg",
+    image: "/images/new-pic/aerial-view-to-north.jpg",
     alt: "Aerial view of Sri Lanka's tropical coastline and cliffside resort"
   },
   {
@@ -75,18 +75,18 @@ const heroSlides = [
 ];
 
 const attractionImages = {
-  galleFort: "/images/new%20pic/aerial-view-tropical-coastline-beach-islet.jpg",
+  galleFort: "/images/new-pic/aerial-view-tropical-coastline-beach-islet.jpg",
   royalBotanicalGardens: "/images/attractions/home-carousel/royal-botanical-gardens.jpg",
-  littleAdamsPeak: "/images/new%20pic/9948_banner.jpg",
+  littleAdamsPeak: "/images/new-pic/9948_banner.jpg",
   anuradhapura: "/images/attractions/home-carousel/anuradhapura.jpg",
-  gangaramaya: "/images/new%20pic/Colombo.jpg",
+  gangaramaya: "/images/new-pic/Colombo.jpg",
   polonnaruwa: "/images/attractions/home-carousel/polonnaruwa.jpg",
-  yala: "/images/new%20pic/article_1751903499355_0.jpg",
+  yala: "/images/new-pic/article_1751903499355_0.jpg",
   pigeonIsland: "/images/attractions/home-carousel/pigeon-island.jpg",
-  hortonPlains: "/images/new%20pic/hero-gallery-c29f7dfb-800x450.jpeg",
+  hortonPlains: "/images/new-pic/hero-gallery-c29f7dfb-800x450.jpeg",
   minneriya: "/images/attractions/home-carousel/minneriya-national-park.jpg",
-  sinharaja: "/images/new%20pic/9a63969e-ffa1-4da1-928f-473f642ea300.jpg",
-  sigiriya: "/images/new%20pic/Sigiriya-28.jpg"
+  sinharaja: "/images/new-pic/9a63969e-ffa1-4da1-928f-473f642ea300.jpg",
+  sigiriya: "/images/new-pic/Sigiriya-28.jpg"
 };
 
 type AttractionCard = {

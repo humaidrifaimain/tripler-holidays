@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     siteName: "Triple R Holidays",
     images: [
       {
-        url: "/images/new%20pic/aerial+view+to+north.jpg",
+        url: "/images/new-pic/aerial-view-to-north.jpg",
         width: 2048,
         height: 1365,
         alt: "Sri Lanka coastal resort and tropical landscape"
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     title: "Triple R Holidays | Sri Lanka Tours & Holiday Packages",
     description:
       "Plan curated Sri Lanka tours, outbound holidays, hotel bookings, destination weddings and transport services with Triple R Holidays.",
-    images: ["/images/new%20pic/aerial+view+to+north.jpg"]
+    images: ["/images/new-pic/aerial-view-to-north.jpg"]
   },
   robots: {
     index: true,
