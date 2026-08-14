@@ -53,20 +53,24 @@ const whyBookItems = [
 
 const heroSlides = [
   {
-    image: "/images/attractions/arugam-bay-beach.jpg",
-    alt: "Clear Arugam Bay beach under a blue sky"
+    image: "/images/new%20pic/aerial+view+to+north.jpg",
+    alt: "Aerial view of Sri Lanka's tropical coastline and cliffside resort"
   },
   {
-    image: "/images/attractions/trincomalee-uppveli-beach.jpg",
-    alt: "Trincomalee Uppuveli beach and blue water"
-  },
-  {
-    image: "/images/attractions/nuwara-eliya-tea-plantations.jpg",
-    alt: "Nuwara Eliya tea plantations"
+    image: "/images/home/ella-nine-arches-4k.jpg",
+    alt: "Nine Arches Bridge surrounded by Sri Lankan forest"
   },
   {
     image: "/images/attractions/temple-of-tooth-kandy.jpg",
     alt: "Temple of the Tooth in Kandy"
+  },
+  {
+    image: "/images/home/pexels-thilina-alagiyawanna-3266092-38343572.jpg",
+    alt: "Sri Lankan highland trail under a blue sky"
+  },
+  {
+    image: "/images/home/pexels-anas-mohamed-nuski-3784747-5620146.jpg",
+    alt: "Nuwara Eliya lake and tea country landscape"
   }
 ];
 
@@ -750,7 +754,7 @@ export default function TriplerHolidayLanding() {
               key={currentHeroSlide.image}
               src={currentHeroSlide.image}
               alt={currentHeroSlide.alt}
-              className="parallax-layer pointer-events-none absolute -top-[15%] left-0 h-[130%] w-full object-cover brightness-[0.74] contrast-[1.04] saturate-[1.04] will-change-transform"
+              className="parallax-layer pointer-events-none absolute -top-[15%] left-0 h-[130%] w-full object-cover brightness-[0.9] contrast-[1.04] saturate-[1.04] will-change-transform"
               data-depth="10"
               initial={{ opacity: 0, scale: 1.08, filter: "blur(10px)" }}
               animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
@@ -761,10 +765,9 @@ export default function TriplerHolidayLanding() {
               decoding="async"
             />
           </AnimatePresence>
-          <div className="absolute inset-0 bg-black/44" />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/34 via-black/10 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#082B49]/42 via-[#082B49]/24 to-[#082B49]/68" />
-          <div className="absolute inset-x-0 bottom-0 h-96 bg-gradient-to-t from-[#082B49]/95 via-[#082B49]/68 to-transparent" />
+          <div className="absolute inset-0 bg-[#082B49]/30" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#082B49]/22 via-[#082B49]/14 to-[#082B49]/54" />
+          <div className="absolute inset-x-0 bottom-0 h-80 bg-gradient-to-t from-[#082B49]/82 via-[#082B49]/42 to-transparent" />
 
           <div className="absolute inset-0 z-20 flex items-end justify-center pb-10 text-center sm:pb-[14vh] lg:pb-[16vh]">
             <div className="w-full px-4 sm:px-6 lg:px-8">
@@ -1390,7 +1393,7 @@ export default function TriplerHolidayLanding() {
                           <MapPin className="h-4 w-4" />
                         </span>
                         <span className="text-sm leading-relaxed text-white/80">
-                          128/7 A.S.P Liyanage Mawatha,<br />Royal Pearl Garden, Wattala,<br />Sri Lanka
+                          173 A 1/2 Negombo Road,<br />Wattala - Triple R Holidays,<br />Sri Lanka
                         </span>
                       </div>
                     </div>
@@ -1439,21 +1442,6 @@ export default function TriplerHolidayLanding() {
                         <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
                         <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
                         <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-                      </svg>
-                    </a>
-                    <a href="https://linkedin.com" className="grid h-10 w-10 place-items-center rounded-xl bg-white/5 text-white/80 hover:bg-[#D98928] hover:text-white transition duration-300" aria-label="LinkedIn">
-                      <svg
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="1.8"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        className="h-4 w-4"
-                      >
-                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-                        <rect x="2" y="9" width="4" height="12" />
-                        <circle cx="4" cy="4" r="2" />
                       </svg>
                     </a>
                   </div>

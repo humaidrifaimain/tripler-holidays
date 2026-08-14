@@ -37,9 +37,7 @@ type WtiInboundPackage = {
   destination: string;
   duration: string;
   tourtype: string;
-  groupsize: string;
   guide: string;
-  people: string;
   description: string;
   priceIncludes: string[];
   priceExcludes: string[];
@@ -75,170 +73,127 @@ const sriLankanPics = {
 
 const sriLankaHeroSlides = [
   {
-    image: "/images/holiday-tours/cultural-exploration-kandy.jpg",
-    alt: "Cultural exploration in Kandy"
+    image: "/images/holiday-tours/pexels-freestockpro-319912.jpg",
+    alt: "Golden Sri Lankan beach at sunset"
   },
   {
-    image: "/images/holiday-tours-hero-4k-v2.jpg",
-    alt: "Blue train passing through Sri Lanka's misty hill country"
+    image: "/images/holiday-tours/pexels-thilina-alagiyawanna-3266092-31001509.jpg",
+    alt: "Sunset over Sri Lanka's mountain ranges"
   },
   {
-    image: "/images/new%20pic/01NUWA-IM0001-nuwara-eliya.jpeg",
-    alt: "Nine Arches Bridge in Sri Lanka's hill country"
+    image: "/images/holiday-tours/pexels-eslames1-32414014.jpg",
+    alt: "Aerial view of Sri Lankan waterfalls and green highlands"
   },
   {
-    image: "/images/new%20pic/The_Common_Wanderer_-2.jpg",
-    alt: "Sri Lanka tropical coastline from above"
-  },
-  {
-    image: "/images/new%20pic/aerial+view+to+north.jpg",
-    alt: "Sri Lanka luxury coastline from above"
+    image: "/images/holiday-tours/pexels-costa-18826653.jpg",
+    alt: "Sri Lankan mountain valley under blue sky"
   }
+];
+
+const packageCancellationPolicy = [
+  "Cancellation and refund terms vary depending on the selected tour package, hotels, transportation, activities, and other services included in the booking.",
+  "The applicable cancellation policy and any related charges will be clearly communicated prior to booking confirmation.",
+  "Certain services may be non-refundable and are subject to the terms and conditions of the respective service providers."
 ];
 
 const inCountryPackages = [
   {
     id: 1,
-    title: "Round Tour Cultural 7N8D",
+    title: "Sri Lanka Cultural Discovery",
     duration: "7 Nights / 8 Days",
     route: "Anamaduwa, Habarana, Sigiriya, Dambulla, Kandy, Nuwara Eliya, Colombo",
     image: sriLankanPics.cityTemple,
     badge: "$1450 PP",
     idealFor: "Group tours and cultural explorers",
-    travellers: "5 persons",
     highlights: ["Sigiriya Rock Fortress", "Dambulla Cave Temple", "Temple of the Tooth", "Polonnaruwa", "Kandy Cultural Show"],
     href: contact.whatsappHref
   },
   {
     id: 2,
-    title: "Round Tour Cultural 5N6D",
+    title: "Sri Lanka Cultural Escape",
     duration: "5 Nights / 6 Days",
     route: "Negombo, Habarana, Sigiriya, Kandy, Nuwara Eliya, Colombo",
     image: sriLankanPics.templeBuddha,
     badge: "$1110 PP",
     idealFor: "Compact cultural vacations",
-    travellers: "15 persons",
     highlights: ["Pinnawala Elephant Orphanage", "Sigiriya Rock Climb", "Village Tour", "Peradeniya Botanical Garden", "Colombo City Tour"],
     href: contact.whatsappHref
   },
   {
     id: 3,
-    title: "Central Hills and South",
+    title: "Hills, Wildlife & Southern Coast",
     duration: "7 Nights / 8 Days",
     route: "Negombo, Kandy, Nuwara Eliya, Udawalawe, Bentota, Colombo",
     image: sriLankanPics.hillCountry,
     badge: "$1249 PP",
     idealFor: "Hill country, wildlife and south coast routes",
-    travellers: "12 persons",
     highlights: ["Pinnawala Elephant Orphanage", "Kandy Cultural Program", "Tea Factory", "Udawalawe Elephant Transit Home", "Galle Fort"],
     href: contact.whatsappHref
   },
   {
     id: 4,
-    title: "Round Tour Cultural 9N10D",
+    title: "Sri Lanka Grand Discovery",
     duration: "9 Nights / 10 Days",
     route: "Negombo, Habarana, Kandy, Nuwara Eliya, Ella, Mirissa, Colombo",
     image: sriLankanPics.beachSunset,
     badge: "$1799 PP",
     idealFor: "Extended culture, wildlife and beach stays",
-    travellers: "5 persons",
     highlights: ["Minneriya Jeep Safari", "Sigiriya Rock Fortress", "Nine Arch Bridge", "Whale Watching", "Mirissa Beach"],
     href: contact.whatsappHref
   },
   {
     id: 15,
-    title: "Round Tour Cultural 3N4D",
+    title: "Sri Lanka Cultural Highlights",
     duration: "3 Nights / 4 Days",
     route: "Habarana, Sigiriya, Kandy, Nuwara Eliya, Colombo",
     image: sriLankanPics.wildlifeElephant,
     badge: "$999 PP",
     idealFor: "Short cultural group tours",
-    travellers: "20 persons",
     highlights: ["Minneriya Jeep Safari", "Sigiriya Rock Fortress", "Kandy Cultural Show", "Ramboda Waterfall", "Colombo City Tour"],
     href: contact.whatsappHref
   },
   {
     id: 16,
-    title: "Round Tour Iran Cultural 9N10D",
+    title: "Sri Lanka Culture & Coast",
     duration: "9 Nights / 10 Days",
     route: "Negombo, Kandy, Nuwara Eliya, Ella, Mirissa, Colombo",
     image: sriLankanPics.templeRows,
     badge: "$1234 PP",
     idealFor: "Iran market cultural group tours",
-    travellers: "15 persons",
     highlights: ["Temple of the Tooth", "Sigiriya Rock Fortress", "Dowa Ancient Rock Temple", "Udawalawe Elephant Transit Home", "Mirissa Beach"],
     href: contact.whatsappHref
   },
   {
     id: 5,
-    title: "Ramayana Yatra Kataragama 6N7D",
+    title: "Ramayana Heritage Journey – Kataragama",
     duration: "6 Nights / 7 Days",
     route: "Anuradhapura, Jaffna, Sigiriya, Kandy, Nuwara Eliya, Kataragama, Colombo",
     image: sriLankanPics.peraheraUmbrella,
     badge: "INR 38,000 PP",
     idealFor: "Ramayana pilgrimage groups",
-    travellers: "25 persons",
     highlights: ["Munneshwaram Temple", "Seetha Amman Temple", "Kataragama Temple", "Nallur Kandaswamy Temple", "Sigiriya Rock Fortress"],
     href: contact.whatsappHref
   },
   {
     id: 6,
-    title: "Ramayana Yatra Northern 5N6D",
+    title: "Ramayana Heritage Journey – Northern Sri Lanka",
     duration: "5 Nights / 6 Days",
     route: "Anuradhapura, Trincomalee, Sigiriya, Kandy, Nuwara Eliya, Colombo",
     image: sriLankanPics.beachBlue,
     badge: "INR 35,000 PP",
     idealFor: "Northern Ramayana pilgrimage routes",
-    travellers: "25 persons",
     highlights: ["Munneshwaram Temple", "Manavari Temple", "Koneshwaram Temple", "Hanuman Temple", "Temple of the Tooth"],
     href: contact.whatsappHref
   },
   {
     id: 7,
-    title: "Ramayana Yatra Northeast Part 4N5D",
+    title: "Ramayana Heritage Journey – Northeast Sri Lanka",
     duration: "4 Nights / 5 Days",
     route: "Anuradhapura, Trincomalee, Sigiriya, Kandy, Nuwara Eliya, Colombo",
     image: sriLankanPics.safariRoad,
     badge: "INR 33,000 PP",
     idealFor: "Short Ramayana pilgrimage groups",
-    travellers: "25 persons",
     highlights: ["Munneshwaram Temple", "Manavari Temple", "Koneshwaram Temple", "Hanuman Temple", "Temple of the Tooth"],
-    href: contact.whatsappHref
-  },
-  {
-    id: 18,
-    title: "Health Screening and Leisure 6N7D - Seychelles Nationality",
-    duration: "6 Nights / 7 Days",
-    route: "Colombo, Habarana, Kandy, Nuwara Eliya, Colombo",
-    image: sriLankanPics.luxuryCoast,
-    badge: "USD 1545 PP",
-    idealFor: "Seychelles nationality wellness and leisure guests",
-    travellers: "2 persons",
-    highlights: ["Health screenings", "Pinnawala Elephant Orphanage", "Dambulla Golden Temple", "Ayurveda Spa", "Tea Factory Tour"],
-    href: contact.whatsappHref
-  },
-  {
-    id: 19,
-    title: "Round Tour Cultural 3N4D - Seychelles Nationality",
-    duration: "3 Nights / 4 Days",
-    route: "Habarana, Sigiriya, Kandy, Nuwara Eliya, Colombo",
-    image: sriLankanPics.cityTemple,
-    badge: "USD 1249 PP",
-    idealFor: "Seychelles nationality compact cultural tours",
-    travellers: "2 persons",
-    highlights: ["Dambulla Golden Temple", "Sigiriya Rock Fortress", "Temple of the Tooth", "Minneriya Jeep Safari", "Gregory Lake"],
-    href: contact.whatsappHref
-  },
-  {
-    id: 20,
-    title: "Round Tour Cultural 13N14D - Azerbaijan Nationality",
-    duration: "13 Nights / 14 Days",
-    route: "Negombo, Habarana, Kandy, Nuwara Eliya, Ella, Udawalawe, Mirissa, Bentota, Colombo",
-    image: sriLankanPics.riverSafari,
-    badge: "USD 1995 PP",
-    idealFor: "Azerbaijan nationality extended island tours",
-    travellers: "2 persons",
-    highlights: ["Negombo", "Dambulla Cave Temple", "Scenic train ride", "Little Adam's Peak", "Whale Watching"],
     href: contact.whatsappHref
   }
 ].map(pkg => {
@@ -248,14 +203,12 @@ const inCountryPackages = [
     ...pkg,
     title: source?.name ?? pkg.title,
     duration: source ? formatPackageDuration(source.duration) : pkg.duration,
-    travellers: source?.people ? `${source.people} persons` : pkg.travellers,
     tourType: source?.tourtype ?? "Inbound Tour",
-    sourceGroupSize: source?.groupsize ?? "",
     guide: source?.guide ?? "",
     description: source?.description ?? pkg.highlights.join(". "),
     inclusions: source?.priceIncludes ?? [],
     exclusions: source?.priceExcludes ?? [],
-    cancellationPolicy: source?.CancellationPolicy ?? [],
+    cancellationPolicy: packageCancellationPolicy,
     itinerary:
       source?.itinerary.map((day, index) => ({
         day: `Day ${index + 1}`,
@@ -652,9 +605,6 @@ export default function HolidayToursClient() {
                     <p className="mt-3 text-[10px] font-black uppercase leading-4 tracking-[0.1em] text-[#F2B24D]">
                       {pkg.idealFor}
                     </p>
-                    <p className="mt-1.5 text-[11px] font-bold text-white/92">
-                      Group size: {pkg.travellers}
-                    </p>
                   </div>
                 </button>
               </motion.article>
@@ -709,9 +659,6 @@ export default function HolidayToursClient() {
                     </p>
                     <p className="mt-4 text-[11px] font-black uppercase leading-5 tracking-[0.1em] text-[#F2B24D]">
                       {pkg.idealFor}
-                    </p>
-                    <p className="mt-2 text-xs font-bold text-white/92">
-                      Group size: {pkg.travellers}
                     </p>
                   </div>
                 </button>
@@ -1180,16 +1127,11 @@ export default function HolidayToursClient() {
                     </h4>
                   </div>
 
-                  <div className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-3">
+                  <div className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2">
                     <div className="rounded-2xl border border-[#111820]/10 bg-white/70 p-4 shadow-[0_12px_30px_rgba(17,24,32,0.06)]">
                       <Clock3 className="h-4 w-4 text-[#D98928]" />
                       <p className="mt-2 text-[10px] font-bold uppercase tracking-[0.16em] text-[#111820]/55">Duration</p>
                       <p className="mt-1 text-sm font-semibold text-[#111820]">{selectedPackage.duration}</p>
-                    </div>
-                    <div className="rounded-2xl border border-[#111820]/10 bg-white/70 p-4 shadow-[0_12px_30px_rgba(17,24,32,0.06)]">
-                      <Users className="h-4 w-4 text-[#D98928]" />
-                      <p className="mt-2 text-[10px] font-bold uppercase tracking-[0.16em] text-[#111820]/55">Group Size</p>
-                      <p className="mt-1 text-sm font-semibold text-[#111820]">{selectedPackage.travellers}</p>
                     </div>
                     <div className="rounded-2xl border border-[#111820]/10 bg-white/70 p-4 shadow-[0_12px_30px_rgba(17,24,32,0.06)]">
                       <Route className="h-4 w-4 text-[#D98928]" />

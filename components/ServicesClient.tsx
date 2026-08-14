@@ -24,7 +24,7 @@ const services = [
     description:
       "Private and group journeys across Sri Lanka, planned around culture, wildlife, highlands, beaches and comfortable travel pace.",
     icon: Compass,
-    image: "/images/attractions/home-carousel/sigiriya-rock-fortress.jpg",
+    image: "/images/services/core/pexels-marina-zvada-844583049-35606860.jpg",
     points: ["Islandwide route planning", "Comfortable pacing", "On-tour support"]
   },
   {
@@ -32,7 +32,7 @@ const services = [
     description:
       "Outbound holiday planning for Malaysia, Singapore, Thailand and the Maldives with clear routes, hotels and transfers.",
     icon: PlaneTakeoff,
-    image: "/images/services/core/outbound-asia.jpg",
+    image: "/images/services/core/pexels-realcereal-15480459.jpg",
     points: ["Destination combinations", "Flight + transfer flow", "Family and group support"]
   },
   {
@@ -40,7 +40,7 @@ const services = [
     description:
       "Stay recommendations matched to route, comfort level, budget and travel style so each night supports the journey.",
     icon: Hotel,
-    image: "/images/services/core/hotel-bookings.jpg",
+    image: "/images/services/core/pexels-stiven-gonzales-1176841953-27596377.jpg",
     points: ["City and resort options", "Flexible room categories", "Route-aware suggestions"]
   },
   {
@@ -56,7 +56,7 @@ const services = [
     description:
       "Travel coordination for wedding celebrations, including guest stays, airport transfers and celebration-day logistics.",
     icon: Heart,
-    image: "/images/services/core/destination-weddings.jpg",
+    image: "/images/services/core/pexels-moralestorres98-37975395.jpg",
     points: ["Guest travel setup", "Hotel room blocks", "Celebration logistics"]
   },
   {
@@ -70,7 +70,7 @@ const services = [
 ];
 
 const process = [
-  "Share dates, group size and service needs.",
+  "Share dates, traveller count and service needs.",
   "Receive a practical plan with route and support structure.",
   "Confirm and travel with a single coordination point."
 ];

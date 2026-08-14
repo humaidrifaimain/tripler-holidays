@@ -10,7 +10,7 @@ const contact = {
   phone: "+94 (77) 666 1272",
   phoneHref: "tel:+94776661272",
   email: "hello@triplerholidays.com",
-  address: "128/7 A.S.P Liyanage Mawatha, Royal Pearl Garden, Wattala",
+  address: "173 A 1/2 Negombo Road, Wattala - Triple R Holidays",
   facebookHref: "https://www.facebook.com/share/18yLyfMD4H/?mibextid=wwXIfr",
   instagramHref: "https://www.instagram.com/triplerholidays.lk?igsh=MXFpcWt4ZTliYjdwbw=="
 };

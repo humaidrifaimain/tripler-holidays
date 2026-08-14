@@ -2,9 +2,26 @@ import type { Metadata } from "next";
 import HolidayToursClient from "@/components/HolidayToursClient";
 
 export const metadata: Metadata = {
-  title: "Triple R Holidays | Holiday Tours",
+  title: "Sri Lanka Tour Packages",
   description:
-    "Explore premium in-country Sri Lanka tours and international holiday packages with Triple R Holidays."
+    "Explore Sri Lanka cultural tours, Ramayana heritage journeys, wildlife routes, highland escapes and coastal holiday packages with Triple R Holidays.",
+  alternates: {
+    canonical: "/holiday-tours"
+  },
+  openGraph: {
+    title: "Sri Lanka Tour Packages | Triple R Holidays",
+    description:
+      "Curated Sri Lanka tour packages across culture, wildlife, highlands, beaches and Ramayana heritage routes.",
+    url: "/holiday-tours",
+    images: [
+      {
+        url: "/images/holiday-tours/pexels-eslames1-32414014.jpg",
+        width: 1920,
+        height: 1080,
+        alt: "Sri Lanka highland waterfall and tea country"
+      }
+    ]
+  }
 };
 
 export default function HolidayToursPage() {

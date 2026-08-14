@@ -8,35 +8,62 @@ import { Suspense } from "react";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://triplerholidays.com"),
-  title: "Triple R Holidays | Sri Lanka Tours & Holiday Packages",
+  title: {
+    default: "Triple R Holidays | Sri Lanka Tours & Holiday Packages",
+    template: "%s | Triple R Holidays"
+  },
   description:
-    "Triple R Holidays creates seamless Sri Lanka tours, outbound holiday packages, hotel bookings, events, destination weddings and transportation.",
+    "Triple R Holidays is a Wattala travel agency creating Sri Lanka tours, outbound holiday packages, hotel bookings, destination weddings and transport services.",
+  keywords: [
+    "Sri Lanka tours",
+    "Sri Lanka holiday packages",
+    "Triple R Holidays",
+    "travel agency Wattala",
+    "outbound tours Sri Lanka",
+    "hotel bookings Sri Lanka",
+    "destination weddings Sri Lanka"
+  ],
+  authors: [{ name: "Triple R Holidays" }],
+  creator: "Triple R Holidays",
+  publisher: "Triple R Holidays",
+  category: "Travel",
   alternates: {
     canonical: "/"
   },
   openGraph: {
     title: "Triple R Holidays | Sri Lanka Tours & Holiday Packages",
     description:
-      "Triple R Holidays creates seamless Sri Lanka tours, outbound holiday packages, hotel bookings, events, destination weddings and transportation.",
+      "Plan curated Sri Lanka tours, outbound holidays, hotel bookings, destination weddings and transport services with Triple R Holidays.",
     url: "https://triplerholidays.com",
     siteName: "Triple R Holidays",
     images: [
       {
-        url: "/images/tripler-holidays-logo.png",
-        width: 512,
-        height: 512,
-        alt: "Triple R Holidays logo"
+        url: "/images/new%20pic/aerial+view+to+north.jpg",
+        width: 2048,
+        height: 1365,
+        alt: "Sri Lanka coastal resort and tropical landscape"
       }
     ],
     locale: "en_US",
     type: "website"
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: "Triple R Holidays | Sri Lanka Tours & Holiday Packages",
     description:
-      "Triple R Holidays creates seamless Sri Lanka tours, outbound holiday packages, hotel bookings, events, destination weddings and transportation.",
-    images: ["/images/tripler-holidays-logo.png"]
+      "Plan curated Sri Lanka tours, outbound holidays, hotel bookings, destination weddings and transport services with Triple R Holidays.",
+    images: ["/images/new%20pic/aerial+view+to+north.jpg"]
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1
+    }
   },
   manifest: "/site.webmanifest",
   icons: {
@@ -91,7 +118,30 @@ export default function RootLayout({
     image: "https://triplerholidays.com/images/tripler-holidays-logo.png",
     email: "hello@triplerholidays.com",
     telephone: "+94776661272",
-    sameAs: ["https://triplerholidays.com"]
+    priceRange: "$$",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "173 A 1/2 Negombo Road",
+      addressLocality: "Wattala",
+      addressCountry: "LK"
+    },
+    areaServed: [
+      {
+        "@type": "Country",
+        name: "Sri Lanka"
+      },
+      {
+        "@type": "Place",
+        name: "Malaysia, Singapore, Thailand and Maldives"
+      }
+    ],
+    contactPoint: {
+      "@type": "ContactPoint",
+      telephone: "+94776661272",
+      contactType: "customer service",
+      availableLanguage: ["English", "Sinhala", "Tamil"]
+    },
+    sameAs: ["https://www.facebook.com/triplerholidays"]
   };
 
   const websiteSchema = {
@@ -106,6 +156,11 @@ export default function RootLayout({
         "@type": "ImageObject",
         url: "https://triplerholidays.com/images/tripler-holidays-logo.png"
       }
+    },
+    potentialAction: {
+      "@type": "SearchAction",
+      target: "https://triplerholidays.com/holiday-tours/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
     }
   };
 

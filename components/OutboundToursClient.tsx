@@ -109,14 +109,12 @@ const outboundCategories = [
   {
     title: "Tropical Escapes",
     note: "Thailand beach routes, island days and nightlife plans with guided coordination",
-    image:
-      "https://images.unsplash.com/photo-1508009603885-50cf7c579365?auto=format&fit=crop&w=1600&q=88"
+    image: "/images/outbound-tours/pexels-nextvoyage-8213820.jpg"
   },
   {
     title: "Highland Nights",
     note: "Short Malaysia getaways with city energy, Genting cool weather and family attractions",
-    image:
-      "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1800&q=88"
+    image: "/images/outbound-tours/pexels-aldrich-332268-5457264.jpg"
   }
 ];
 
@@ -125,6 +123,12 @@ const outboundWhyBook = [
   "Efficient city-centered routes for shorter travel windows",
   "Hotel and transfer coordination matched to your budget band",
   "Single-point WhatsApp support until your trip is complete"
+];
+
+const packageCancellationPolicy = [
+  "Cancellation and refund terms vary depending on the selected tour package, hotels, transportation, activities, and other services included in the booking.",
+  "The applicable cancellation policy and any related charges will be clearly communicated prior to booking confirmation.",
+  "Certain services may be non-refundable and are subject to the terms and conditions of the respective service providers."
 ];
 
 const maldivesTourCopy = {
@@ -241,6 +245,7 @@ type OutboundPackageModal = {
   tourType?: string;
   inclusions?: string[];
   exclusions?: string[];
+  cancellationPolicy?: string[];
   itinerary?: TourItineraryDay[];
 };
 
@@ -836,6 +841,7 @@ export default function OutboundToursClient() {
                         tourType: item.tourType,
                         inclusions: item.inclusions,
                         exclusions: item.exclusions,
+                        cancellationPolicy: packageCancellationPolicy,
                         itinerary: item.itinerary
                       })
                     }
@@ -938,7 +944,8 @@ export default function OutboundToursClient() {
                         title: item.title,
                         duration: item.duration,
                         image: item.image,
-                        details: item.details
+                        details: item.details,
+                        cancellationPolicy: packageCancellationPolicy
                       })
                     }
                     className="mt-4 inline-flex min-h-10 items-center justify-center gap-2 rounded-full bg-[#111820] px-5 text-[11px] font-bold uppercase tracking-[0.15em] text-white transition hover:bg-[#D98928] md:hidden"
@@ -1048,7 +1055,8 @@ export default function OutboundToursClient() {
                         title: item.title,
                         duration: item.duration,
                         image: item.image,
-                        details: item.details
+                        details: item.details,
+                        cancellationPolicy: packageCancellationPolicy
                       })
                     }
                     className="mt-4 inline-flex min-h-10 items-center justify-center gap-2 rounded-full bg-[#111820] px-5 text-[11px] font-bold uppercase tracking-[0.15em] text-white transition hover:bg-[#D98928] md:hidden"
@@ -1155,7 +1163,8 @@ export default function OutboundToursClient() {
                       setMobilePackageModal({
                         title: item.title,
                         image: item.image,
-                        subtitle: item.subtitle
+                        subtitle: item.subtitle,
+                        cancellationPolicy: packageCancellationPolicy
                       })
                     }
                     className="mt-4 inline-flex min-h-10 items-center justify-center gap-2 rounded-full bg-[#111820] px-5 text-[11px] font-bold uppercase tracking-[0.16em] text-white transition hover:bg-[#D98928] md:hidden"
@@ -1707,6 +1716,21 @@ export default function OutboundToursClient() {
                     </p>
                   </section>
                 ) : null}
+
+                <section className="mt-5 rounded-2xl border border-[#111820]/10 bg-white/70 p-5 shadow-[0_12px_30px_rgba(17,24,32,0.06)]">
+                  <p className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.18em] text-[#111820]/55">
+                    <ShieldCheck className="h-4 w-4 text-[#D98928]" />
+                    Cancellation Policy
+                  </p>
+                  <ul className="mt-3 space-y-2.5">
+                    {(mobilePackageModal.cancellationPolicy ?? packageCancellationPolicy).map(policy => (
+                      <li key={policy} className="flex items-start gap-2 text-sm leading-6 text-[#111820]/80">
+                        <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#D98928]" />
+                        <span>{policy}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </section>
 
                 {mobilePackageModal.itinerary?.length ? (
                   <section className="mt-6">

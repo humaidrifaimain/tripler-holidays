@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "name": "Round Tour Cultural 7N8D",
+    "name": "Sri Lanka Cultural Discovery",
     "destination": "Sri Lanka",
     "images": [
       "/assets/kandy.jpg",
@@ -12,9 +12,7 @@
     "image": "/assets/kandy.jpg",
     "duration": "7Nights 8Days",
     "tourtype": "Group Tour",
-    "groupsize": "15 Members",
     "guide": "1 Multilingual National Guide",
-    "people": "5",
     "rating": 5,
     "description": "This 7 Nights / 8 Days Round Tour Cultural itinerary in Sri Lanka, organized by World Travel Island (Private) Limited, offers a comprehensive and immersive experience of the island's rich cultural heritage, natural beauty, and wildlife.\nThe tour is designed to provide a mix of historical exploration, nature adventures, and cultural encounters, making it ideal for travelers seeking a diverse and enriching journey.\n\n✨ Key Highlights of the Tour:\n\n🏛️ Cultural and Historical Sites:\n\n✔️ Sigiriya Rock Fortress: A UNESCO World Heritage Site, known as the \"Lion Rock,\" offering stunning views and ancient frescoes.\n✔️ Dambulla Cave Temple: A sacred Buddhist site with over 150 statues and intricate murals.\n✔️ Temple of the Tooth Relic (Kandy): One of Sri Lanka's most sacred Buddhist temples, housing the relic of the Buddha's tooth.\n✔️ Polonnaruwa: An ancient city with well-preserved ruins and historical significance.\n✔️ Kandy Cultural Show: A vibrant display of traditional Sri Lankan dance, drumming, and fire performances.\n\n🌿 Nature and Wildlife:\n\n✔️ Minneriya National Park Jeep Safari: Witness the famous \"Elephant Gathering\" and explore the park's diverse wildlife.\n✔️ Pinnawala Elephant Orphanage: A sanctuary for orphaned elephants, offering a chance to observe these majestic creatures up close.\n✔️ Ramboda Waterfall: A breathtaking 109-meter waterfall surrounded by lush tea plantations.\n✔️ Peradeniya Royal Botanical Garden: A serene 60-hectare garden with diverse plant species and scenic beauty.\n\n🏡 Cultural and Rural Experiences:\n\n✔️ Village Tour: Experience authentic rural life with bullock cart rides, catamaran boat rides, and traditional Sri Lankan cooking.\n✔️ Tea Factory and Plantation Visit: Explore Sri Lanka's famous tea industry, from plucking leaves to tasting freshly brewed Ceylon tea.\n✔️ Herbal and Spice Garden: Learn about the medicinal and culinary uses of Sri Lanka's rich variety of herbs and spices.\n\n🏞️ Scenic and Relaxing Destinations:\n\n✔️ Nuwara Eliya: Known as \"Little England,\" this hill town offers cool weather, colonial architecture, and picturesque tea plantations.\n✔️ Gregory Lake: A scenic lake perfect for boating, picnics, and leisurely walks.\n✔️ Anamaduwa (Mudhouse): A tranquil eco-retreat offering a digital detox, nature walks, and authentic Sri Lankan dining.\n\n🏙️ City Exploration:\n\n✔️ Colombo City Tour: Explore Sri Lanka's bustling capital, with its mix of colonial charm, modern attractions, and cultural landmarks.",
     "price": "$1450 PP",
@@ -41,10 +39,9 @@
       "Any other personal expenses."
     ],
     "CancellationPolicy": [
-      "Cancellation Within 07 days prior to arrival – 100% of the Value of the booking.",
-      "Cancellation Within 14 days prior to arrival – 50% of the Value of the booking.",
-      "Cancellation Within 14 to 21 days prior to arrival – 25% of the Value of the booking.",
-      "Cancellation above 21 days prior to arrival – No Fees."
+      "Cancellation and refund terms vary depending on the selected tour package, hotels, transportation, activities, and other services included in the booking.",
+      "The applicable cancellation policy and any related charges will be clearly communicated prior to booking confirmation.",
+      "Certain services may be non-refundable and are subject to the terms and conditions of the respective service providers."
     ],
     "itinerary": [
       {
@@ -84,7 +81,7 @@
   },
   {
     "id": 2,
-    "name": "Round Tour Cultural 5N6D",
+    "name": "Sri Lanka Cultural Escape",
     "destination": "Sri Lanka",
     "image": "/assets/train.jpg",
     "images": [
@@ -95,9 +92,7 @@
     ],
     "duration": "5Nights 6Days",
     "tourtype": "Cultural Vacation",
-    "groupsize": "10 Members",
     "guide": "1 Multilingual National Guide",
-    "people": "15",
     "rating": 5,
     "description": "Experience the best of Sri Lanka’s hill country and southern coast on this immersive 7-night, 8-day journey. From misty tea plantations to golden beaches, cultural wonders, and wildlife safaris, this itinerary offers the perfect blend of adventure and relaxation.\n✨ Tour Highlights:\n✔️ Pinnawala Elephant Orphanage & Udawalawe National Park Safari 🐘\n✔️ Cultural experiences in Kandy – Temple visits & traditional dance 💃\n✔️ Scenic Nuwara Eliya – Tea plantations, waterfalls & Gregory Lake 🍃\n✔️ Colonial charm of Galle Fort & beachside bliss in Bentota 🌊\n✔️ Thrilling water sports, turtle hatchery visit & Madu River boat safari 🚤\n✔️ Colombo city tour & last-minute shopping 🏙️\n\n🚗 Private transport | Expert guides | Handpicked accommodations",
     "price": "$1110 PP",
@@ -124,10 +119,9 @@
       "Any other personal expenses."
     ],
     "CancellationPolicy": [
-      "Cancellation Within 07 days prior to arrival – 100% of the Value of the booking.",
-      "Cancellation Within 14 days prior to arrival – 50% of the Value of the booking.",
-      "Cancellation Within 14 to 21 days prior to arrival – 25% of the Value of the booking.",
-      "Cancellation above 21 days prior to arrival – No Fees."
+      "Cancellation and refund terms vary depending on the selected tour package, hotels, transportation, activities, and other services included in the booking.",
+      "The applicable cancellation policy and any related charges will be clearly communicated prior to booking confirmation.",
+      "Certain services may be non-refundable and are subject to the terms and conditions of the respective service providers."
     ],
     "itinerary": [
       {
@@ -159,7 +153,7 @@
   },
   {
     "id": 3,
-    "name": "Central Hills and South",
+    "name": "Hills, Wildlife & Southern Coast",
     "destination": "Nuwara Eliya",
     "image": "/assets/tea2.jpg",
     "images": [
@@ -170,9 +164,7 @@
     ],
     "duration": "7Nights 8Days",
     "tourtype": "Cultural Vacation",
-    "groupsize": "10 Members",
     "guide": "1 Multilingual National Guide ",
-    "people": "12",
     "rating": 5,
     "description": "Experience the best of Sri Lanka’s hill country and southern coast on this immersive 7-night, 8-day journey. From misty tea plantations to golden beaches, cultural wonders, and wildlife safaris, this itinerary offers the perfect blend of adventure and relaxation.\n✨ Tour Highlights:\n✔️ Pinnawala Elephant Orphanage & Udawalawe National Park Safari 🐘\n✔️ Cultural experiences in Kandy – Temple visits & traditional dance 💃\n✔️ Scenic Nuwara Eliya – Tea plantations, waterfalls & Gregory Lake 🍃\n✔️ Colonial charm of Galle Fort & beachside bliss in Bentota 🌊\n✔️ Thrilling water sports, turtle hatchery visit & Madu River boat safari 🚤\n✔️ Colombo city tour & last-minute shopping 🏙️\n\n🚗 Private transport | Expert guides | Handpicked accommodations",
     "price": "$1249 PP",
@@ -199,10 +191,9 @@
       "Any other personal expenses."
     ],
     "CancellationPolicy": [
-      "Cancellation Within 07 days prior to arrival – 100% of the Value of the booking.",
-      "Cancellation Within 14 days prior to arrival – 50% of the Value of the booking.",
-      "Cancellation Within 14 to 21 days prior to arrival – 25% of the Value of the booking.",
-      "Cancellation above 21 days prior to arrival – No Fees."
+      "Cancellation and refund terms vary depending on the selected tour package, hotels, transportation, activities, and other services included in the booking.",
+      "The applicable cancellation policy and any related charges will be clearly communicated prior to booking confirmation.",
+      "Certain services may be non-refundable and are subject to the terms and conditions of the respective service providers."
     ],
     "itinerary": [
       {
@@ -242,7 +233,7 @@
   },
   {
     "id": 4,
-    "name": "Round Tour Cultural 9N10D",
+    "name": "Sri Lanka Grand Discovery",
     "destination": "Sri Lanka",
     "image": "/assets/beach.jpg",
     "images": [
@@ -253,9 +244,7 @@
     ],
     "duration": "9Nights 10Days",
     "tourtype": "Group Tour",
-    "groupsize": "10 Members",
     "guide": "1 Multilingual National Guide ",
-    "people": "5",
     "rating": 5,
     "description": "🌿 Wildlife & Nature Adventures:\n✔️ Minneriya Jeep Safari: Witness the iconic \"Elephant Gathering\" in Minneriya National Park.\n✔️ Udawalawe Elephant Transit Home: Observe orphaned elephant calves being rehabilitated.\n✔️ Whale Watching in Mirissa: Spot blue whales and dolphins in the Indian Ocean.\n✔️ Pinnawala Elephant Orphanage: Interact with rescued elephants during feeding and bathing sessions.\n\n🏛️ Cultural & Historical Exploration:\n✔️ Sigiriya Rock Fortress: Climb the UNESCO-listed \"Lion Rock\" for panoramic views and ancient frescoes.\n✔️ Temple of the Tooth Relic (Kandy): Visit one of Buddhism’s holiest shrines.\n✔️ Nine Arch Bridge (Ella): Marvel at this colonial-era railway bridge surrounded by lush greenery.\n✔️ Dowa Ancient Rock Temple: Discover a serene Buddhist site with a carved Buddha statue.\n\n🏞️ Scenic & Relaxing Destinations:\n✔️ Nuwara Eliya: Explore \"Little England\" with its tea plantations, colonial architecture, and Gregory Lake.\n✔️ Mirissa: Unwind on pristine beaches and enjoy coastal adventures like snorkeling and surfing.\n✔️ Coconut Tree Hill (Mirissa): Capture stunning ocean views from this iconic coconut-lined hillside.\n\n🏡 Authentic Experiences:\n✔️ Tea Factory & Plantation Tour: Learn about Ceylon tea production and enjoy tastings in Nuwara Eliya.\n✔️ Village Tour (Sigiriya): Experience rural life with bullock cart rides, traditional cooking, and lake boat rides.\n✔️ Mangrove Boat Ride: Glide through mangrove forests near Colombo, spotting wildlife.\n\n🌊 Coastal & Marine Activities:\n✔️ Turtle Hatchery: Learn about conservation efforts for endangered sea turtles.\n✔️ Snake Farm (Mirissa): Get up close with Sri Lanka’s diverse snake species.",
     "price": "$1799 PP",
@@ -282,10 +271,9 @@
       "Any other personal expenses."
     ],
     "CancellationPolicy": [
-      "Cancellation Within 07 days prior to arrival – 100% of the Value of the booking.",
-      "Cancellation Within 14 days prior to arrival – 50% of the Value of the booking.",
-      "Cancellation Within 14 to 21 days prior to arrival – 25% of the Value of the booking.",
-      "Cancellation above 21 days prior to arrival – No Fees."
+      "Cancellation and refund terms vary depending on the selected tour package, hotels, transportation, activities, and other services included in the booking.",
+      "The applicable cancellation policy and any related charges will be clearly communicated prior to booking confirmation.",
+      "Certain services may be non-refundable and are subject to the terms and conditions of the respective service providers."
     ],
     "itinerary": [
       {
@@ -333,7 +321,7 @@
   },
   {
     "id": 15,
-    "name": "Round Tour Cultural 3N4D",
+    "name": "Sri Lanka Cultural Highlights",
     "destination": "Sri Lanka",
     "image": "/assets/elephant.jpg",
     "images": [
@@ -344,9 +332,7 @@
     ],
     "duration": "3Nights 4Days",
     "tourtype": "Group Tour",
-    "groupsize": "10 Members",
     "guide": "1 Multilingual National Guide ",
-    "people": "20",
     "rating": 5,
     "description": "🌿 Wildlife & Nature Adventures:\n✔️ Minneriya Jeep Safari: Witness the iconic \"Elephant Gathering\" in Minneriya National Park.\n✔️ Udawalawe Elephant Transit Home: Observe orphaned elephant calves being rehabilitated.\n✔️ Whale Watching in Mirissa: Spot blue whales and dolphins in the Indian Ocean.\n✔️ Pinnawala Elephant Orphanage: Interact with rescued elephants during feeding and bathing sessions.\n\n🏛️ Cultural & Historical Exploration:\n✔️ Sigiriya Rock Fortress: Climb the UNESCO-listed \"Lion Rock\" for panoramic views and ancient frescoes.\n✔️ Temple of the Tooth Relic (Kandy): Visit one of Buddhism’s holiest shrines.\n✔️ Nine Arch Bridge (Ella): Marvel at this colonial-era railway bridge surrounded by lush greenery.\n✔️ Dowa Ancient Rock Temple: Discover a serene Buddhist site with a carved Buddha statue.\n\n🏞️ Scenic & Relaxing Destinations:\n✔️ Nuwara Eliya: Explore \"Little England\" with its tea plantations, colonial architecture, and Gregory Lake.\n✔️ Mirissa: Unwind on pristine beaches and enjoy coastal adventures like snorkeling and surfing.\n✔️ Coconut Tree Hill (Mirissa): Capture stunning ocean views from this iconic coconut-lined hillside.\n\n🏡 Authentic Experiences:\n✔️ Tea Factory & Plantation Tour: Learn about Ceylon tea production and enjoy tastings in Nuwara Eliya.\n✔️ Village Tour (Sigiriya): Experience rural life with bullock cart rides, traditional cooking, and lake boat rides.\n✔️ Mangrove Boat Ride: Glide through mangrove forests near Colombo, spotting wildlife.\n\n🌊 Coastal & Marine Activities:\n✔️ Turtle Hatchery: Learn about conservation efforts for endangered sea turtles.\n✔️ Snake Farm (Mirissa): Get up close with Sri Lanka’s diverse snake species.",
     "price": "$999 PP",
@@ -373,10 +359,9 @@
       "Any other personal expenses."
     ],
     "CancellationPolicy": [
-      "Cancellation Within 07 days prior to arrival – 100% of the Value of the booking.",
-      "Cancellation Within 14 days prior to arrival – 50% of the Value of the booking.",
-      "Cancellation Within 14 to 21 days prior to arrival – 25% of the Value of the booking.",
-      "Cancellation above 21 days prior to arrival – No Fees."
+      "Cancellation and refund terms vary depending on the selected tour package, hotels, transportation, activities, and other services included in the booking.",
+      "The applicable cancellation policy and any related charges will be clearly communicated prior to booking confirmation.",
+      "Certain services may be non-refundable and are subject to the terms and conditions of the respective service providers."
     ],
     "itinerary": [
       {
@@ -400,7 +385,7 @@
   },
   {
     "id": 16,
-    "name": "Round Tour Iran Cultural 9N10D",
+    "name": "Sri Lanka Culture & Coast",
     "destination": "Sri Lanka",
     "image": "/assets/kandy2.jpg",
     "images": [
@@ -411,9 +396,7 @@
     ],
     "duration": "9Nights 10Days",
     "tourtype": "Group Tour",
-    "groupsize": "10 Members",
     "guide": "1 Multilingual National Guide ",
-    "people": "15",
     "rating": 5,
     "description": "🏛️ Cultural & Spiritual Exploration:\n✔️ Temple of the Tooth Relic (Kandy): Visit Sri Lanka’s holiest Buddhist shrine, a UNESCO World Heritage Site.\n✔️ Sigiriya Rock Fortress: Optional climb to the 5th-century “Lion Rock” for panoramic views and ancient frescoes.\n✔️ Kandy Cultural Show: Witness vibrant Kandyan dance, drumming, and fire performances.\n✔️ Dowa Ancient Rock Temple: Discover a serene Buddhist site with a carved Buddha statue near Ella.\n\n🌿 Nature & Wildlife Encounters:\n✔️ Udawalawe Elephant Transit Home: Observe orphaned elephants being rehabilitated for the wild.\n✔️ Whale Watching (Mirissa): Spot blue whales and dolphins in the Indian Ocean.\n✔️ Peradeniya Botanical Garden: Explore 60 hectares of exotic flora, including orchids and giant palms.\n\n🏞️ Scenic & Authentic Experiences:\n✔️ Nanu Oya to Ella Train Ride: Journey through misty tea plantations and lush hills on one of the world’s most scenic train routes.\n✔️ Tea Factory & Plantation Tour: Learn about Ceylon tea production and enjoy tastings in Nuwara Eliya.\n✔️ Ramboda Waterfall: Admire a 109-meter cascade surrounded by tea-covered mountains.\n\n🌊 Coastal & Leisure Activities:\n✔️ Coconut Tree Hill (Mirissa): Relax at this iconic hillside with panoramic ocean views.\n✔️ Mangrove Boat Ride (Bentota): Glide through tranquil mangrove forests, spotting wildlife.\n✔️ Turtle Hatchery: Learn about conservation efforts for endangered sea turtles.",
     "price": "$1234 PP",
@@ -440,10 +423,9 @@
       "Any other personal expenses."
     ],
     "CancellationPolicy": [
-      "Cancellation Within 07 days prior to arrival – 100% of the Value of the booking.",
-      "Cancellation Within 14 days prior to arrival – 50% of the Value of the booking.",
-      "Cancellation Within 14 to 21 days prior to arrival – 25% of the Value of the booking.",
-      "Cancellation above 21 days prior to arrival – No Fees."
+      "Cancellation and refund terms vary depending on the selected tour package, hotels, transportation, activities, and other services included in the booking.",
+      "The applicable cancellation policy and any related charges will be clearly communicated prior to booking confirmation.",
+      "Certain services may be non-refundable and are subject to the terms and conditions of the respective service providers."
     ],
     "itinerary": [
       {
@@ -491,7 +473,7 @@
   },
   {
     "id": 5,
-    "name": "Ramayana Yatra Kataragama 6N7D",
+    "name": "Ramayana Heritage Journey – Kataragama",
     "destination": "Sri Lanka",
     "image": "/assets/nallur.webp",
     "images": [
@@ -501,9 +483,7 @@
     ],
     "duration": "6Nights 7Days",
     "tourtype": "Group Tour",
-    "groupsize": "10 Members",
     "guide": "2 Guides",
-    "people": "25",
     "rating": 5,
     "description": "🙏 Sacred Ramayana Sites:\n✔️ Munneshwaram Temple: Where Lord Rama prayed to absolve sins after defeating Ravana.\n✔️ Seetha Amman Temple (Ashok Vatika): Believed to be the garden where Sita was held captive.\n✔️ Kataragama Temple: A revered multi-faith shrine linked to Lord Murugan and the Ramayana.\n✔️ Sellakataragama Temple: Dedicated to Lord Murugan’s consort, Valli.\n\n🕉️ Cultural & Spiritual Experiences:\n✔️ Nallur Kandaswamy Temple: Jaffna’s iconic temple with vibrant festivals.\n✔️ Koneshwaram Temple: Cliffside Shiva temple overlooking Trincomalee’s ocean.\n✔️ Gayathri Peedam: A serene hill-country shrine to Goddess Gayathri.\n✔️ Cultural Program (Kandy): Traditional Kandyan dance and drumming performances.\n\n🏞️ Natural Wonders & Scenic Beauty:\n✔️ Ramboda Waterfall: A 109-meter cascade amid tea plantations.\n✔️ Ravana Falls: Legendary waterfall tied to Ravana’s myth.\n✔️ Madu River Boat Ride: Optional mangrove forest exploration.\n\n🏛️ Historical & Cultural Exploration:\n✔️ Sigiriya Rock Fortress: UNESCO-listed ancient palace with panoramic views.\n✔️ Dambulla Golden Temple: Cave complex with Buddhist murals and statues.\n✔️ Tea Factory Tour: Learn about Ceylon tea in Nuwara Eliya’s misty hills.",
     "price": "INR 38,000 PP",
@@ -530,10 +510,9 @@
       "Any other personal expenses."
     ],
     "CancellationPolicy": [
-      "Cancellation Within 07 days prior to arrival – 100% of the Value of the booking.",
-      "Cancellation Within 14 days prior to arrival – 50% of the Value of the booking.",
-      "Cancellation Within 14 to 21 days prior to arrival – 25% of the Value of the booking.",
-      "Cancellation above 21 days prior to arrival – No Fees."
+      "Cancellation and refund terms vary depending on the selected tour package, hotels, transportation, activities, and other services included in the booking.",
+      "The applicable cancellation policy and any related charges will be clearly communicated prior to booking confirmation.",
+      "Certain services may be non-refundable and are subject to the terms and conditions of the respective service providers."
     ],
     "itinerary": [
       {
@@ -569,7 +548,7 @@
   },
   {
     "id": 6,
-    "name": "Ramayana Yatra Northern 5N6D",
+    "name": "Ramayana Heritage Journey – Northern Sri Lanka",
     "destination": "Sri Lanka",
     "image": "/assets/trinco.jpg",
     "images": [
@@ -579,9 +558,7 @@
     ],
     "duration": "6 Days 5 Nights",
     "tourtype": "Group Tour",
-    "groupsize": "25 Members",
     "guide": "1 Multilingual National Guide",
-    "people": "25",
     "rating": 5,
     "description": "🙏 Sacred Ramayana Sites:\n✔️ Munneshwaram Temple: Where Lord Rama prayed to absolve sins after defeating Ravana.\n✔️ Manavari Temple: Houses the \"Rama Lingam\" installed by Lord Rama during his quest for Sita.\n✔️ Koneshwaram Temple (Trincomalee): Cliffside Shiva temple linked to Ravana’s devotion.\n✔️ Hanuman Temple (Ramboda): Believed to be where Lord Hanuman rested during his search for Sita.\n\n🕉️ Cultural & Spiritual Experiences:\n✔️ Temple of the Tooth Relic (Kandy): Visit Sri Lanka’s holiest Buddhist shrine, a UNESCO site.\n✔️ Cultural Program (Kandy): Kandyan dance, drumming, and fire performances.\n✔️ Panchamuga Anjanayar Temple (Colombo): Dedicated to Lord Hanuman’s five-faced form.\n\n🏞️ Natural & Historical Wonders:\n✔️ Sigiriya Rock Fortress: Climb the UNESCO-listed \"Lion Rock\" for panoramic views.\n✔️ Dambulla Golden Temple: Explore cave temples with Buddhist murals and golden statues.\n✔️ Hot Water Springs (Vavuniya): Relax in therapeutic natural springs.\n\n🏡 Scenic & Authentic Encounters:\n✔️ Tea Factory Tour: Learn about Ceylon tea production in Sri Lanka’s lush hills.\n✔️ Colombo City Tour: Discover the capital’s blend of colonial charm and modernity.",
     "price": "INR 35,000 PP",
@@ -608,10 +585,9 @@
       "Any other personal expenses."
     ],
     "CancellationPolicy": [
-      "Cancellation Within 07 days prior to arrival – 100% of the Value of the booking.",
-      "Cancellation Within 14 days prior to arrival – 50% of the Value of the booking.",
-      "Cancellation Within 14 to 21 days prior to arrival – 25% of the Value of the booking.",
-      "Cancellation above 21 days prior to arrival – No Fees."
+      "Cancellation and refund terms vary depending on the selected tour package, hotels, transportation, activities, and other services included in the booking.",
+      "The applicable cancellation policy and any related charges will be clearly communicated prior to booking confirmation.",
+      "Certain services may be non-refundable and are subject to the terms and conditions of the respective service providers."
     ],
     "itinerary": [
       {
@@ -643,7 +619,7 @@
   },
   {
     "id": 7,
-    "name": "Ramayana Yatra Northeast Part 4N5D",
+    "name": "Ramayana Heritage Journey – Northeast Sri Lanka",
     "destination": "Sri Lanka",
     "image": "/assets/Dambulla.jpg",
     "images": [
@@ -654,9 +630,7 @@
     ],
     "duration": "4Nights 5Days",
     "tourtype": "Group Tour",
-    "groupsize": "10 Members",
     "guide": "1 Multilingual National Guide",
-    "people": "25",
     "rating": 5,
     "description": "🙏 Sacred Ramayana Pilgrimage Sites:\n✔️ Munneshwaram Temple: Where Lord Rama prayed to absolve sins after defeating Ravana.\n✔️ Manavari Temple: Houses the sacred \"Rama Lingam\" installed by Lord Rama during his search for Sita.\n✔️ Koneshwaram Temple (Trincomalee): Cliffside Shiva temple linked to Ravana’s devotion.\n✔️ Hanuman Temple (Ramboda): Believed to be where Lord Hanuman rested during his quest to find Sita.\n\n🕉️ Cultural & Spiritual Experiences:\n✔️ Temple of the Tooth Relic (Kandy): Visit Sri Lanka’s holiest Buddhist shrine, a UNESCO site.\n✔️ Kandy Cultural Program: Traditional Kandyan dance, drumming, and fire performances.\n✔️ Panchamuga Anjanayar Temple (Colombo): Dedicated to Lord Hanuman’s five-faced form.\n\n🏞️ Natural & Historical Wonders:\n✔️ Sigiriya Rock Fortress: Climb the UNESCO-listed \"Lion Rock\" for panoramic jungle views.\n✔️ Dambulla Golden Temple: Explore cave temples adorned with Buddhist murals and golden statues.\n✔️ Hot Water Springs (Vavuniya): Relax in therapeutic natural springs surrounded by lush greenery.\n\n🏡 Scenic & Authentic Encounters:\n✔️ Tea Factory Tour: Learn about Ceylon tea production in Sri Lanka’s misty hills.\n✔️ Colombo City Tour: Discover the capital’s colonial charm, bustling markets, and modern landmarks.",
     "price": "INR 33,000 PP",
@@ -683,10 +657,9 @@
       "Any other personal expenses."
     ],
     "CancellationPolicy": [
-      "Cancellation Within 07 days prior to arrival – 100% of the Value of the booking.",
-      "Cancellation Within 14 days prior to arrival – 50% of the Value of the booking.",
-      "Cancellation Within 14 to 21 days prior to arrival – 25% of the Value of the booking.",
-      "Cancellation above 21 days prior to arrival – No Fees."
+      "Cancellation and refund terms vary depending on the selected tour package, hotels, transportation, activities, and other services included in the booking.",
+      "The applicable cancellation policy and any related charges will be clearly communicated prior to booking confirmation.",
+      "Certain services may be non-refundable and are subject to the terms and conditions of the respective service providers."
     ],
     "itinerary": [
       {
@@ -708,256 +681,6 @@
       {
         "title": "Transfer to Airport for Departure via Nuwara Eliya",
         "description": "Colombo with Hanuman Temple, Tea Plantation, and City Tour → Departure."
-      }
-    ],
-    "type": "inbound"
-  },
-  {
-    "id": 18,
-    "name": "Health Screening and Leisure 6N7D - Seychelles Nationality",
-    "destination": "Sri Lanka",
-    "image": "/assets/ramboda2.jpg",
-    "images": [
-      "/assets/ramboda2.jpg",
-      "/assets/kandy3.jpg",
-      "/assets/tea2.jpg"
-    ],
-    "duration": "6Nights 7Days",
-    "tourtype": "FIT / Group",
-    "groupsize": "2 Pax=<",
-    "guide": "1 Multilingual National Guide",
-    "people": "2",
-    "rating": 5,
-    "description": "🏥 Comprehensive Health & Wellness Retreat:\n✔️ Tailored Health Screenings (Asiri Central Hospital): Choose from specialized packages like Whole Body, Diabetic, Senior Citizen, and Cancer Detection.\n✔️ Advanced Diagnostics: Includes blood tests, ECG, ultrasound, mammograms, cancer markers, dental checks, and psychological assessments.\n✔️ Doctor Consultations: Post-screening reviews with specialists to discuss results and wellness plans.\n\n🐘 Cultural & Wildlife Adventures:\n✔️ Pinnawala Elephant Orphanage: Observe rescued elephants bathing and interacting in their natural habitat.\n✔️ Dambulla Golden Temple: Explore UNESCO-listed cave temples with ancient Buddhist murals and statues.\n✔️ Kandy Cultural Show: Enjoy traditional Kandyan dance, drumming, and fire performances.\n\n🏞️ Scenic & Relaxing Escapes:\n✔️ Nuwara Eliya: Visit \"Little England\" with tea plantations, Gregory Lake, and colonial charm.\n✔️ Ramboda Waterfall: Admire a 109-meter cascade surrounded by misty hills.\n✔️ Colombo City Tour: Discover Sri Lanka’s capital, blending colonial architecture, markets, and modern landmarks.\n\n🌿 Wellness & Authentic Cultural Immersion:\n✔️ Ayurveda Spa: Rejuvenate with herbal massages and detox therapies.\n✔️ Village Tour: Experience rural Sri Lanka via bullock cart rides, catamaran boat trips, and traditional lunches.\n✔️ Tea Factory Tour: Learn about Ceylon tea production and enjoy tastings in Nuwara Eliya.",
-    "price": "USD 1545 PP",
-    "priceIncludes": [
-      "Accommodation in Double/ Twin/ Triple Room sharing basis.",
-      "Welcome drinks included for every hotel check-in.",
-      "Meal Plan HB (Breakfast & Dinner) included.",
-      "Transport by luxury a/c wheelchair accessible carrier throughout the tour including all sightseeing tours and both airport transfers. (Airport Pickup to Airport Departure)",
-      "All tourist site entrance fee. (Subject to below “Price Excludes”).",
-      "Service of Sri Lanka Tourist Board approved English/ Tamil Speaking National Guide and his accommodation.",
-      "2 x 500ml bottled water per person per day during the entire tour.",
-      "Airport assistance for arrival & departures.",
-      "24Hrs x 365 Days operational support during the tour/ Guaranteed highly personalized service.",
-      "All local & other government taxes.",
-      "Handling / Administration and Professional charges."
-    ],
-    "priceExcludes": [
-      "International Flight and Visa Charges for Sri Lanka. (Can be arranged upon request)",
-      "Seychelles passport holders do not need a visa; for other nationalities refer to www.ETA.gov.lk.",
-      "Early Check-in and late check-out charges if any.",
-      "Expenses of personal nature such as Tips / laundry / mini bar charges / liquor / telephone charges.",
-      "Any other services not specified in the “Price Includes”.",
-      "Any other personal expenses."
-    ],
-    "CancellationPolicy": [
-      "Cancellation Within 07 days prior to arrival – 100% of the Value of the booking.",
-      "Cancellation Within 14 days prior to arrival – 50% of the Value of the booking.",
-      "Cancellation Within 14 to 21 days prior to arrival – 25% of the Value of the booking.",
-      "Cancellation above 21 days prior to arrival – No Fees."
-    ],
-    "itinerary": [
-      {
-        "title": "Transfer to Hotel in Colombo",
-        "description": "Arrival → Colombo → Health Screening → Leisure Shopping → Overnight in Colombo."
-      },
-      {
-        "title": "Transfer to Hotel in Habarana",
-        "description": "Transfer to Habarana → Pinnawala Elephant Orphanage → Dambulla Cave Temple → Overnight in Habarana."
-      },
-      {
-        "title": "Overnight stay in Habarana",
-        "description": "Jeep Safari in Hurulu Eco Park → Village Tour → Ayurveda Spa → Overnight in Habarana."
-      },
-      {
-        "title": "Transfer to Hotel in Kandy",
-        "description": "Transfer to Kandy → Herbal Garden → City Tour → Cultural Show → Overnight in Kandy."
-      },
-      {
-        "title": "Transfer to Hotel in Nuwara Eliya",
-        "description": "Transfer to Nuwara Eliya → Gem Museum → Tea Plantation → Ramboda Waterfall → Overnight in Nuwara Eliya."
-      },
-      {
-        "title": "Transfer to Hotel in Colombo",
-        "description": "Return to Colombo → Medical Results Review → City Tour → Overnight in Colombo."
-      },
-      {
-        "title": "Transfer to Airport for Departure",
-        "description": "Free Time → Last-Minute Shopping → Departure."
-      }
-    ],
-    "type": "inbound"
-  },
-  {
-    "id": 19,
-    "name": "Round Tour Cultural 3N4D - Seychelles Nationality",
-    "destination": "Sri Lanka",
-    "image": "/assets/kandy3.jpg",
-    "images": [
-      "/assets/kandy3.jpg",
-      "/assets/tea2.jpg"
-    ],
-    "duration": "3Nights 4Days",
-    "tourtype": "FIT / Group",
-    "groupsize": "2 Pax=<",
-    "guide": "1 Multilingual National Guide",
-    "people": "2",
-    "rating": 5,
-    "description": "🏛️ Cultural & Historical Gems:\n✔️ Dambulla Golden Temple: Explore UNESCO-listed cave temples adorned with Buddhist murals and statues.\n✔️ Sigiriya Rock Fortress: Climb the 5th-century \"Lion Rock\" for panoramic jungle views.\n✔️ Temple of the Tooth Relic (Kandy): Visit Sri Lanka’s holiest Buddhist shrine.\n✔️ Kandy Cultural Show: Witness Kandyan dance, drumming, and firewalking performances.\n\n🐾 Wildlife & Nature Adventures:\n✔️ Minneriya Jeep Safari: Spot elephants, deer, and birds in Minneriya National Park.\n✔️ Ramboda Waterfall: Admire a 109-meter cascade amid misty tea plantations.\n✔️ Gregory Lake (Nuwara Eliya): Relax by this serene colonial-era lake.\n\n🌿 Authentic Experiences:\n✔️ Ayurveda Spa (Habarana): Rejuvenate with traditional herbal therapies.\n✔️ Village Tour: Ride bullock carts, sail on catamarans, and enjoy a traditional Sri Lankan lunch.\n✔️ Tea Factory Tour: Learn about Ceylon tea production and savor fresh brews.\n\n🛍️ Shopping & Leisure:\n✔️ Gem Museum (Nuwara Eliya): Discover Sri Lanka’s \"Jewel Box of the Indian Ocean.\"\n✔️ Colombo City Tour: Explore markets, temples, and colonial landmarks.\n✔️ Optional White Water Rafting: Thrilling rapids on the Kelani River.",
-    "price": "USD 1249 PP",
-    "priceIncludes": [
-      "International Flight Charges for Sri Lanka.",
-      "Accommodation in Double/ Twin/ Triple Room sharing basis.",
-      "Welcome drinks included for every hotel check-in.",
-      "Meal Plan HB (Breakfast & Dinner) included.",
-      "Transport by luxury a/c wheelchair accessible carrier throughout the tour including all sightseeing tours and both airport transfers. (Airport Pickup to Airport Departure)",
-      "All tourist site entrance fee. (Subject to below “Price Excludes”).",
-      "Service of Sri Lanka Tourist Board approved English/ Tamil Speaking National Guide and his accommodation.",
-      "2 x 500ml bottled water per person per day during the entire tour.",
-      "Airport assistance for arrival & departures.",
-      "24Hrs x 365 Days operational support during the tour/ Guaranteed highly personalized service.",
-      "All local & other government taxes.",
-      "Handling / Administration and Professional charges."
-    ],
-    "priceExcludes": [
-      "International Flight and Visa Charges for Sri Lanka. (Can be arranged upon request)",
-      "Seychelles passport holders do not need a visa; for other nationalities refer to www.ETA.gov.lk.",
-      "Early Check-in and late check-out charges if any.",
-      "Expenses of personal nature such as Tips / laundry / mini bar charges / liquor / telephone charges.",
-      "Any other services not specified in the “Price Includes”.",
-      "Any other personal expenses."
-    ],
-    "CancellationPolicy": [
-      "Cancellation Within 07 days prior to arrival – 100% of the Value of the booking.",
-      "Cancellation Within 14 days prior to arrival – 50% of the Value of the booking.",
-      "Cancellation Within 14 to 21 days prior to arrival – 25% of the Value of the booking.",
-      "Cancellation above 21 days prior to arrival – No Fees."
-    ],
-    "itinerary": [
-      {
-        "title": "Transfer to Hotel in Habarana",
-        "description": "Arrival → Habarana → Dambulla Cave Temple → Village Tour → Ayurveda Spa → Overnight in Habarana."
-      },
-      {
-        "title": "Transfer to Hotel in Kandy",
-        "description": "Minneriya Jeep Safari → Sigiriya Rock Climb → Herbal Garden → Kandy Cultural Show → Overnight in Kandy."
-      },
-      {
-        "title": "Transfer to Hotel in Nuwara Eliya",
-        "description": "Transfer to Nuwara Eliya → Gem Museum → Tea Plantation → Ramboda Waterfall → Gregory Lake → Overnight in Nuwara Eliya."
-      },
-      {
-        "title": "Transfer to Airport Via Colombo",
-        "description": "Colombo City Tour → Optional Rafting → Shopping → Departure."
-      }
-    ],
-    "type": "inbound"
-  },
-  {
-    "id": 20,
-    "name": "Round Tour Cultural 13N14D - Azerbaijan Nationality",
-    "destination": "Sri Lanka",
-    "image": "/assets/pera.jpg",
-    "images": [
-      "/assets/pera.jpg",
-      "/assets/Dambulla.jpg",
-      "/assets/kandy3.jpg",
-      "/assets/tea2.jpg"
-    ],
-    "duration": "13Nights 14Days ",
-    "tourtype": "FIT / Group",
-    "groupsize": "2 Pax=<",
-    "guide": "1 Multilingual National Guide",
-    "people": "2",
-    "rating": 5,
-    "description": "🏖️ Coastal Beginnings & Cultural Immersion:\n✔️ Negombo: Explore fish markets, Dutch Fort, and colonial churches.\n✔️ Optional Pinnawala Elephant Orphanage visit.\n✔️ Dambulla Cave Temple (UNESCO site) exploration.\n✔️ Village tour with bullock cart & traditional lunch.\n✔️ Relaxing Ayurveda spa session.\n\n🐘 Wildlife Encounters & Ancient Wonders:\n✔️ Minneriya Jeep Safari (Elephant Gathering).\n✔️ Sigiriya Rock Fortress climb.\n✔️ Optional Pidurangala Rock sunrise hike.\n✔️ Visit Ritigala Ruins.\n\n🌿 Spice Gardens & Sacred Kandy:\n✔️ Herbal & Spice Garden tour.\n✔️ Kandy City Tour: Temple of the Tooth Relic, Kandy Market.\n\n🌺 Botanical Beauty & Cultural Shows:\n✔️ Royal Botanical Garden (Peradeniya) visit.\n✔️ Gem Museum & Kandyan dance cultural show.\n\n🚂 Scenic Highlands & Tea Country:\n✔️ Scenic train ride (Nanu Oya to Ella).\n✔️ Ramboda Waterfall viewpoint.\n✔️ Tea plantation tour & factory visit.\n✔️ Gregory Lake stroll.\n\n⛰️ Ella's Natural Wonders & Cuisine:\n✔️ Little Adam’s Peak hike.\n✔️ Nine Arch Bridge visit.\n✔️ Cooking class in Ella.\n\n🏞️ Ella's Free Time & Waterfalls:\n✔️ Free time in Ella Town.\n✔️ Ravana Falls viewpoint.\n\n🏹 Indigenous Culture & Elephant Sanctuary:\n✔️ Visit Vedda Indigenous Tribe (Mahiyanganaya).\n✔️ Udawalawe Elephant Transit Home visit.\n\n🌅 Southern Sunsets & Beach Relaxation:\n✔️ Coconut Tree Hill sunset photography.\n✔️ Beach leisure in Mirissa.\n\n🐋 Marine Wildlife & Coastal Activities:\n✔️ Whale Watching excursion (packed breakfast).\n✔️ Surfing/snorkeling at Mirissa Beach.\n\n🏰 Galle's History & Mangrove Rivers:\n✔️ Galle Fort City Walk (UNESCO site).\n✔️ Madu River mangrove boat ride.\n\n🐢 Turtle Conservation & Colombo's Culture:\n✔️ Turtle Hatchery visit.\n✔️ Colombo City Tour: Gangaramaya Temple, Galle Face Green.\n\n🛍️ Colombo Shopping & Departure:\n✔️ Free time for shopping in Colombo.\n✔️ Airport transfer.",
-    "price": "USD 1995 PP",
-    "priceIncludes": [
-      "Accommodation in Double/ Twin/ Triple Room sharing basis.",
-      "Welcome drinks included for every hotel check-in.",
-      "Meal Plan HB (Breakfast & Dinner) included. Lunch can be arranged with request.",
-      "Transport by luxury a/c wheelchair accessible carrier throughout the tour including all sightseeing tours and both airport transfers. (Airport Pickup to Airport Departure)",
-      "Service of Sri Lanka Tourist Board approved English/ Tamil Speaking National Guide and his accommodation.",
-      "2 x 500ml bottled water per person per day during the entire tour.",
-      "Airport assistance for arrival & departures.",
-      "24Hrs x 365 Days operational support during the tour/ Guaranteed highly personalized service.",
-      "All local & other government taxes.",
-      "Handling / Administration and Professional charges."
-    ],
-    "priceExcludes": [
-      "International Flight and Visa Charges for Sri Lanka.",
-      "Visit https://www.eta.gov.lk for online visa application.",
-      "Early Check-In and late check-out charges if any.",
-      "All tourist site entrance fee.",
-      "Dinner at Mirissa, Ella Stay.",
-      "Expenses of personal nature such as Tips / laundry / mini bar charges / liquor / telephone charges.",
-      "Any Water Sports activities.",
-      "Any other services not specified in the “Price Include”.",
-      "Any other personal expenses."
-    ],
-    "CancellationPolicy": [
-      "Cancellation Within 07 days prior to arrival – 100% of the Value of the booking.",
-      "Cancellation Within 14 days prior to arrival – 50% of the Value of the booking.",
-      "Cancellation Within 14 to 21 days prior to arrival – 25% of the Value of the booking.",
-      "Cancellation above 21 days prior to arrival – No Fees."
-    ],
-    "itinerary": [
-      {
-        "title": "Transfer to Hotel in Negombo",
-        "description": "Arrival → Negombo (30 mins)."
-      },
-      {
-        "title": "Transfer to Hotel in Habarana",
-        "description": "Negombo → Habarana (6–7 hrs)."
-      },
-      {
-        "title": "Overnight Stay in Habarana",
-        "description": "Habarana Exploration."
-      },
-      {
-        "title": "Transfer to Hotel in Kandy",
-        "description": "Habarana → Kandy (7–8 hrs)."
-      },
-      {
-        "title": "Overnight Stay in Kandy",
-        "description": "Kandy Exploration."
-      },
-      {
-        "title": "Transfer to Hotel in Nuwara Eliya",
-        "description": "Kandy → Nuwara Eliya (8–9 hrs)."
-      },
-      {
-        "title": "Transfer to Hotel in Ella",
-        "description": "Nuwara Eliya → Ella (7–8 hrs)."
-      },
-      {
-        "title": "Overnight Stay in Ella",
-        "description": "Ella Leisure."
-      },
-      {
-        "title": "Transfer to Hotel in Udawalawe",
-        "description": "Ella → Udawalawe (7–8 hrs)."
-      },
-      {
-        "title": "Transfer to Hotel in Mirissa",
-        "description": "Udawalawe → Mirissa (7–8 hrs)."
-      },
-      {
-        "title": "Overnight Stay at Mirissa",
-        "description": "Mirissa Exploration."
-      },
-      {
-        "title": "Transfer to Hotel in Bentota",
-        "description": "Mirissa → Bentota (7–8 hrs)."
-      },
-      {
-        "title": "Transfer to Hotel in Colombo",
-        "description": "Bentota → Colombo (7–8 hrs)."
-      },
-      {
-        "title": "Transfer to Airport for Departure",
-        "description": "Departure."
       }
     ],
     "type": "inbound"

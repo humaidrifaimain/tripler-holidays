@@ -2,9 +2,26 @@ import type { Metadata } from "next";
 import OutboundToursClient from "@/components/OutboundToursClient";
 
 export const metadata: Metadata = {
-  title: "Triple R Holidays | Outbound Tours",
+  title: "Outbound Holiday Packages",
   description:
-    "Plan your next international getaway with Triple R Holidays. Curated packages for Kuala Lumpur, Singapore, Maldives, and Thailand."
+    "Plan outbound holiday packages from Sri Lanka to Malaysia, Singapore, Thailand and Maldives with guided coordination from Triple R Holidays.",
+  alternates: {
+    canonical: "/outbound-tours"
+  },
+  openGraph: {
+    title: "Outbound Holiday Packages | Triple R Holidays",
+    description:
+      "International getaways from Sri Lanka with city breaks, beach escapes, family routes and hotel coordination.",
+    url: "/outbound-tours",
+    images: [
+      {
+        url: "/images/outbound-tours/pexels-nextvoyage-8213820.jpg",
+        width: 1920,
+        height: 1080,
+        alt: "Thailand beach sunset with long-tail boats"
+      }
+    ]
+  }
 };
 
 export default function OutboundToursPage() {

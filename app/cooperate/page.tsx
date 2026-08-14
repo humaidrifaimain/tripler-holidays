@@ -2,9 +2,18 @@ import type { Metadata } from "next";
 import CooperateClient from "@/components/CooperateClient";
 
 export const metadata: Metadata = {
-  title: "Triple R Holidays | Cooperate",
+  title: "Corporate Travel Partnerships",
   description:
-    "B2B partnership options for agencies and corporate travel teams with Triple R Holidays."
+    "Partner with Triple R Holidays for corporate travel, agency collaboration, DMC support and group travel coordination in Sri Lanka.",
+  alternates: {
+    canonical: "/cooperate"
+  },
+  openGraph: {
+    title: "Corporate Travel Partnerships | Triple R Holidays",
+    description:
+      "B2B travel support for agencies, partners, hotels and corporate travel teams.",
+    url: "/cooperate"
+  }
 };
 
 export default function CooperatePage() {

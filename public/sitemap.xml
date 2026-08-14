@@ -2,52 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://triplerholidays.com/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
+    <lastmod>2026-08-15</lastmod>
   </url>
   <url>
     <loc>https://triplerholidays.com/about/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://triplerholidays.com/attractions/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://triplerholidays.com/contact/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-08-15</lastmod>
   </url>
   <url>
     <loc>https://triplerholidays.com/cooperate/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-08-15</lastmod>
   </url>
   <url>
     <loc>https://triplerholidays.com/holiday-tours/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <lastmod>2026-08-15</lastmod>
   </url>
   <url>
     <loc>https://triplerholidays.com/outbound-tours/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <lastmod>2026-08-15</lastmod>
   </url>
   <url>
     <loc>https://triplerholidays.com/package/1/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-08-15</lastmod>
   </url>
   <url>
     <loc>https://triplerholidays.com/services/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-08-15</lastmod>
   </url>
   <url>
     <loc>https://triplerholidays.com/testimonials/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-08-15</lastmod>
   </url>
 </urlset>

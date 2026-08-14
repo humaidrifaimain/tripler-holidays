@@ -132,9 +132,9 @@ export default function SiteHeader({
   };
 
   const headerBg =
-    transparent && !scrolled && !open
-      ? "bg-transparent shadow-none"
-      : "bg-[rgba(8,43,73,0.92)] backdrop-blur-xl shadow-[0_4px_24px_rgba(8,43,73,0.35)]";
+    transparent && !open
+      ? "border-b border-white/10 bg-[rgba(8,43,73,0.72)] shadow-none backdrop-blur-md"
+      : "border-b border-white/10 bg-[rgba(8,43,73,0.72)] shadow-none backdrop-blur-md";
 
   // Mobile overlay rendered via portal to avoid React DOM insertion errors
   const mobileOverlay = (

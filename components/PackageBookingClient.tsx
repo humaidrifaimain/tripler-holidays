@@ -97,7 +97,7 @@ const notIncluded = [
 const routeNotes = [
   "This sample package covers multiple Sri Lanka cities in one route.",
   "Jaffna, Pasikudah and Arugam Bay are not included in this sample route.",
-  "Prices are shared only after dates, group size and hotel category are confirmed."
+  "Prices are shared only after dates, traveller count and hotel category are confirmed."
 ];
 
 const timelineShots = [

@@ -112,7 +112,8 @@ const contact = {
   phoneHref: "tel:+94776661272",
   whatsappHref: "https://wa.me/94767161937",
   email: "hello@triplerholidays.com",
-  address: "128/7 A.S.P Liyanage Mawatha, Royal Pearl Garden, Wattala"
+  address: "173 A 1/2 Negombo Road, Wattala - Triple R Holidays",
+  linkedinHref: "https://linkedin.com"
 };
 
 export default function CooperateClient() {
@@ -273,6 +274,38 @@ export default function CooperateClient() {
                 <span>
                   <span className="block text-xs font-bold uppercase tracking-[0.18em] text-[#111820]/58">Fast support</span>
                   <span className="block text-base font-bold">WhatsApp priority response</span>
+                </span>
+              </a>
+            </motion.article>
+
+            <motion.article
+              variants={{
+                hidden: { opacity: 0, y: 16 },
+                visible: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 100, damping: 15 } }
+              }}
+              whileHover={{ y: -4, scale: 1.02 }}
+              className="scandi-soft-card p-5"
+            >
+              <a href={contact.linkedinHref} target="_blank" rel="noopener noreferrer" className="flex items-center gap-4">
+                <span className="grid h-12 w-12 place-items-center rounded-[10px] bg-[#D98928]/12 text-[#D98928]">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.8"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="h-5 w-5"
+                    aria-hidden="true"
+                  >
+                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                    <rect x="2" y="9" width="4" height="12" />
+                    <circle cx="4" cy="4" r="2" />
+                  </svg>
+                </span>
+                <span>
+                  <span className="block text-xs font-bold uppercase tracking-[0.18em] text-[#111820]/58">LinkedIn</span>
+                  <span className="block text-base font-bold">Corporate profile</span>
                 </span>
               </a>
             </motion.article>
