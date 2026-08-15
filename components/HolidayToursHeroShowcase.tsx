@@ -71,8 +71,8 @@ const slides: ShowcaseSlide[] = [
   }
 ];
 
-const scrollDistanceMultiplier = 4.2;
-const mobileScrollDistanceMultiplier = 5.6;
+const scrollDistanceMultiplier = 3.15;
+const mobileScrollDistanceMultiplier = 3.45;
 
 export default function HolidayToursHeroShowcase() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -82,8 +82,8 @@ export default function HolidayToursHeroShowcase() {
   const activeIndexRef = useRef(0);
   const wheelLockRef = useRef(false);
   const wheelUnlockTimerRef = useRef<number | null>(null);
-  const finalSlideReleaseReadyRef = useRef(false);
-  const finalSlideQuietTimerRef = useRef<number | null>(null);
+  const touchStartRef = useRef<{ x: number; y: number } | null>(null);
+  const touchIntentRef = useRef<"vertical" | "horizontal" | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const total = slides.length;
 
@@ -99,8 +99,9 @@ export default function HolidayToursHeroShowcase() {
     const lenisScroll = (window as any).__lenis;
     if (lenisScroll && typeof lenisScroll.scrollTo === "function") {
       lenisScroll.scrollTo(targetScroll, {
-        duration: 0.68,
-        lerp: 0.13
+        duration: 0.42,
+        lerp: 0.16,
+        lock: true
       });
       return;
     }
@@ -168,7 +169,7 @@ export default function HolidayToursHeroShowcase() {
         start: "top top",
         end: `+=${scrollDistance}`,
         pin: true,
-        scrub: isMobile ? 0.35 : 0.65,
+        scrub: isMobile ? 0.18 : 0.28,
         animation: tl,
         anticipatePin: 1,
         invalidateOnRefresh: false,
@@ -227,7 +228,33 @@ export default function HolidayToursHeroShowcase() {
       resizeObserver.observe(trackRef.current.parentElement);
     }
 
-    const scheduleWheelUnlock = (delay = 760) => {
+    const isWithinPinnedRange = () => {
+      const pinTrigger = pinTriggerRef.current;
+      if (!pinTrigger) return false;
+
+      const scrollY = window.scrollY || window.pageYOffset;
+      return scrollY >= pinTrigger.start - 2 && scrollY <= pinTrigger.end + 2;
+    };
+
+    const moveByDirection = (direction: 1 | -1) => {
+      const currentIndex = activeIndexRef.current;
+      const targetIndex = Math.min(total - 1, Math.max(0, currentIndex + direction));
+      if (targetIndex === currentIndex) return false;
+
+      if (wheelLockRef.current) {
+        scheduleWheelUnlock();
+        return true;
+      }
+
+      wheelLockRef.current = true;
+      activeIndexRef.current = targetIndex;
+      setActiveIndex(targetIndex);
+      scrollToSlide(targetIndex);
+      scheduleWheelUnlock(560);
+      return true;
+    };
+
+    const scheduleWheelUnlock = (delay = 420) => {
       if (wheelUnlockTimerRef.current) window.clearTimeout(wheelUnlockTimerRef.current);
       wheelUnlockTimerRef.current = window.setTimeout(() => {
         wheelLockRef.current = false;
@@ -235,57 +262,70 @@ export default function HolidayToursHeroShowcase() {
     };
 
     const handleWheel = (event: WheelEvent) => {
-      const pinTrigger = pinTriggerRef.current;
-      if (!pinTrigger || Math.abs(event.deltaY) < 10) return;
-
-      const scrollY = window.scrollY || window.pageYOffset;
-      const isInsidePinnedRange = scrollY >= pinTrigger.start - 2 && scrollY <= pinTrigger.end + 2;
-      if (!isInsidePinnedRange) return;
+      if (!isWithinPinnedRange() || Math.abs(event.deltaY) < 6) return;
 
       const direction = event.deltaY > 0 ? 1 : -1;
-      const currentIndex = activeIndexRef.current;
-      const targetIndex = Math.min(total - 1, Math.max(0, currentIndex + direction));
+      const didMove = moveByDirection(direction);
+      if (!didMove) return;
 
-      if (targetIndex === currentIndex) {
-        const isTryingToLeaveFinalSlide = direction > 0 && currentIndex === total - 1;
-        if (!isTryingToLeaveFinalSlide || finalSlideReleaseReadyRef.current) return;
+      event.preventDefault();
+      event.stopPropagation();
+      event.stopImmediatePropagation();
+    };
 
-        if (event.cancelable) event.preventDefault();
-        event.stopPropagation();
-        event.stopImmediatePropagation();
+    const handleTouchStart = (event: TouchEvent) => {
+      const touch = event.touches[0];
+      if (!touch || !isWithinPinnedRange()) return;
 
-        if (finalSlideQuietTimerRef.current) window.clearTimeout(finalSlideQuietTimerRef.current);
-        finalSlideQuietTimerRef.current = window.setTimeout(() => {
-          finalSlideReleaseReadyRef.current = true;
-        }, 320);
-        return;
+      touchStartRef.current = { x: touch.clientX, y: touch.clientY };
+      touchIntentRef.current = null;
+    };
+
+    const handleTouchMove = (event: TouchEvent) => {
+      const start = touchStartRef.current;
+      const touch = event.touches[0];
+      if (!start || !touch || !isWithinPinnedRange()) return;
+
+      const deltaX = touch.clientX - start.x;
+      const deltaY = touch.clientY - start.y;
+      if (!touchIntentRef.current && Math.max(Math.abs(deltaX), Math.abs(deltaY)) > 12) {
+        touchIntentRef.current = Math.abs(deltaY) > Math.abs(deltaX) ? "vertical" : "horizontal";
       }
+
+      if (touchIntentRef.current === "vertical" && event.cancelable) {
+        event.preventDefault();
+      }
+    };
+
+    const handleTouchEnd = (event: TouchEvent) => {
+      const start = touchStartRef.current;
+      const touch = event.changedTouches[0];
+      touchStartRef.current = null;
+
+      if (!start || !touch || touchIntentRef.current !== "vertical" || !isWithinPinnedRange()) return;
+
+      const deltaY = touch.clientY - start.y;
+      if (Math.abs(deltaY) < 34) return;
+
+      const didMove = moveByDirection(deltaY < 0 ? 1 : -1);
+      if (!didMove) return;
 
       if (event.cancelable) event.preventDefault();
       event.stopPropagation();
-      event.stopImmediatePropagation();
-
-      if (wheelLockRef.current) {
-        scheduleWheelUnlock();
-        return;
-      }
-
-      wheelLockRef.current = true;
-      activeIndexRef.current = targetIndex;
-      setActiveIndex(targetIndex);
-      finalSlideReleaseReadyRef.current = targetIndex !== total - 1;
-      if (finalSlideQuietTimerRef.current) window.clearTimeout(finalSlideQuietTimerRef.current);
-      scrollToSlide(targetIndex);
-      scheduleWheelUnlock(1150);
     };
 
     window.addEventListener("wheel", handleWheel, { passive: false, capture: true });
+    window.addEventListener("touchstart", handleTouchStart, { passive: true, capture: true });
+    window.addEventListener("touchmove", handleTouchMove, { passive: false, capture: true });
+    window.addEventListener("touchend", handleTouchEnd, { passive: false, capture: true });
 
     return () => {
       cancelAnimationFrame(resizeFrame);
       window.removeEventListener("wheel", handleWheel, { capture: true });
+      window.removeEventListener("touchstart", handleTouchStart, { capture: true });
+      window.removeEventListener("touchmove", handleTouchMove, { capture: true });
+      window.removeEventListener("touchend", handleTouchEnd, { capture: true });
       if (wheelUnlockTimerRef.current) window.clearTimeout(wheelUnlockTimerRef.current);
-      if (finalSlideQuietTimerRef.current) window.clearTimeout(finalSlideQuietTimerRef.current);
       wheelLockRef.current = false;
       if (pinTrigger) pinTrigger.kill();
       if (timeline) timeline.kill();
