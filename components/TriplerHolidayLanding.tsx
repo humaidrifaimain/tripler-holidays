@@ -755,8 +755,9 @@ export default function TriplerHolidayLanding() {
             />
           </AnimatePresence>
           <div className="absolute inset-0 bg-[#082B49]/40" />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#082B49]/24 via-[#082B49]/20 to-[#082B49]/58" />
-          <div className="absolute inset-x-0 bottom-0 h-[36rem] bg-gradient-to-t from-[#082B49]/96 via-[#082B49]/76 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#082B49]/26 via-[#082B49]/24 to-[#082B49]/68" />
+          <div className="absolute inset-x-0 bottom-0 h-[70%] bg-gradient-to-t from-[#061826] via-[#082B49]/88 to-transparent" />
+          <div className="absolute inset-x-0 bottom-[7vh] mx-auto h-[28rem] max-w-5xl bg-[radial-gradient(ellipse_at_center,rgba(6,24,38,0.78)_0%,rgba(8,43,73,0.54)_42%,transparent_74%)]" />
 
           <div className="absolute inset-0 z-20 flex items-end justify-center pb-10 text-center sm:pb-[14vh] lg:pb-[16vh]">
             <div className="w-full px-4 sm:px-6 lg:px-8">
