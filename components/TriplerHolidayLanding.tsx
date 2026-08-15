@@ -742,9 +742,8 @@ export default function TriplerHolidayLanding() {
               key={currentHeroSlide.image}
               src={currentHeroSlide.image}
               alt={currentHeroSlide.alt}
-              className="parallax-layer pointer-events-none absolute -top-[15%] left-0 h-[130%] w-full object-cover brightness-[0.9] contrast-[1.04] saturate-[1.04] will-change-transform"
+              className="pointer-events-none absolute inset-0 h-full w-full object-cover brightness-[0.9] contrast-[1.04] saturate-[1.04]"
               style={{ objectPosition: currentHeroSlide.position }}
-              data-depth="10"
               initial={{ opacity: 0, scale: 1.08, filter: "blur(10px)" }}
               animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
               exit={{ opacity: 0, scale: 1.025, filter: "blur(6px)" }}
