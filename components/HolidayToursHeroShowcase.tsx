@@ -6,6 +6,7 @@ import { ArrowRight, Bookmark, ChevronLeft, ChevronRight } from "lucide-react";
 import Link from "next/link";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
+import { outboundPexelsImages } from "@/lib/content";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -32,7 +33,7 @@ const slides: ShowcaseSlide[] = [
     description: "A calm ocean escape with turquoise lagoons, resort comfort, coral-life moments, and smooth island transfers.",
     cardTitle: "Fihalhohi, Maldives",
     cardSubtitle: "Ocean Dreams & Island Escape",
-    image: "https://images.unsplash.com/photo-1573843981267-be1999ff37cd?auto=format&fit=crop&w=1200&q=84",
+    image: outboundPexelsImages.maldivesVilla,
     exploreHref: "#maldives-packages"
   },
   {
@@ -43,7 +44,7 @@ const slides: ShowcaseSlide[] = [
     description: "A balanced Malaysia route with Kuala Lumpur city energy, Genting cool weather, family attractions, and easy transfer planning.",
     cardTitle: "Kuala Lumpur, Malaysia",
     cardSubtitle: "City Lights & Highland Nights",
-    image: "https://images.unsplash.com/photo-1508964942454-1a56651d54ac?auto=format&fit=crop&w=1200&q=84",
+    image: outboundPexelsImages.kualaLumpur,
     exploreHref: "#malaysia-packages"
   },
   {
@@ -54,7 +55,7 @@ const slides: ShowcaseSlide[] = [
     description: "A polished Singapore city break with iconic skyline stops, Gardens by the Bay, Sentosa fun, and family-friendly pacing.",
     cardTitle: "Sentosa, Singapore",
     cardSubtitle: "Skyline & City Lights",
-    image: "https://images.unsplash.com/photo-1496939376851-89342e90adcd?auto=format&fit=crop&w=1200&q=84",
+    image: outboundPexelsImages.singapore,
     exploreHref: "#singapore-packages"
   },
   {
@@ -65,7 +66,7 @@ const slides: ShowcaseSlide[] = [
     description: "A lively Thailand plan combining Bangkok nightlife, cultural stops, Phuket beaches, and tropical island experiences.",
     cardTitle: "Bangkok, Thailand",
     cardSubtitle: "Night Pulse & Tropical Escape",
-    image: "https://images.unsplash.com/photo-1534008897995-27a23e859048?auto=format&fit=crop&w=1200&q=84",
+    image: outboundPexelsImages.thailandBeach,
     exploreHref: "#thailand-packages"
   }
 ];

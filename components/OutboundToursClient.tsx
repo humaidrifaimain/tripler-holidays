@@ -16,7 +16,7 @@ import {
   Star,
   X
 } from "lucide-react";
-import { destinations } from "@/lib/content";
+import { destinations, outboundPexelsImages } from "@/lib/content";
 import SiteHeader from "@/components/SiteHeader";
 import HolidayToursHeroShowcase from "@/components/HolidayToursHeroShowcase";
 import AccordionFAQ from "@/components/AccordionFAQ";
@@ -96,24 +96,22 @@ const outboundCategories = [
   {
     title: "City Lights",
     note: "Kuala Lumpur and Singapore escapes with skyline views, shopping stops and smooth transfers",
-    image:
-      "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?auto=format&fit=crop&w=1600&q=88"
+    image: outboundPexelsImages.kualaLumpur
   },
   {
     title: "Ocean Dreams",
     note: "Maldives resort holidays for honeymoons, celebrations and peaceful island stays",
-    image:
-      "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=1600&q=88"
+    image: outboundPexelsImages.maldivesVilla
   },
   {
     title: "Tropical Escapes",
     note: "Thailand beach routes, island days and nightlife plans with guided coordination",
-    image: "/images/outbound-tours/pexels-nextvoyage-8213820.jpg"
+    image: outboundPexelsImages.thailandBeach
   },
   {
     title: "Highland Nights",
     note: "Short Malaysia getaways with city energy, Genting cool weather and family attractions",
-    image: "/images/outbound-tours/pexels-aldrich-332268-5457264.jpg"
+    image: outboundPexelsImages.gentingHighlands
   }
 ];
 
@@ -141,8 +139,7 @@ const thailandTourCollection = [
   {
     title: "Explore Bangkok",
     duration: "3 Nights 4 Days",
-    image:
-      "https://images.unsplash.com/photo-1528181304800-259b08848526?auto=format&fit=crop&w=1800&q=88",
+    image: outboundPexelsImages.bangkok,
     details: [
       "3 nights accommodation",
       "All transfers",
@@ -155,8 +152,7 @@ const thailandTourCollection = [
   {
     title: "Bangkok & Phuket",
     duration: "4 Nights 5 Days",
-    image:
-      "https://images.unsplash.com/photo-1537953773345-d172ccf13cf1?auto=format&fit=crop&w=1800&q=88",
+    image: outboundPexelsImages.phuket,
     details: [
       "2 nights in Bangkok",
       "2 nights in Phuket",
@@ -174,8 +170,7 @@ const singaporeTourCollection = [
   {
     title: "Exciting Singapore",
     duration: "3 Nights 4 Days",
-    image:
-      "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?auto=format&fit=crop&w=1800&q=88",
+    image: outboundPexelsImages.singapore,
     details: [
       "3 nights accommodation",
       "All transfers",
@@ -187,8 +182,7 @@ const singaporeTourCollection = [
   {
     title: "Amazing Singapore",
     duration: "4 Nights 5 Days",
-    image:
-      "https://images.unsplash.com/photo-1496939376851-89342e90adcd?auto=format&fit=crop&w=2400&q=90",
+    image: outboundPexelsImages.singaporeGardens,
     details: [
       "3 nights accommodation",
       "All transfers",
@@ -203,8 +197,7 @@ const singaporeTourCollection = [
   {
     title: "Singapore & Malaysia",
     duration: "5 Nights 6 Days",
-    image:
-      "https://images.unsplash.com/photo-1508964942454-1a56651d54ac?auto=format&fit=crop&w=1800&q=88",
+    image: outboundPexelsImages.kualaLumpur,
     details: [
       "2 nights in Singapore",
       "3 nights in Malaysia",
@@ -253,8 +246,7 @@ const malaysiaTourCollection: DetailedPackage[] = [
     title: "KL + Cameron Highlands Package",
     duration: "4 Days 3 Nights",
     tourType: "Daily Tour",
-    image:
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1800&q=88",
+    image: outboundPexelsImages.cameronHighlands,
     details: [
       "Kuala Lumpur half-day city tour with KL Tower observation deck",
       "Cameron Highlands stay with a full-day local tour",
@@ -298,8 +290,7 @@ const malaysiaTourCollection: DetailedPackage[] = [
     title: "KL + Sunway Lagoon + Genting Package",
     duration: "4 Days 3 Nights",
     tourType: "Daily Tour",
-    image:
-      "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?auto=format&fit=crop&w=1800&q=88",
+    image: outboundPexelsImages.kualaLumpur,
     details: [
       "Kuala Lumpur half-day city tour with KL Tower observation deck",
       "Sunway Lagoon 6 theme parks access",
@@ -344,8 +335,7 @@ const malaysiaTourCollection: DetailedPackage[] = [
     title: "Malaysia Grand Discovery",
     duration: "14 Days 13 Nights",
     tourType: "Daily Tour",
-    image:
-      "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1800&q=88",
+    image: outboundPexelsImages.langkawi,
     details: [
       "Kuala Lumpur city tour with Twin Towers and KL Tower access",
       "Genting Highlands with indoor and outdoor theme park entry",
@@ -434,34 +424,30 @@ const maldivesTourCollection = [
   {
     title: "Maldives Luxe Escape",
     subtitle: "For the Ultimate Indulgence",
-    image:
-      "https://images.unsplash.com/photo-1540202404-a2f29016b523?auto=format&fit=crop&w=1600&q=88"
+    image: outboundPexelsImages.maldivesVilla
   },
   {
     title: "Maldives Explorer",
     subtitle: "For the Adventurous Soul",
-    image:
-      "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=1600&q=88"
+    image: outboundPexelsImages.maldives
   },
   {
     title: "Maldives Serenity Retreat",
     subtitle: "For Wellness & Rejuvenation",
-    image:
-      "https://images.unsplash.com/photo-1578922746465-3a80a228f223?auto=format&fit=crop&w=1600&q=88"
+    image: outboundPexelsImages.maldivesBeach
   },
   {
     title: "Maldives Family Fun",
     subtitle: "For All Ages",
-    image:
-      "https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&w=1600&q=88"
+    image: outboundPexelsImages.maldives
   }
 ];
 
 const outboundGallery = [
-  "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?auto=format&fit=crop&w=1200&q=84",
-  "https://images.unsplash.com/photo-1496939376851-89342e90adcd?auto=format&fit=crop&w=1200&q=84",
-  "https://images.unsplash.com/photo-1528181304800-259b08848526?auto=format&fit=crop&w=1200&q=84",
-  "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=1200&q=84"
+  outboundPexelsImages.kualaLumpur,
+  outboundPexelsImages.singapore,
+  outboundPexelsImages.phuket,
+  outboundPexelsImages.maldivesVilla
 ];
 
 const outboundReviews = [
@@ -505,64 +491,64 @@ function getOutboundPackageImages(pkg: OutboundPackageModal) {
 
   const packageGalleries: Record<string, string[]> = {
     "KL + Cameron Highlands Package": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1800&q=88",
-      "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1800&q=88",
-      "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1800&q=88"
+      outboundPexelsImages.cameronHighlands,
+      outboundPexelsImages.kualaLumpur,
+      outboundPexelsImages.gentingHighlands
     ],
     "KL + Sunway Lagoon + Genting Package": [
-      "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?auto=format&fit=crop&w=1800&q=88",
-      "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1800&q=88",
-      "https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=1800&q=88"
+      outboundPexelsImages.kualaLumpur,
+      outboundPexelsImages.gentingHighlands,
+      outboundPexelsImages.cameronHighlands
     ],
     "Malaysia Grand Discovery": [
-      "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1800&q=88",
-      "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?auto=format&fit=crop&w=1800&q=88",
-      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1800&q=88"
+      outboundPexelsImages.langkawi,
+      outboundPexelsImages.kualaLumpur,
+      outboundPexelsImages.tamanNegara
     ],
     "Explore Bangkok": [
-      "https://images.unsplash.com/photo-1528181304800-259b08848526?auto=format&fit=crop&w=1800&q=88",
-      "https://images.unsplash.com/photo-1508009603885-50cf7c579365?auto=format&fit=crop&w=1800&q=88",
-      "https://images.unsplash.com/photo-1563492065599-3520f775eeed?auto=format&fit=crop&w=1800&q=88"
+      outboundPexelsImages.bangkok,
+      outboundPexelsImages.thailandBeach,
+      outboundPexelsImages.phuket
     ],
     "Bangkok & Phuket": [
-      "https://images.unsplash.com/photo-1537953773345-d172ccf13cf1?auto=format&fit=crop&w=1800&q=88",
-      "https://images.unsplash.com/photo-1528181304800-259b08848526?auto=format&fit=crop&w=1800&q=88",
-      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1800&q=88"
+      outboundPexelsImages.phuket,
+      outboundPexelsImages.bangkok,
+      outboundPexelsImages.thailandBeach
     ],
     "Exciting Singapore": [
-      "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?auto=format&fit=crop&w=1800&q=88",
-      "https://images.unsplash.com/photo-1496939376851-89342e90adcd?auto=format&fit=crop&w=2400&q=90",
-      "https://images.unsplash.com/photo-1508964942454-1a56651d54ac?auto=format&fit=crop&w=1800&q=88"
+      outboundPexelsImages.singapore,
+      outboundPexelsImages.singaporeGardens,
+      outboundPexelsImages.kualaLumpur
     ],
     "Amazing Singapore": [
-      "https://images.unsplash.com/photo-1496939376851-89342e90adcd?auto=format&fit=crop&w=2400&q=90",
-      "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?auto=format&fit=crop&w=1800&q=88",
-      "https://images.unsplash.com/photo-1565967511849-76a60a516170?auto=format&fit=crop&w=1800&q=88"
+      outboundPexelsImages.singaporeGardens,
+      outboundPexelsImages.singapore,
+      outboundPexelsImages.malaysiaIslands
     ],
     "Singapore & Malaysia": [
-      "https://images.unsplash.com/photo-1508964942454-1a56651d54ac?auto=format&fit=crop&w=1800&q=88",
-      "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?auto=format&fit=crop&w=1800&q=88",
-      "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?auto=format&fit=crop&w=1800&q=88"
+      outboundPexelsImages.kualaLumpur,
+      outboundPexelsImages.singapore,
+      outboundPexelsImages.gentingHighlands
     ],
     "Maldives Luxe Escape": [
-      "https://images.unsplash.com/photo-1540202404-a2f29016b523?auto=format&fit=crop&w=1600&q=88",
-      "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=1600&q=88",
-      "https://images.unsplash.com/photo-1578922746465-3a80a228f223?auto=format&fit=crop&w=1600&q=88"
+      outboundPexelsImages.maldivesVilla,
+      outboundPexelsImages.maldives,
+      outboundPexelsImages.maldivesBeach
     ],
     "Maldives Explorer": [
-      "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=1600&q=88",
-      "https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&w=1600&q=88",
-      "https://images.unsplash.com/photo-1540202404-a2f29016b523?auto=format&fit=crop&w=1600&q=88"
+      outboundPexelsImages.maldives,
+      outboundPexelsImages.maldivesBeach,
+      outboundPexelsImages.maldivesVilla
     ],
     "Maldives Serenity Retreat": [
-      "https://images.unsplash.com/photo-1578922746465-3a80a228f223?auto=format&fit=crop&w=1600&q=88",
-      "https://images.unsplash.com/photo-1540202404-a2f29016b523?auto=format&fit=crop&w=1600&q=88",
-      "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=1600&q=88"
+      outboundPexelsImages.maldivesBeach,
+      outboundPexelsImages.maldivesVilla,
+      outboundPexelsImages.maldives
     ],
     "Maldives Family Fun": [
-      "https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&w=1600&q=88",
-      "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=1600&q=88",
-      "https://images.unsplash.com/photo-1540202404-a2f29016b523?auto=format&fit=crop&w=1600&q=88"
+      outboundPexelsImages.maldives,
+      outboundPexelsImages.maldivesBeach,
+      outboundPexelsImages.maldivesVilla
     ]
   };
 
@@ -576,31 +562,31 @@ function getOutboundPackageImages(pkg: OutboundPackageModal) {
   if (title.includes("singapore")) {
     return uniqueImages([
       pkg.image,
-      "https://images.unsplash.com/photo-1496939376851-89342e90adcd?auto=format&fit=crop&w=2400&q=90",
-      "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?auto=format&fit=crop&w=1800&q=88"
+      outboundPexelsImages.singapore,
+      outboundPexelsImages.singaporeGardens
     ]);
   }
 
   if (title.includes("bangkok") || title.includes("phuket") || title.includes("thailand")) {
     return uniqueImages([
       pkg.image,
-      "https://images.unsplash.com/photo-1528181304800-259b08848526?auto=format&fit=crop&w=1800&q=88",
-      "https://images.unsplash.com/photo-1537953773345-d172ccf13cf1?auto=format&fit=crop&w=1800&q=88"
+      outboundPexelsImages.bangkok,
+      outboundPexelsImages.phuket
     ]);
   }
 
   if (title.includes("maldives")) {
     return uniqueImages([
       pkg.image,
-      "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=1600&q=88",
-      "https://images.unsplash.com/photo-1540202404-a2f29016b523?auto=format&fit=crop&w=1600&q=88"
+      outboundPexelsImages.maldives,
+      outboundPexelsImages.maldivesVilla
     ]);
   }
 
   return uniqueImages([
     pkg.image,
-    "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?auto=format&fit=crop&w=1800&q=88",
-    "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1800&q=88"
+    outboundPexelsImages.kualaLumpur,
+    outboundPexelsImages.cameronHighlands
   ]);
 }
 
