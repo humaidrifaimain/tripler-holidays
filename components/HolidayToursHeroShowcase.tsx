@@ -15,8 +15,6 @@ if (typeof window !== "undefined") {
 type ShowcaseSlide = {
   id: number;
   country: string;
-  regionAbove: string;
-  regionBelow: string;
   description: string;
   cardTitle: string;
   cardSubtitle: string;
@@ -28,8 +26,6 @@ const slides: ShowcaseSlide[] = [
   {
     id: 1,
     country: "MALDIVES",
-    regionAbove: "THAILAND",
-    regionBelow: "MALAYSIA",
     description: "A calm ocean escape with turquoise lagoons, resort comfort, coral-life moments, and smooth island transfers.",
     cardTitle: "Fihalhohi, Maldives",
     cardSubtitle: "Ocean Dreams & Island Escape",
@@ -39,8 +35,6 @@ const slides: ShowcaseSlide[] = [
   {
     id: 2,
     country: "MALAYSIA",
-    regionAbove: "MALDIVES",
-    regionBelow: "SINGAPORE",
     description: "A balanced Malaysia route with Kuala Lumpur city energy, Genting cool weather, family attractions, and easy transfer planning.",
     cardTitle: "Kuala Lumpur, Malaysia",
     cardSubtitle: "City Lights & Highland Nights",
@@ -50,8 +44,6 @@ const slides: ShowcaseSlide[] = [
   {
     id: 3,
     country: "SINGAPORE",
-    regionAbove: "MALAYSIA",
-    regionBelow: "THAILAND",
     description: "A polished Singapore city break with iconic skyline stops, Gardens by the Bay, Sentosa fun, and family-friendly pacing.",
     cardTitle: "Sentosa, Singapore",
     cardSubtitle: "Skyline & City Lights",
@@ -61,8 +53,6 @@ const slides: ShowcaseSlide[] = [
   {
     id: 4,
     country: "THAILAND",
-    regionAbove: "SINGAPORE",
-    regionBelow: "MALDIVES",
     description: "A lively Thailand plan combining Bangkok nightlife, cultural stops, Phuket beaches, and tropical island experiences.",
     cardTitle: "Bangkok, Thailand",
     cardSubtitle: "Night Pulse & Tropical Escape",
@@ -81,6 +71,7 @@ export default function HolidayToursHeroShowcase() {
   const pinTriggerRef = useRef<ScrollTrigger | null>(null);
   const activeIndexRef = useRef(0);
   const wheelLockRef = useRef(false);
+  const lastDesktopWheelMoveAtRef = useRef(0);
   const wheelUnlockTimerRef = useRef<number | null>(null);
   const touchStartRef = useRef<{ x: number; y: number } | null>(null);
   const touchIntentRef = useRef<"vertical" | "horizontal" | null>(null);
@@ -100,8 +91,8 @@ export default function HolidayToursHeroShowcase() {
     const isDesktop = window.matchMedia("(min-width: 1024px)").matches;
     if (lenisScroll && typeof lenisScroll.scrollTo === "function") {
       lenisScroll.scrollTo(targetScroll, {
-        duration: isDesktop ? 0.28 : 0.42,
-        lerp: isDesktop ? 0.22 : 0.16,
+        duration: isDesktop ? 0.36 : 0.42,
+        lerp: isDesktop ? 0.18 : 0.16,
         lock: true
       });
       return;
@@ -247,11 +238,17 @@ export default function HolidayToursHeroShowcase() {
       }
 
       const isDesktop = window.matchMedia("(min-width: 1024px)").matches;
+      const now = Date.now();
+      if (isDesktop && now - lastDesktopWheelMoveAtRef.current < 900) {
+        return true;
+      }
+
       wheelLockRef.current = true;
+      if (isDesktop) lastDesktopWheelMoveAtRef.current = now;
       activeIndexRef.current = targetIndex;
       setActiveIndex(targetIndex);
       scrollToSlide(targetIndex);
-      scheduleWheelUnlock(isDesktop ? 300 : 560);
+      scheduleWheelUnlock(isDesktop ? 520 : 560);
       return true;
     };
 
@@ -263,7 +260,9 @@ export default function HolidayToursHeroShowcase() {
     };
 
     const handleWheel = (event: WheelEvent) => {
-      if (!isWithinPinnedRange() || Math.abs(event.deltaY) < 6) return;
+      const isDesktop = window.matchMedia("(min-width: 1024px)").matches;
+      const minDelta = isDesktop ? 16 : 6;
+      if (!isWithinPinnedRange() || Math.abs(event.deltaY) < minDelta) return;
 
       const direction = event.deltaY > 0 ? 1 : -1;
       const didMove = moveByDirection(direction);
@@ -406,13 +405,8 @@ export default function HolidayToursHeroShowcase() {
                 key={slide.id}
                 className="text-details-block absolute inset-x-0 flex flex-col justify-start text-white lg:justify-center"
               >
-                {/* Region Above Indicator */}
-                <span className="block text-[10px] font-extrabold uppercase tracking-[0.26em] text-white/40 min-[380px]:text-[11px] lg:text-xs">
-                  {slide.regionAbove}
-                </span>
-
                 {/* Active Destination Headline */}
-                <h1 className="font-space mt-1 max-w-full whitespace-nowrap text-[clamp(2.15rem,10.2vw,4.15rem)] font-black uppercase leading-[0.9] tracking-normal sm:text-[clamp(3rem,7.2vw,5rem)] lg:mt-2 lg:text-[clamp(3.55rem,4.65vw,5.35rem)]">
+                <h1 className="font-space max-w-full whitespace-nowrap text-[clamp(2.15rem,10.2vw,4.15rem)] font-black uppercase leading-[0.9] tracking-normal sm:text-[clamp(3rem,7.2vw,5rem)] lg:text-[clamp(3.55rem,4.65vw,5.35rem)]">
                   {slide.country}
                 </h1>
 
@@ -431,11 +425,6 @@ export default function HolidayToursHeroShowcase() {
                     <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1 lg:h-4 lg:w-4" />
                   </Link>
                 </div>
-
-                {/* Region Below Indicator */}
-                <span className="mt-8 hidden text-xs font-extrabold uppercase tracking-[0.25em] text-white/40 lg:block">
-                  {slide.regionBelow}
-                </span>
               </div>
             ))}
           </div>

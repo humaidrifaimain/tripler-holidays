@@ -20,7 +20,7 @@ const contact = {
 
 const services = [
   {
-    title: "Inbound Tours",
+    title: "Sri Lanka Tours",
     description:
       "Private and group journeys across Sri Lanka, planned around culture, wildlife, highlands, beaches and comfortable travel pace.",
     icon: Compass,
