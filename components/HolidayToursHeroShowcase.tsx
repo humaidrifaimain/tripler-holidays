@@ -97,10 +97,11 @@ export default function HolidayToursHeroShowcase() {
     const targetScroll = startScroll + (clampedIndex / (total - 1)) * scrollHeight;
 
     const lenisScroll = (window as any).__lenis;
+    const isDesktop = window.matchMedia("(min-width: 1024px)").matches;
     if (lenisScroll && typeof lenisScroll.scrollTo === "function") {
       lenisScroll.scrollTo(targetScroll, {
-        duration: 0.42,
-        lerp: 0.16,
+        duration: isDesktop ? 0.28 : 0.42,
+        lerp: isDesktop ? 0.22 : 0.16,
         lock: true
       });
       return;
@@ -242,15 +243,15 @@ export default function HolidayToursHeroShowcase() {
       if (targetIndex === currentIndex) return false;
 
       if (wheelLockRef.current) {
-        scheduleWheelUnlock();
         return true;
       }
 
+      const isDesktop = window.matchMedia("(min-width: 1024px)").matches;
       wheelLockRef.current = true;
       activeIndexRef.current = targetIndex;
       setActiveIndex(targetIndex);
       scrollToSlide(targetIndex);
-      scheduleWheelUnlock(560);
+      scheduleWheelUnlock(isDesktop ? 300 : 560);
       return true;
     };
 
