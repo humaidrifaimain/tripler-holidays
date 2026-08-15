@@ -754,10 +754,10 @@ export default function TriplerHolidayLanding() {
               decoding="async"
             />
           </AnimatePresence>
-          <div className="absolute inset-0 bg-[#082B49]/40" />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#082B49]/26 via-[#082B49]/24 to-[#082B49]/68" />
-          <div className="absolute inset-x-0 bottom-0 h-[70%] bg-gradient-to-t from-[#061826] via-[#082B49]/88 to-transparent" />
-          <div className="absolute inset-x-0 bottom-[7vh] mx-auto h-[28rem] max-w-5xl bg-[radial-gradient(ellipse_at_center,rgba(6,24,38,0.78)_0%,rgba(8,43,73,0.54)_42%,transparent_74%)]" />
+          <div className="absolute inset-0 bg-[#082B49]/28" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#082B49]/18 via-[#082B49]/10 to-[#082B49]/40" />
+          <div className="absolute inset-x-0 bottom-0 h-[46%] bg-gradient-to-t from-[#061826]/72 via-[#082B49]/42 to-transparent" />
+          <div className="absolute inset-x-0 bottom-[11vh] mx-auto h-[22rem] max-w-4xl bg-[radial-gradient(ellipse_at_center,rgba(6,24,38,0.50)_0%,rgba(8,43,73,0.30)_44%,transparent_72%)]" />
 
           <div className="absolute inset-0 z-20 flex items-end justify-center pb-10 text-center sm:pb-[14vh] lg:pb-[16vh]">
             <div className="w-full px-4 sm:px-6 lg:px-8">
