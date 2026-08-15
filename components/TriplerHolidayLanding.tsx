@@ -53,24 +53,9 @@ const whyBookItems = [
 
 const heroSlides = [
   {
-    image: "/images/new-pic/aerial-view-to-north.jpg",
-    alt: "Aerial view of Sri Lanka's tropical coastline and cliffside resort"
-  },
-  {
-    image: "/images/home/ella-nine-arches-4k.jpg",
-    alt: "Nine Arches Bridge surrounded by Sri Lankan forest"
-  },
-  {
-    image: "/images/attractions/temple-of-tooth-kandy.jpg",
-    alt: "Temple of the Tooth in Kandy"
-  },
-  {
-    image: "/images/home/pexels-thilina-alagiyawanna-3266092-38343572.jpg",
-    alt: "Sri Lankan highland trail under a blue sky"
-  },
-  {
     image: "/images/home/pexels-anas-mohamed-nuski-3784747-5620146.jpg",
-    alt: "Nuwara Eliya lake and tea country landscape"
+    alt: "Nuwara Eliya lake and tea country landscape",
+    position: "center 42%"
   }
 ];
 
@@ -632,9 +617,10 @@ export default function TriplerHolidayLanding() {
     const measureAttractionStep = () => {
       const card = attractionCardRef.current;
       if (!card) return;
-      const styles = window.getComputedStyle(card);
-      const gap = window.innerWidth >= 640 ? 28 : 16;
-      setAttractionStep(card.offsetWidth + Number.parseFloat(styles.marginRight || "0") + gap);
+      const row = card.parentElement;
+      const styles = row ? window.getComputedStyle(row) : null;
+      const gap = styles ? Number.parseFloat(styles.columnGap || styles.gap || "0") : 0;
+      setAttractionStep(card.getBoundingClientRect().width + gap);
     };
 
     measureAttractionStep();
@@ -643,6 +629,8 @@ export default function TriplerHolidayLanding() {
   }, []);
 
   useEffect(() => {
+    if (heroSlides.length <= 1) return;
+
     // Defer hero slide rotation
     const timer = setTimeout(() => {
       const interval = window.setInterval(() => {
@@ -755,6 +743,7 @@ export default function TriplerHolidayLanding() {
               src={currentHeroSlide.image}
               alt={currentHeroSlide.alt}
               className="parallax-layer pointer-events-none absolute -top-[15%] left-0 h-[130%] w-full object-cover brightness-[0.9] contrast-[1.04] saturate-[1.04] will-change-transform"
+              style={{ objectPosition: currentHeroSlide.position }}
               data-depth="10"
               initial={{ opacity: 0, scale: 1.08, filter: "blur(10px)" }}
               animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
@@ -1069,7 +1058,7 @@ export default function TriplerHolidayLanding() {
                 className="flex flex-col items-center justify-between text-center rounded-[28px] bg-white p-7 sm:p-9 shadow-[0_10px_30px_rgba(0,0,0,0.05)] border border-[#111820]/08 relative overflow-hidden"
               >
                 <div className="flex flex-col items-center">
-                  <div className="mb-6 grid h-20 w-20 place-items-center rounded-full bg-amber-50 text-[#D98928] ring-8 ring-amber-50/50">
+                  <div className="mb-6 grid h-20 w-20 place-items-center rounded-full bg-[#D98928]/12 text-[#D98928] ring-8 ring-[#082B49]/10">
                     <Award className="h-10 w-10 stroke-[2.2]" />
                   </div>
                   <h3 className="text-xl font-bold text-[#111820] leading-snug">
@@ -1094,7 +1083,7 @@ export default function TriplerHolidayLanding() {
                 className="flex flex-col items-center justify-between text-center rounded-[28px] bg-white p-7 sm:p-9 shadow-[0_10px_30px_rgba(0,0,0,0.05)] border border-[#111820]/08 relative overflow-hidden"
               >
                 <div className="flex flex-col items-center">
-                  <div className="mb-6 grid h-20 w-20 place-items-center rounded-full bg-amber-50 text-[#D98928] ring-8 ring-amber-50/50">
+                  <div className="mb-6 grid h-20 w-20 place-items-center rounded-full bg-[#D98928]/12 text-[#D98928] ring-8 ring-[#082B49]/10">
                     <BadgeCheck className="h-10 w-10 stroke-[2.2]" />
                   </div>
                   <h3 className="text-xl font-bold text-[#111820] leading-snug">
@@ -1119,7 +1108,7 @@ export default function TriplerHolidayLanding() {
                 className="flex flex-col items-center justify-between text-center rounded-[28px] bg-white p-7 sm:p-9 shadow-[0_10px_30px_rgba(0,0,0,0.05)] border border-[#111820]/08 relative overflow-hidden sm:col-span-2 lg:col-span-1"
               >
                 <div className="flex flex-col items-center">
-                  <div className="mb-6 grid h-20 w-20 place-items-center rounded-full bg-amber-50 text-[#D98928] ring-8 ring-amber-50/50">
+                  <div className="mb-6 grid h-20 w-20 place-items-center rounded-full bg-[#D98928]/12 text-[#D98928] ring-8 ring-[#082B49]/10">
                     <ShieldCheck className="h-10 w-10 stroke-[2.2]" />
                   </div>
                   <h3 className="text-xl font-bold text-[#111820] leading-snug">

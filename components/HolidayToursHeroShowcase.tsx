@@ -364,7 +364,7 @@ export default function HolidayToursHeroShowcase() {
                 </span>
 
                 {/* Active Destination Headline */}
-                <h1 className="font-space mt-1 text-[2.65rem] font-black uppercase leading-[0.88] tracking-normal min-[380px]:text-5xl sm:text-6xl lg:mt-2 lg:text-7xl">
+                <h1 className="font-space mt-1 max-w-full break-words text-[clamp(2.4rem,13vw,4.6rem)] font-black uppercase leading-[0.9] tracking-normal sm:text-[clamp(3.5rem,9vw,6rem)] lg:mt-2 lg:text-[clamp(4.5rem,6vw,7rem)]">
                   {slide.country}
                 </h1>
 

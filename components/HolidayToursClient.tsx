@@ -267,10 +267,10 @@ function getInboundPackageImages(pkg: InCountryPackage) {
 }
 
 const sriLankaInclusions = [
-  { title: "Private chauffeur tours", icon: Car },
-  { title: "Handpicked local hotels", icon: Hotel },
-  { title: "Flexible route dates", icon: CalendarDays },
-  { title: "On-ground Sri Lanka support", icon: Users }
+  { title: "Private chauffeur", icon: Car },
+  { title: "Handpicked hotels", icon: Hotel },
+  { title: "Flexible travel dates", icon: CalendarDays },
+  { title: "On-ground support", icon: Users }
 ];
 
 const sriLankaWhyBook = [
@@ -335,6 +335,7 @@ const sriLankaFaqs = [
 
 export default function HolidayToursClient() {
   const categoriesSlider = useAutoSwipeSlider<HTMLDivElement>({ autoPlayInterval: 3600 });
+  const mobilePackagesSlider = useAutoSwipeSlider<HTMLDivElement>({ autoPlayInterval: 4200 });
   const reviewsSlider = useAutoSwipeSlider<HTMLDivElement>({ autoPlayInterval: 4000 });
   const [activeHeroSlide, setActiveHeroSlide] = useState(0);
   const [selectedPackage, setSelectedPackage] = useState<InCountryPackage | null>(null);
@@ -357,7 +358,7 @@ export default function HolidayToursClient() {
   useEffect(() => {
     const timer = window.setInterval(() => {
       setActiveHeroSlide(index => (index + 1) % sriLankaHeroSlides.length);
-    }, 2500);
+    }, 5200);
 
     return () => window.clearInterval(timer);
   }, []);
@@ -554,7 +555,7 @@ export default function HolidayToursClient() {
               Sri Lanka
             </span>
             <h3 className="font-space text-2xl sm:text-4xl font-black uppercase mt-2 text-[#111820]">
-              Sri Lanka Tour Packages
+              POPULAR TOUR PACKAGES
             </h3>
           </div>
 
@@ -568,7 +569,9 @@ export default function HolidayToursClient() {
                 transition: { staggerChildren: 0.08 }
               }
             }}
-            className="mt-10 grid gap-5 md:hidden"
+            className="hide-scrollbar mt-10 flex snap-x snap-mandatory gap-3 overflow-x-auto scroll-smooth pb-2 md:hidden"
+            ref={mobilePackagesSlider.containerRef}
+            {...mobilePackagesSlider.touchHandlers}
           >
             {inCountryPackages.map(pkg => (
               <motion.article
@@ -577,7 +580,7 @@ export default function HolidayToursClient() {
                   hidden: { opacity: 0, y: 18 },
                   visible: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 95, damping: 15 } }
                 }}
-                className="w-full"
+                className="min-w-[82vw] snap-start min-[520px]:min-w-[calc(50%-0.375rem)]"
               >
                 <button
                   type="button"

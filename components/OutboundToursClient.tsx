@@ -14,7 +14,6 @@ import {
   ShieldCheck,
   Sparkles,
   Star,
-  TicketCheck,
   X
 } from "lucide-react";
 import { destinations } from "@/lib/content";
@@ -690,12 +689,8 @@ export default function OutboundToursClient() {
             className="flex flex-col justify-between gap-6 md:flex-row md:items-end"
           >
             <div>
-              <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-[#D98928]">
-                <span className="h-px w-9 bg-[#D98928]" />
-                Outbound travels
-              </span>
-              <h2 className="font-space fluid-title mt-4 font-bold uppercase">
-                Outbound Travel Themes
+              <h2 className="font-space fluid-title font-bold uppercase">
+                Travel Themes
               </h2>
             </div>
           </motion.div>
@@ -803,23 +798,15 @@ export default function OutboundToursClient() {
                     <span className="rounded-full bg-[#D98928] px-3 py-1 text-[10px] font-bold uppercase tracking-[0.12em] text-[#111820]">
                       {item.duration}
                     </span>
-                    <span className="rounded-full bg-white/88 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.12em] text-[#111820]">
-                      {item.tourType}
-                    </span>
                   </div>
                 </div>
                 <div className="p-5 sm:p-6">
                   <h3 className="font-space text-2xl font-extrabold uppercase text-[#111820]">{item.title}</h3>
-                  <div className="mt-4 grid grid-cols-2 gap-2">
+                  <div className="mt-4 grid gap-2">
                     <div className="rounded-2xl border border-[#111820]/10 bg-white/50 p-3">
                       <CalendarDays className="h-4 w-4 text-[#D98928]" />
                       <p className="mt-2 text-[10px] font-bold uppercase tracking-[0.16em] text-[#111820]/52">Duration</p>
                       <p className="mt-1 text-sm font-semibold text-[#111820]">{item.duration}</p>
-                    </div>
-                    <div className="rounded-2xl border border-[#111820]/10 bg-white/50 p-3">
-                      <TicketCheck className="h-4 w-4 text-[#D98928]" />
-                      <p className="mt-2 text-[10px] font-bold uppercase tracking-[0.16em] text-[#111820]/52">Tour Type</p>
-                      <p className="mt-1 text-sm font-semibold text-[#111820]">{item.tourType}</p>
                     </div>
                   </div>
                   <ul className="mt-4 space-y-2">
@@ -1655,16 +1642,11 @@ export default function OutboundToursClient() {
                   </h4>
                 </div>
 
-                <div className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-3">
+                <div className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2">
                   <div className="rounded-2xl border border-[#111820]/10 bg-white/70 p-4 shadow-[0_12px_30px_rgba(17,24,32,0.06)]">
                     <Clock3 className="h-4 w-4 text-[#D98928]" />
                     <p className="mt-2 text-[10px] font-bold uppercase tracking-[0.16em] text-[#111820]/55">Duration</p>
                     <p className="mt-1 text-sm font-semibold text-[#111820]">{mobilePackageModal.duration}</p>
-                  </div>
-                  <div className="rounded-2xl border border-[#111820]/10 bg-white/70 p-4 shadow-[0_12px_30px_rgba(17,24,32,0.06)]">
-                    <TicketCheck className="h-4 w-4 text-[#D98928]" />
-                    <p className="mt-2 text-[10px] font-bold uppercase tracking-[0.16em] text-[#111820]/55">Tour Type</p>
-                    <p className="mt-1 text-sm font-semibold text-[#111820]">{mobilePackageModal.tourType}</p>
                   </div>
                   <div className="rounded-2xl border border-[#111820]/10 bg-white/70 p-4 shadow-[0_12px_30px_rgba(17,24,32,0.06)]">
                     <Route className="h-4 w-4 text-[#D98928]" />
