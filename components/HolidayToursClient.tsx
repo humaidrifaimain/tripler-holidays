@@ -404,8 +404,8 @@ export default function HolidayToursClient() {
           />
         </AnimatePresence>
         <div className="absolute inset-0 bg-[#082B49]/40" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#082B49]/28 via-[#082B49]/24 to-[#082B49]/62" />
-        <div className="absolute inset-x-0 bottom-0 h-80 bg-gradient-to-t from-[#082B49]/88 via-[#082B49]/54 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#082B49]/24 via-[#082B49]/20 to-[#082B49]/58" />
+        <div className="absolute inset-x-0 bottom-0 h-[34rem] bg-gradient-to-t from-[#082B49]/95 via-[#082B49]/72 to-transparent" />
 
         <div className="absolute inset-0 z-10 mx-auto flex w-full max-w-7xl items-end justify-center px-6 pb-14 sm:px-8 sm:pb-16 lg:pb-20">
           <motion.div

@@ -218,6 +218,11 @@ h6 {
     0 1px 3px rgba(2, 8, 23, 0.72);
 }
 
+[data-hero-content] a,
+[data-hero-content] button {
+  text-shadow: none;
+}
+
 [data-split-title] {
   letter-spacing: 0;
 }
