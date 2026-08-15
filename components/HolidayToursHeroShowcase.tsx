@@ -352,7 +352,7 @@ export default function HolidayToursHeroShowcase() {
         <div className="relative z-20 mx-auto grid w-full max-w-7xl grid-cols-1 items-start gap-7 px-5 pb-[250px] pt-9 min-[380px]:pb-[280px] min-[380px]:pt-12 sm:px-8 sm:pb-[330px] sm:pt-14 md:pl-28 md:pr-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:gap-12 lg:p-0 lg:px-8 lg:pl-28 lg:pr-12">
           
           {/* Left Columns Destination Text Details Stack */}
-          <div className="relative flex min-h-[270px] w-full max-w-[330px] items-start min-[380px]:min-h-[300px] min-[380px]:max-w-[360px] sm:min-h-[330px] sm:max-w-[430px] lg:min-h-[360px] lg:max-w-[460px] lg:items-center">
+          <div className="relative flex min-h-[270px] w-full max-w-[min(88vw,560px)] items-start min-[380px]:min-h-[300px] sm:min-h-[330px] lg:min-h-[360px] lg:max-w-[620px] lg:items-center">
             {slides.map((slide) => (
               <div
                 key={slide.id}
@@ -364,7 +364,7 @@ export default function HolidayToursHeroShowcase() {
                 </span>
 
                 {/* Active Destination Headline */}
-                <h1 className="font-space mt-1 max-w-full break-words text-[clamp(2.4rem,13vw,4.6rem)] font-black uppercase leading-[0.9] tracking-normal sm:text-[clamp(3.5rem,9vw,6rem)] lg:mt-2 lg:text-[clamp(4.5rem,6vw,7rem)]">
+                <h1 className="font-space mt-1 max-w-full whitespace-nowrap text-[clamp(2.25rem,11vw,4.55rem)] font-black uppercase leading-[0.9] tracking-normal sm:text-[clamp(3.25rem,8.2vw,5.9rem)] lg:mt-2 lg:text-[clamp(4.25rem,5.7vw,7rem)]">
                   {slide.country}
                 </h1>
 
