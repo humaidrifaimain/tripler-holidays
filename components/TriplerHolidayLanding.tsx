@@ -1058,7 +1058,7 @@ export default function TriplerHolidayLanding() {
                 className="flex flex-col items-center justify-between text-center rounded-[28px] bg-white p-7 sm:p-9 shadow-[0_10px_30px_rgba(0,0,0,0.05)] border border-[#111820]/08 relative overflow-hidden"
               >
                 <div className="flex flex-col items-center">
-                  <div className="mb-6 grid h-20 w-20 place-items-center rounded-full bg-[#D98928]/12 text-[#D98928] ring-8 ring-[#082B49]/10">
+                  <div className="mb-6 grid h-20 w-20 place-items-center rounded-full bg-[#0a2b49]/8 text-[#D98928] ring-8 ring-[#0a2b49]/35">
                     <Award className="h-10 w-10 stroke-[2.2]" />
                   </div>
                   <h3 className="text-xl font-bold text-[#111820] leading-snug">
@@ -1083,7 +1083,7 @@ export default function TriplerHolidayLanding() {
                 className="flex flex-col items-center justify-between text-center rounded-[28px] bg-white p-7 sm:p-9 shadow-[0_10px_30px_rgba(0,0,0,0.05)] border border-[#111820]/08 relative overflow-hidden"
               >
                 <div className="flex flex-col items-center">
-                  <div className="mb-6 grid h-20 w-20 place-items-center rounded-full bg-[#D98928]/12 text-[#D98928] ring-8 ring-[#082B49]/10">
+                  <div className="mb-6 grid h-20 w-20 place-items-center rounded-full bg-[#0a2b49]/8 text-[#D98928] ring-8 ring-[#0a2b49]/35">
                     <BadgeCheck className="h-10 w-10 stroke-[2.2]" />
                   </div>
                   <h3 className="text-xl font-bold text-[#111820] leading-snug">
@@ -1108,7 +1108,7 @@ export default function TriplerHolidayLanding() {
                 className="flex flex-col items-center justify-between text-center rounded-[28px] bg-white p-7 sm:p-9 shadow-[0_10px_30px_rgba(0,0,0,0.05)] border border-[#111820]/08 relative overflow-hidden sm:col-span-2 lg:col-span-1"
               >
                 <div className="flex flex-col items-center">
-                  <div className="mb-6 grid h-20 w-20 place-items-center rounded-full bg-[#D98928]/12 text-[#D98928] ring-8 ring-[#082B49]/10">
+                  <div className="mb-6 grid h-20 w-20 place-items-center rounded-full bg-[#0a2b49]/8 text-[#D98928] ring-8 ring-[#0a2b49]/35">
                     <ShieldCheck className="h-10 w-10 stroke-[2.2]" />
                   </div>
                   <h3 className="text-xl font-bold text-[#111820] leading-snug">
