@@ -518,7 +518,8 @@ export default function HolidayToursClient() {
                 {
                   title: "Wildlife Adventures",
                   desc: "Plan safari days around Sri Lanka's national parks, birdlife, elephants and big-cat territory.",
-                  image: sriLankanPics.wildlifeElephant
+                  image: sriLankanPics.wildlifeElephant,
+                  objectPos: "object-bottom"
                 },
                 {
                   title: "Beach Getaways",
@@ -544,7 +545,7 @@ export default function HolidayToursClient() {
                     <img
                       src={theme.image}
                       alt={theme.title}
-                      className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                      className={`h-full w-full object-cover ${theme.objectPos || 'object-center'} transition duration-700 group-hover:scale-105`}
                       loading="lazy"
                       decoding="async"
                     />
