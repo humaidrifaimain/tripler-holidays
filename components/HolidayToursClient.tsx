@@ -545,7 +545,8 @@ export default function HolidayToursClient() {
                     <img
                       src={theme.image}
                       alt={theme.title}
-                      className={`h-full w-full object-cover ${theme.objectPos || 'object-center'} transition duration-700 group-hover:scale-105`}
+                      style={{ objectPosition: theme.objectPos === "object-bottom" ? "bottom" : "center" }}
+                      className={`h-full w-full object-cover ${theme.objectPos === "object-bottom" ? "object-bottom" : "object-center"} transition duration-700 group-hover:scale-105`}
                       loading="lazy"
                       decoding="async"
                     />
