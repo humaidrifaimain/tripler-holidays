@@ -2,14 +2,16 @@ import type { Metadata } from "next";
 import OutboundToursClient from "@/components/OutboundToursClient";
 
 export const metadata: Metadata = {
-  title: "Outbound Holiday Packages",
+  title: {
+    absolute: "Outbound Tours — Outbound Tour Packages | Triple R Holidays"
+  },
   description:
     "Plan outbound holiday packages from Sri Lanka to Malaysia, Singapore, Thailand and Maldives with guided coordination from Triple R Holidays.",
   alternates: {
     canonical: "/outbound-tours"
   },
   openGraph: {
-    title: "Outbound Holiday Packages | Triple R Holidays",
+    title: "Outbound Tours — Outbound Tour Packages | Triple R Holidays",
     description:
       "International getaways from Sri Lanka with city breaks, beach escapes, family routes and hotel coordination.",
     url: "/outbound-tours",

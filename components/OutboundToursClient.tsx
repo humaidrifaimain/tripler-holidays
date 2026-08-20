@@ -25,7 +25,7 @@ import { useAutoSwipeSlider } from "@/components/AutoSwipeCarousel";
 
 const contact = {
   phone: "+94 (77) 666 1272",
-  whatsappHref: "https://wa.me/94767161937",
+  whatsappHref: "https://wa.me/94776661272",
   email: "hello@triplerholidays.com"
 };
 

@@ -27,7 +27,7 @@ const navItems: NavItem[] = [
     ]
   },
   { key: "services", label: "Our Services", href: "/services" },
-  { key: "cooperate", label: "Cooperate", href: "/cooperate" },
+  { key: "cooperate", label: "Corporate", href: "/cooperate" },
   { key: "testimonials", label: "Testimonials", href: "/testimonials" },
   { key: "about", label: "About Us", href: "/about" }
 ];

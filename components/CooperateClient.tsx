@@ -110,9 +110,9 @@ const partnershipSteps = [
 const contact = {
   phone: "+94 (77) 666 1272",
   phoneHref: "tel:+94776661272",
-  whatsappHref: "https://wa.me/94767161937",
+  whatsappHref: "https://wa.me/94776661272",
   email: "hello@triplerholidays.com",
-  address: "173 A 1/2 Negombo Road, Wattala - Triple R Holidays",
+  address: "2nd Floor, 173a Negombo Road, Wattala",
   linkedinHref: "https://linkedin.com"
 };
 
@@ -398,7 +398,7 @@ export default function CooperateClient() {
         <div className="mx-auto max-w-7xl">
           <div className="text-center">
             <h2 className="font-space fluid-title font-bold uppercase text-[#111820]">
-              Why Partner With Triple R Holidays
+              Why Partner With Us
             </h2>
             <p className="mx-auto mt-4 max-w-3xl text-sm leading-7 text-[#111820]/78 sm:text-base">
               Discover the advantages of collaborating with a dependable Sri Lanka travel partner.

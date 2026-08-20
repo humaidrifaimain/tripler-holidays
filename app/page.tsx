@@ -4,14 +4,16 @@ import PageReveal from "@/components/PageReveal";
 import { Suspense } from "react";
 
 export const metadata: Metadata = {
-  title: "Sri Lanka Tours, Outbound Holidays & Travel Services",
+  title: {
+    absolute: "Home — Sri Lanka Tours & Outbound Holidays | Triple R Holidays"
+  },
   description:
     "Plan Sri Lanka cultural tours, wildlife trips, highland escapes, outbound holidays, hotel bookings and destination weddings with Triple R Holidays in Wattala.",
   alternates: {
     canonical: "/"
   },
   openGraph: {
-    title: "Triple R Holidays | Sri Lanka Tours & Travel Services",
+    title: "Home — Sri Lanka Tours & Outbound Holidays | Triple R Holidays",
     description:
       "Curated Sri Lanka tours, outbound holiday packages and travel services from Triple R Holidays.",
     url: "/",
@@ -51,7 +53,7 @@ export default function Home() {
   return (
     <>
       <link rel="preload" href="/images/new-pic/aerial-view-to-north.jpg" as="image" type="image/jpeg" />
-      <link rel="preload" href="/images/home/ella-nine-arches-4k.jpg" as="image" type="image/jpeg" />
+      <link rel="preload" href="/images/new-pic/hero-gallery-c29f7dfb-800x450.jpeg" as="image" type="image/jpeg" />
       <PageReveal />
       <Suspense fallback={<LandingLoader />}>
         <TriplerHolidayLanding />

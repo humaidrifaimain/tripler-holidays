@@ -14,8 +14,8 @@ import {
 import SiteHeader from "@/components/SiteHeader";
 
 const contact = {
-  whatsapp: "0767161937",
-  whatsappHref: "https://wa.me/94767161937"
+  whatsapp: "+94 (77) 666 1272",
+  whatsappHref: "https://wa.me/94776661272"
 };
 
 const services = [

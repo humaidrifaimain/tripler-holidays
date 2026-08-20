@@ -9,7 +9,7 @@ import { Suspense } from "react";
 export const metadata: Metadata = {
   metadataBase: new URL("https://triplerholidays.com"),
   title: {
-    default: "Triple R Holidays | Sri Lanka Tours & Holiday Packages",
+    default: "Home — Sri Lanka Tours & Outbound Holidays | Triple R Holidays",
     template: "%s | Triple R Holidays"
   },
   description:
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     canonical: "/"
   },
   openGraph: {
-    title: "Triple R Holidays | Sri Lanka Tours & Holiday Packages",
+    title: "Home — Sri Lanka Tours & Outbound Holidays | Triple R Holidays",
     description:
       "Plan curated Sri Lanka tours, outbound holidays, hotel bookings, destination weddings and transport services with Triple R Holidays.",
     url: "https://triplerholidays.com",
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Triple R Holidays | Sri Lanka Tours & Holiday Packages",
+    title: "Home — Sri Lanka Tours & Outbound Holidays | Triple R Holidays",
     description:
       "Plan curated Sri Lanka tours, outbound holidays, hotel bookings, destination weddings and transport services with Triple R Holidays.",
     images: ["/images/new-pic/aerial-view-to-north.jpg"]
@@ -69,28 +69,33 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: "/favicon.ico",
-        sizes: "any"
+        url: "/favicon-32x32.png?v=full_logo_v8",
+        sizes: "32x32",
+        type: "image/png"
       },
       {
-        url: "/favicon.png",
+        url: "/favicon-16x16.png?v=full_logo_v8",
+        sizes: "16x16",
+        type: "image/png"
+      },
+      {
+        url: "/favicon.png?v=full_logo_v8",
         sizes: "512x512",
         type: "image/png"
       },
       {
-        url: "/favicon.png",
-        sizes: "48x48",
-        type: "image/png"
+        url: "/favicon.ico?v=full_logo_v8",
+        sizes: "any"
       }
     ],
     apple: [
       {
-        url: "/apple-touch-icon.png",
+        url: "/apple-touch-icon.png?v=full_logo_v8",
         sizes: "180x180",
         type: "image/png"
       }
     ],
-    shortcut: "/favicon.ico"
+    shortcut: "/favicon.ico?v=full_logo_v8"
   }
 };
 
@@ -121,7 +126,7 @@ export default function RootLayout({
     priceRange: "$$",
     address: {
       "@type": "PostalAddress",
-      streetAddress: "173 A 1/2 Negombo Road",
+      streetAddress: "2nd Floor, 173a Negombo Road",
       addressLocality: "Wattala",
       addressCountry: "LK"
     },
@@ -137,7 +142,7 @@ export default function RootLayout({
     ],
     contactPoint: {
       "@type": "ContactPoint",
-      telephone: "+94776661272",
+    telephone: "+94776661272",
       contactType: "customer service",
       availableLanguage: ["English", "Sinhala", "Tamil"]
     },
@@ -166,6 +171,12 @@ export default function RootLayout({
 
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/favicon-32x32.png?v=full_logo_v8" type="image/png" sizes="32x32" />
+        <link rel="icon" href="/favicon.png?v=full_logo_v8" type="image/png" sizes="512x512" />
+        <link rel="shortcut icon" href="/favicon.ico?v=full_logo_v8" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=full_logo_v8" sizes="180x180" />
+      </head>
       <body>
         <script
           type="application/ld+json"

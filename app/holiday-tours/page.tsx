@@ -2,16 +2,18 @@ import type { Metadata } from "next";
 import HolidayToursClient from "@/components/HolidayToursClient";
 
 export const metadata: Metadata = {
-  title: "Sri Lanka Tour Packages",
+  title: {
+    absolute: "Sri Lanka Tours — Sri Lanka Tour Packages | Triple R Holidays"
+  },
   description:
     "Explore Sri Lanka cultural tours, Ramayana heritage journeys, wildlife routes, highland escapes and coastal holiday packages with Triple R Holidays.",
   alternates: {
     canonical: "/holiday-tours"
   },
   openGraph: {
-    title: "Sri Lanka Tour Packages | Triple R Holidays",
+    title: "Sri Lanka Tours — Sri Lanka Tour Packages | Triple R Holidays",
     description:
-      "Curated Sri Lanka tour packages across culture, wildlife, highlands, beaches and Ramayana heritage routes.",
+      "Curated Sri Lanka Tour Packages across culture, wildlife, highlands, beaches and Ramayana heritage routes.",
     url: "/holiday-tours",
     images: [
       {

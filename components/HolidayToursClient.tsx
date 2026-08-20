@@ -27,7 +27,7 @@ import rawWtiInboundPackages from "@/lib/wtiInboundPackages.json";
 
 const contact = {
   phone: "+94 (77) 666 1272",
-  whatsappHref: "https://wa.me/94767161937",
+  whatsappHref: "https://wa.me/94776661272",
   email: "hello@triplerholidays.com"
 };
 
@@ -58,35 +58,83 @@ const formatPackageDuration = (duration: string) =>
 
 const sriLankanPics = {
   hillCountry: "/images/new-pic/hero-gallery-c29f7dfb-800x450.jpeg",
-  templeBuddha: "/images/new-pic/Rangiri-Dambulla-Cave-Temple-Sri-Lanka.jpg",
+  templeBuddha: "/images/srilankan-pics/cultural-exploration-buddha.jpg",
   templeRows: "/images/new-pic/Sigiriya-28.jpg",
   cityTemple: "/images/new-pic/38ac01f0-e4ac-11f0-b763-995cd5778bcc.jpg",
   beachBlue: "/images/new-pic/aerial-view-tropical-coastline-beach-islet.jpg",
   beachSunset: "/images/new-pic/The_Common_Wanderer_-2.jpg",
   luxuryCoast: "/images/new-pic/aerial-view-to-north.jpg",
   riverSafari: "/images/srilankan-pics/IMG_1254.jpg",
-  wildlifeElephant: "/images/new-pic/article_1751903499355_0.jpg",
+  wildlifeElephant: "/images/srilankan-pics/wildlife-adventure-leopards.jpg",
   safariRoad: "/images/new-pic/SRI-middle-rectangle-139041303303132.jpg",
   peraheraElephant: "/images/srilankan-pics/IMG_6800.jpg",
   peraheraUmbrella: "/images/srilankan-pics/IMG_7964.jpg"
 };
 
+const sriLankanPackagePics = {
+  culturalDiscovery: [
+    "/images/holiday-tours/inbound-package-pics-web/sri-lanka-cultural-discovery/01-cover.jpg",
+    "/images/holiday-tours/inbound-package-pics-web/sri-lanka-cultural-discovery/02-gallery-1.jpg",
+    "/images/holiday-tours/inbound-package-pics-web/sri-lanka-cultural-discovery/03-gallery-2.jpg"
+  ],
+  culturalEscape: [
+    "/images/holiday-tours/inbound-package-pics-web/sri-lanka-cultural-escape/01-cover.jpg",
+    "/images/holiday-tours/inbound-package-pics-web/sri-lanka-cultural-escape/02-gallery-1.jpg",
+    "/images/holiday-tours/inbound-package-pics-web/sri-lanka-cultural-escape/03-gallery-2.jpg"
+  ],
+  hillsWildlifeSouthernCoast: [
+    "/images/holiday-tours/inbound-package-pics-web/hills-wildlife-southern-coast/01-cover.jpg",
+    "/images/holiday-tours/inbound-package-pics-web/hills-wildlife-southern-coast/02-gallery-1.jpg",
+    "/images/holiday-tours/inbound-package-pics-web/hills-wildlife-southern-coast/03-gallery-2.webp"
+  ],
+  grandDiscovery: [
+    "/images/holiday-tours/inbound-package-pics-web/sri-lanka-grand-discovery/01-cover.jpg",
+    "/images/holiday-tours/inbound-package-pics-web/sri-lanka-grand-discovery/02-gallery-1.jpg",
+    "/images/holiday-tours/inbound-package-pics-web/sri-lanka-grand-discovery/03-gallery-2.jpg"
+  ],
+  culturalHighlights: [
+    "/images/holiday-tours/inbound-package-pics-web/sri-lanka-cultural-highlights/01-cover.jpg",
+    "/images/holiday-tours/inbound-package-pics-web/sri-lanka-cultural-highlights/02-gallery-1.jpg",
+    "/images/holiday-tours/inbound-package-pics-web/sri-lanka-cultural-highlights/03-gallery-2.jpg"
+  ],
+  cultureCoast: [
+    "/images/holiday-tours/inbound-package-pics-web/sri-lanka-culture-coast/01-cover.jpg",
+    "/images/holiday-tours/inbound-package-pics-web/sri-lanka-culture-coast/02-gallery-1.jpg",
+    "/images/holiday-tours/inbound-package-pics-web/sri-lanka-culture-coast/03-gallery-2.jpg"
+  ],
+  ramayanaKataragama: [
+    "/images/holiday-tours/inbound-package-pics-web/ramayana-heritage-journey-kataragama/01-cover.jpg",
+    "/images/holiday-tours/inbound-package-pics-web/ramayana-heritage-journey-kataragama/02-gallery-1.jpg",
+    "/images/holiday-tours/inbound-package-pics-web/ramayana-heritage-journey-kataragama/03-gallery-2.jpg"
+  ],
+  ramayanaNorthern: [
+    "/images/holiday-tours/inbound-package-pics-web/ramayana-heritage-journey-northern-sri-lanka/01-cover.jpg",
+    "/images/holiday-tours/inbound-package-pics-web/ramayana-heritage-journey-northern-sri-lanka/02-gallery-1.jpg",
+    "/images/holiday-tours/inbound-package-pics-web/ramayana-heritage-journey-northern-sri-lanka/03-gallery-2.jpg"
+  ],
+  ramayanaNortheast: [
+    "/images/holiday-tours/inbound-package-pics-web/ramayana-heritage-journey-northeast-sri-lanka/01-cover.jpg",
+    "/images/holiday-tours/inbound-package-pics-web/ramayana-heritage-journey-northeast-sri-lanka/02-gallery-1.jpg",
+    "/images/holiday-tours/inbound-package-pics-web/ramayana-heritage-journey-northeast-sri-lanka/03-gallery-2.jpg"
+  ]
+};
+
 const sriLankaHeroSlides = [
   {
-    image: "/images/holiday-tours/pexels-freestockpro-319912.jpg",
-    alt: "Golden Sri Lankan beach at sunset"
+    image: "/images/holiday-tours/hero/adobestock-colombo-skyline.jpeg",
+    alt: "Aerial view of Colombo skyline and coastline"
   },
   {
-    image: "/images/holiday-tours/pexels-thilina-alagiyawanna-3266092-31001509.jpg",
-    alt: "Sunset over Sri Lanka's mountain ranges"
+    image: "/images/holiday-tours/hero/adobestock-elephants-wildlife.jpeg",
+    alt: "Sri Lankan elephants in a green wildlife reserve"
   },
   {
-    image: "/images/holiday-tours/pexels-eslames1-32414014.jpg",
-    alt: "Aerial view of Sri Lankan waterfalls and green highlands"
+    image: "/images/holiday-tours/hero/adobestock-temple-of-tooth.jpeg",
+    alt: "Temple of the Sacred Tooth Relic in Kandy"
   },
   {
-    image: "/images/holiday-tours/pexels-costa-18826653.jpg",
-    alt: "Sri Lankan mountain valley under blue sky"
+    image: "/images/holiday-tours/hero/adobestock-stilt-fishermen-sunset.jpeg",
+    alt: "Sri Lankan stilt fishermen at sunset"
   }
 ];
 
@@ -102,7 +150,7 @@ const inCountryPackages = [
     title: "Sri Lanka Cultural Discovery",
     duration: "7 Nights / 8 Days",
     route: "Anamaduwa, Habarana, Sigiriya, Dambulla, Kandy, Nuwara Eliya, Colombo",
-    image: sriLankanPics.cityTemple,
+    image: sriLankanPackagePics.culturalDiscovery[0],
     badge: "$1450 PP",
     idealFor: "Group tours and cultural explorers",
     highlights: ["Sigiriya Rock Fortress", "Dambulla Cave Temple", "Temple of the Tooth", "Polonnaruwa", "Kandy Cultural Show"],
@@ -113,7 +161,7 @@ const inCountryPackages = [
     title: "Sri Lanka Cultural Escape",
     duration: "5 Nights / 6 Days",
     route: "Negombo, Habarana, Sigiriya, Kandy, Nuwara Eliya, Colombo",
-    image: sriLankanPics.templeBuddha,
+    image: sriLankanPackagePics.culturalEscape[0],
     badge: "$1110 PP",
     idealFor: "Compact cultural vacations",
     highlights: ["Pinnawala Elephant Orphanage", "Sigiriya Rock Climb", "Village Tour", "Peradeniya Botanical Garden", "Colombo City Tour"],
@@ -124,7 +172,7 @@ const inCountryPackages = [
     title: "Hills, Wildlife & Southern Coast",
     duration: "7 Nights / 8 Days",
     route: "Negombo, Kandy, Nuwara Eliya, Udawalawe, Bentota, Colombo",
-    image: sriLankanPics.hillCountry,
+    image: sriLankanPackagePics.hillsWildlifeSouthernCoast[0],
     badge: "$1249 PP",
     idealFor: "Hill country, wildlife and south coast routes",
     highlights: ["Pinnawala Elephant Orphanage", "Kandy Cultural Program", "Tea Factory", "Udawalawe Elephant Transit Home", "Galle Fort"],
@@ -135,7 +183,7 @@ const inCountryPackages = [
     title: "Sri Lanka Grand Discovery",
     duration: "9 Nights / 10 Days",
     route: "Negombo, Habarana, Kandy, Nuwara Eliya, Ella, Mirissa, Colombo",
-    image: sriLankanPics.beachSunset,
+    image: sriLankanPackagePics.grandDiscovery[0],
     badge: "$1799 PP",
     idealFor: "Extended culture, wildlife and beach stays",
     highlights: ["Minneriya Jeep Safari", "Sigiriya Rock Fortress", "Nine Arch Bridge", "Whale Watching", "Mirissa Beach"],
@@ -146,7 +194,7 @@ const inCountryPackages = [
     title: "Sri Lanka Cultural Highlights",
     duration: "3 Nights / 4 Days",
     route: "Habarana, Sigiriya, Kandy, Nuwara Eliya, Colombo",
-    image: sriLankanPics.wildlifeElephant,
+    image: sriLankanPackagePics.culturalHighlights[0],
     badge: "$999 PP",
     idealFor: "Short cultural group tours",
     highlights: ["Minneriya Jeep Safari", "Sigiriya Rock Fortress", "Kandy Cultural Show", "Ramboda Waterfall", "Colombo City Tour"],
@@ -157,7 +205,7 @@ const inCountryPackages = [
     title: "Sri Lanka Culture & Coast",
     duration: "9 Nights / 10 Days",
     route: "Negombo, Kandy, Nuwara Eliya, Ella, Mirissa, Colombo",
-    image: sriLankanPics.templeRows,
+    image: sriLankanPackagePics.cultureCoast[0],
     badge: "$1234 PP",
     idealFor: "Iran market cultural group tours",
     highlights: ["Temple of the Tooth", "Sigiriya Rock Fortress", "Dowa Ancient Rock Temple", "Udawalawe Elephant Transit Home", "Mirissa Beach"],
@@ -168,7 +216,7 @@ const inCountryPackages = [
     title: "Ramayana Heritage Journey – Kataragama",
     duration: "6 Nights / 7 Days",
     route: "Anuradhapura, Jaffna, Sigiriya, Kandy, Nuwara Eliya, Kataragama, Colombo",
-    image: sriLankanPics.peraheraUmbrella,
+    image: sriLankanPackagePics.ramayanaKataragama[0],
     badge: "INR 38,000 PP",
     idealFor: "Ramayana pilgrimage groups",
     highlights: ["Munneshwaram Temple", "Seetha Amman Temple", "Kataragama Temple", "Nallur Kandaswamy Temple", "Sigiriya Rock Fortress"],
@@ -179,7 +227,7 @@ const inCountryPackages = [
     title: "Ramayana Heritage Journey – Northern Sri Lanka",
     duration: "5 Nights / 6 Days",
     route: "Anuradhapura, Trincomalee, Sigiriya, Kandy, Nuwara Eliya, Colombo",
-    image: sriLankanPics.beachBlue,
+    image: sriLankanPackagePics.ramayanaNorthern[0],
     badge: "INR 35,000 PP",
     idealFor: "Northern Ramayana pilgrimage routes",
     highlights: ["Munneshwaram Temple", "Manavari Temple", "Koneshwaram Temple", "Hanuman Temple", "Temple of the Tooth"],
@@ -190,7 +238,7 @@ const inCountryPackages = [
     title: "Ramayana Heritage Journey – Northeast Sri Lanka",
     duration: "4 Nights / 5 Days",
     route: "Anuradhapura, Trincomalee, Sigiriya, Kandy, Nuwara Eliya, Colombo",
-    image: sriLankanPics.safariRoad,
+    image: sriLankanPackagePics.ramayanaNortheast[0],
     badge: "INR 33,000 PP",
     idealFor: "Short Ramayana pilgrimage groups",
     highlights: ["Munneshwaram Temple", "Manavari Temple", "Koneshwaram Temple", "Hanuman Temple", "Temple of the Tooth"],
@@ -225,15 +273,15 @@ function uniqueImages(images: string[]) {
 }
 
 const inboundPackageGalleryById: Record<number, string[]> = {
-  1: [sriLankanPics.cityTemple, sriLankanPics.templeBuddha, sriLankanPics.templeRows],
-  2: [sriLankanPics.templeBuddha, sriLankanPics.cityTemple, "/images/holiday-tours/cultural-exploration-kandy.jpg"],
-  3: [sriLankanPics.hillCountry, sriLankanPics.wildlifeElephant, sriLankanPics.luxuryCoast],
-  4: [sriLankanPics.beachSunset, sriLankanPics.luxuryCoast, "/images/new-pic/01NUWA-IM0001-nuwara-eliya.jpeg"],
-  5: [sriLankanPics.peraheraUmbrella, sriLankanPics.peraheraElephant, sriLankanPics.templeBuddha],
-  6: [sriLankanPics.beachBlue, sriLankanPics.templeBuddha, "/images/attractions/trincomalee-uppveli-beach.jpg"],
-  7: [sriLankanPics.safariRoad, sriLankanPics.beachBlue, sriLankanPics.templeRows],
-  15: [sriLankanPics.wildlifeElephant, sriLankanPics.safariRoad, sriLankanPics.templeRows],
-  16: [sriLankanPics.templeRows, "/images/holiday-tours/cultural-exploration-kandy.jpg", sriLankanPics.beachSunset],
+  1: sriLankanPackagePics.culturalDiscovery,
+  2: sriLankanPackagePics.culturalEscape,
+  3: sriLankanPackagePics.hillsWildlifeSouthernCoast,
+  4: sriLankanPackagePics.grandDiscovery,
+  5: sriLankanPackagePics.ramayanaKataragama,
+  6: sriLankanPackagePics.ramayanaNorthern,
+  7: sriLankanPackagePics.ramayanaNortheast,
+  15: sriLankanPackagePics.culturalHighlights,
+  16: sriLankanPackagePics.cultureCoast,
   18: [sriLankanPics.luxuryCoast, sriLankanPics.hillCountry, sriLankanPics.templeBuddha],
   19: [sriLankanPics.cityTemple, sriLankanPics.wildlifeElephant, sriLankanPics.hillCountry],
   20: [sriLankanPics.riverSafari, sriLankanPics.beachSunset, "/images/new-pic/01NUWA-IM0001-nuwara-eliya.jpeg"]
@@ -282,12 +330,12 @@ const sriLankaWhyBook = [
 
 const sriLankaGallery = [
   {
-    image: "/images/home/sigiriya-4k.jpg",
+    image: "/images/attractions/home-carousel/sigiriya-rock-fortress.jpg",
     alt: "Sigiriya Rock Fortress rising above Sri Lankan forest",
     position: "center 42%"
   },
   {
-    image: "/images/home/ella-nine-arches-4k.jpg",
+    image: "/images/new-pic/hero-gallery-c29f7dfb-800x450.jpeg",
     alt: "Nine Arch Bridge in Ella surrounded by hill country greenery",
     position: "center 48%"
   },
@@ -297,7 +345,7 @@ const sriLankaGallery = [
     position: "center 52%"
   },
   {
-    image: "/images/home/galle-fort-coastline-4k.jpg",
+    image: "/images/attractions/home-carousel/galle-dutch-fort.jpg",
     alt: "Galle Fort coastline and ocean views in Sri Lanka",
     position: "center 52%"
   }
@@ -465,7 +513,7 @@ export default function HolidayToursClient() {
                 {
                   title: "Cultural Exploration",
                   desc: "Walk through sacred cities, temple traditions and living heritage with comfortable local guidance.",
-                  image: sriLankanPics.templeRows
+                  image: sriLankanPics.templeBuddha
                 },
                 {
                   title: "Wildlife Adventures",

@@ -2,14 +2,16 @@ import type { Metadata } from "next";
 import ServicesClient from "@/components/ServicesClient";
 
 export const metadata: Metadata = {
-  title: "Travel Services",
+  title: {
+    absolute: "Our Services — Travel & Tour Services | Triple R Holidays"
+  },
   description:
     "Travel services from Triple R Holidays: inbound tours, outbound tours, hotel bookings, conferences, events, destination weddings and transportation.",
   alternates: {
     canonical: "/services"
   },
   openGraph: {
-    title: "Travel Services | Triple R Holidays",
+    title: "Our Services — Travel & Tour Services | Triple R Holidays",
     description:
       "Inbound and outbound travel planning, hotel bookings, events, destination weddings and transport services.",
     url: "/services",

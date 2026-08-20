@@ -5,7 +5,7 @@ Triple R Holidays is a travel agency based in Wattala, Sri Lanka. The company pl
 ## Official Site
 
 - Homepage: https://triplerholidays.com/
-- Sri Lanka tour packages: https://triplerholidays.com/holiday-tours/
+- POPULAR TOUR PACKAGES: https://triplerholidays.com/holiday-tours/
 - Outbound holiday packages: https://triplerholidays.com/outbound-tours/
 - Travel services: https://triplerholidays.com/services/
 - Corporate partnerships: https://triplerholidays.com/cooperate/
@@ -21,4 +21,4 @@ Triple R Holidays is a travel agency based in Wattala, Sri Lanka. The company pl
 
 - Email: hello@triplerholidays.com
 - Phone: +94 77 666 1272
-- Office: 173 A 1/2 Negombo Road, Wattala - Triple R Holidays
+- Office: 2nd Floor, 173a Negombo Road, Wattala

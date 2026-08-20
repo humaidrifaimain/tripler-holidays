@@ -13,3 +13,6 @@ aerovista-*.png
 .vercel
 .playwright-mcp/
 *.zip
+.pnpm-store/
+tripler holidays/
+

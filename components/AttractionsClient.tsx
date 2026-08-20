@@ -18,7 +18,7 @@ type Attraction = {
 const attractions: Attraction[] = [
   {
     title: "Sigiriya (Lion Rock)",
-    image: "/images/home/sigiriya-4k.jpg",
+    image: "/images/attractions/home-carousel/sigiriya-rock-fortress.jpg",
     location: "Matale District, Central Province",
     description:
       "Ancient rock fortress rising 200m above the jungle, featuring stunning frescoes, mirror wall, and landscaped gardens. A UNESCO World Heritage Site and one of Asia's best-preserved ancient cities.",
@@ -34,7 +34,7 @@ const attractions: Attraction[] = [
   },
   {
     title: "Nine Arches Bridge & Ella",
-    image: "/images/home/ella-nine-arches-4k.jpg",
+    image: "/images/new-pic/hero-gallery-c29f7dfb-800x450.jpeg",
     location: "Ella, Badulla District",
     description:
       "Iconic colonial-era railway bridge surrounded by lush tea plantations and misty mountains. Ella offers breathtaking hikes, stunning viewpoints, and one of the world's most scenic train rides.",
@@ -51,7 +51,7 @@ const attractions: Attraction[] = [
   },
   {
     title: "Galle Fort",
-    image: "/images/home/galle-fort-coastline-4k.jpg",
+    image: "/images/attractions/home-carousel/galle-dutch-fort.jpg",
     location: "Galle, Southern Province",
     description:
       "A UNESCO World Heritage fortification built by the Portuguese in 1588 and extensively fortified by the Dutch. Today it's a vibrant mix of colonial architecture, boutique shops, cafés, and ocean views.",
@@ -160,7 +160,7 @@ export default function AttractionsClient() {
         data-hero-pin-distance="108"
       >
         <img
-          src="/images/home/sigiriya-4k.jpg"
+          src="/images/attractions/home-carousel/sigiriya-rock-fortress.jpg"
           alt="Sigiriya Rock Fortress"
           className="absolute inset-0 h-full w-full object-cover"
           data-parallax="12"

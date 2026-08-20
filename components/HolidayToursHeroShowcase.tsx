@@ -251,6 +251,11 @@ export default function HolidayToursHeroShowcase() {
       return true;
     };
 
+    const canMoveByDirection = (direction: 1 | -1) => {
+      const currentIndex = activeIndexRef.current;
+      return direction > 0 ? currentIndex < total - 1 : currentIndex > 0;
+    };
+
     const scheduleWheelUnlock = (delay = 420) => {
       if (wheelUnlockTimerRef.current) window.clearTimeout(wheelUnlockTimerRef.current);
       wheelUnlockTimerRef.current = window.setTimeout(() => {
@@ -291,7 +296,8 @@ export default function HolidayToursHeroShowcase() {
         touchIntentRef.current = Math.abs(deltaY) > Math.abs(deltaX) ? "vertical" : "horizontal";
       }
 
-      if (touchIntentRef.current === "vertical" && event.cancelable) {
+      const direction = deltaY < 0 ? 1 : -1;
+      if (touchIntentRef.current === "vertical" && canMoveByDirection(direction) && event.cancelable) {
         event.preventDefault();
       }
     };

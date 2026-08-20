@@ -20,7 +20,7 @@ import { sendWeb3FormData } from "@/lib/web3forms";
 const contact = {
   phone: "+94 (77) 666 1272",
   phoneHref: "tel:+94776661272",
-  whatsappHref: "https://wa.me/94767161937",
+  whatsappHref: "https://wa.me/94776661272",
   email: "hello@triplerholidays.com"
 };
 

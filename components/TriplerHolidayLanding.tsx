@@ -56,6 +56,21 @@ const heroSlides = [
     image: "/images/home/pexels-anas-mohamed-nuski-3784747-5620146.jpg",
     alt: "Nuwara Eliya lake and tea country landscape",
     position: "center 42%"
+  },
+  {
+    image: "/images/home/pexels-freestockpro-319892.jpg",
+    alt: "Tropical beach and palm-lined coastline in Sri Lanka",
+    position: "center 42%"
+  },
+  {
+    image: "/images/home/pexels-harsha-samaranayake-303340503-13391116.jpg",
+    alt: "Sigiriya Rock Fortress surrounded by Sri Lankan countryside",
+    position: "center 42%"
+  },
+  {
+    image: "/images/home/cultural-exploration-kandy.jpg",
+    alt: "Temple of the Tooth in Kandy, Sri Lanka",
+    position: "center 42%"
   }
 ];
 
@@ -97,7 +112,7 @@ const hotTours: AttractionCard[] = [
       "https://images.pexels.com/photos/29813518/pexels-photo-29813518.jpeg?auto=compress&cs=tinysrgb&w=3840",
       "https://images.pexels.com/photos/31032907/pexels-photo-31032907.jpeg?auto=compress&cs=tinysrgb&w=3840",
       "https://images.pexels.com/photos/31791361/pexels-photo-31791361.jpeg?auto=compress&cs=tinysrgb&w=3840",
-      "/images/home/galle-fort-coastline-4k.jpg"
+      "/images/attractions/home-carousel/galle-dutch-fort.jpg"
     ],
     description:
       "Galle Fort is the south coast's most elegant heritage quarter, where ocean-facing ramparts protect a living old town of Dutch villas, churches, galleries, cafes and boutique hotels. The experience is best taken slowly: walk the walls as the light turns gold, step through narrow colonial streets, then pause by the lighthouse as the Indian Ocean wraps around the fort.",
@@ -131,7 +146,7 @@ const hotTours: AttractionCard[] = [
       attractionImages.littleAdamsPeak,
       "https://images.unsplash.com/photo-1643793418497-689d2f8a4eeb?auto=format&fit=crop&fm=jpg&q=90&w=3840",
       "https://images.unsplash.com/photo-1643793416337-1a14ac3cbf52?auto=format&fit=crop&fm=jpg&q=90&w=3840",
-      "/images/home/ella-nine-arches-4k.jpg"
+      "/images/new-pic/hero-gallery-c29f7dfb-800x450.jpeg"
     ],
     description:
       "Little Adam's Peak is one of Ella's most rewarding soft-adventure experiences: a manageable ridge walk with sweeping views over tea country, valley lines and the famous Ella Gap. It suits travelers who want a highland viewpoint without a demanding trek, and it pairs beautifully with Nine Arches Bridge, a tea estate visit and a slow afternoon in Ella.",
@@ -319,7 +334,7 @@ const sriLankaTours = [
     subtitle: "Top Attraction",
     duration: "Ideal visit: Half day",
     route: "Ella, Badulla District",
-    image: "/images/home/ella-nine-arches-4k.jpg",
+    image: "/images/new-pic/hero-gallery-c29f7dfb-800x450.jpeg",
     tags: ["#Scenic", "#Hiking", "#Train Ride"],
     idealFor: "Nature lovers and photographers",
     href: "/holiday-tours"
@@ -1187,7 +1202,7 @@ export default function TriplerHolidayLanding() {
                 }}
                 className="text-center"
               >
-                <p className="text-base font-bold text-[#111820] mb-5">We Are Accepting</p>
+                <p className="text-base font-bold text-[#111820] mb-5">We Accept</p>
                 <div className="flex flex-wrap items-center justify-center gap-5">
                   {/* 40% Advance Payment Badge */}
                   <div className="flex flex-col items-center gap-1.5 rounded-xl border border-[#D98928]/30 bg-[#D98928]/10 px-4 py-3">
@@ -1382,7 +1397,7 @@ export default function TriplerHolidayLanding() {
                           <MapPin className="h-4 w-4" />
                         </span>
                         <span className="text-sm leading-relaxed text-white/80">
-                          173 A 1/2 Negombo Road,<br />Wattala - Triple R Holidays,<br />Sri Lanka
+                          2nd Floor, 173a Negombo Road,<br />Wattala
                         </span>
                       </div>
                     </div>
@@ -1391,7 +1406,7 @@ export default function TriplerHolidayLanding() {
                   {/* Embedded interactive Google Map */}
                   <div className="h-48 w-full rounded-2xl overflow-hidden border border-white/15 bg-white/5 shadow-inner mb-6 min-h-[190px]">
                     <iframe
-                      src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3960.2284!2d79.88871!3d6.98235!2m3!1f0!2f0!3f0!3m2!1i1024!2i769!4f13.1!3m2!1m1!2zNsKwNTgnNTYuNSJOIDc5wrA1MyczOS4zIkU!5e0!3m2!1sen!2slk!4v1716942000000!5m2!1sen!2slk"
+                      src="https://www.google.com/maps?q=Triple+R+Holidays%2C+6.980249%2C+79.888371&output=embed"
                       width="100%"
                       height="100%"
                       style={{ border: 0 }}
