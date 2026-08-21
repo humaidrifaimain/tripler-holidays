@@ -646,15 +646,17 @@ export default function TriplerHolidayLanding() {
   useEffect(() => {
     if (heroSlides.length <= 1) return;
 
-    // Defer hero slide rotation
+    let intervalId: number;
     const timer = setTimeout(() => {
-      const interval = window.setInterval(() => {
+      intervalId = window.setInterval(() => {
         setActiveHeroSlide(index => (index + 1) % heroSlides.length);
-      }, 2500);
-      return () => window.clearInterval(interval);
-    }, 600);
+      }, 7000);
+    }, 1200);
 
-    return () => clearTimeout(timer);
+    return () => {
+      clearTimeout(timer);
+      if (intervalId) clearInterval(intervalId);
+    };
   }, []);
 
   useEffect(() => {
@@ -791,9 +793,11 @@ export default function TriplerHolidayLanding() {
                     hidden: { opacity: 0, y: 24 },
                     visible: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 80, damping: 15 } }
                   }}
-                  className="font-serif text-3xl font-bold uppercase tracking-wider sm:text-5xl lg:text-6xl text-white drop-shadow-[0_4px_16px_rgba(0,0,0,0.6)]"
+                  className="font-serif text-3xl font-extrabold uppercase leading-tight tracking-wide sm:text-5xl lg:text-6xl text-white drop-shadow-[0_4px_16px_rgba(0,0,0,0.6)]"
                 >
-                  DISCOVER <span className="text-[#D98928]">SRI LANKA</span>
+                  ESCAPE INTO THE
+                  <br />
+                  <span className="text-[#D98928]">EXTRAORDINARY</span>
                 </motion.h1>
 
                 <motion.p
@@ -801,20 +805,9 @@ export default function TriplerHolidayLanding() {
                     hidden: { opacity: 0, y: 18 },
                     visible: { opacity: 1, y: 0, transition: { duration: 0.8 } }
                   }}
-                  className="mx-auto mt-4 max-w-2xl text-xs leading-relaxed text-white/90 sm:text-sm sm:leading-relaxed lg:text-base font-light tracking-wide drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]"
+                  className="mx-auto mt-5 max-w-2xl text-xs leading-relaxed text-white/95 sm:text-base sm:leading-relaxed font-normal tracking-wide drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]"
                 >
-                  Curated island journeys across heritage cities,
-                  <br className="hidden sm:inline" /> misty highlands, wildlife parks and sunlit coastlines.
-                </motion.p>
-
-                <motion.p
-                  variants={{
-                    hidden: { opacity: 0, y: 14 },
-                    visible: { opacity: 1, y: 0, transition: { duration: 0.8, delay: 0.1 } }
-                  }}
-                  className="mx-auto mt-3 text-xs font-semibold tracking-wider text-white sm:text-sm lg:text-base drop-shadow-[0_2px_6px_rgba(0,0,0,0.6)]"
-                >
-                  Culture, Wildlife, Highlands, Beaches.
+                  Discover Sri Lanka &amp; Beyond through refined travel experiences.
                 </motion.p>
 
                 <motion.div
@@ -822,16 +815,23 @@ export default function TriplerHolidayLanding() {
                     hidden: { opacity: 0, y: 14 },
                     visible: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 100 } }
                   }}
-                  className="mt-6 flex items-center justify-center sm:mt-7"
+                  className="mt-6 flex flex-wrap items-center justify-center gap-3 sm:mt-8 sm:gap-4"
                 >
                   <a
-                    href="/holiday-tours#tour-quote"
-                    className="inline-flex min-h-[44px] items-center gap-3 rounded-full bg-[#D98928] py-2 pl-6 pr-2 text-[11px] font-extrabold uppercase tracking-wider text-[#111820] shadow-xl transition-all duration-300 hover:bg-[#c5791e] hover:scale-105 group sm:text-xs"
+                    href="/holiday-tours"
+                    className="inline-flex min-h-[48px] items-center gap-2.5 rounded-full bg-[#D98928] py-2 pl-6 pr-2 text-[11px] font-extrabold uppercase tracking-wider text-[#111820] shadow-xl transition-all duration-300 hover:bg-[#c5791e] hover:scale-105 group sm:gap-3 sm:pl-7 sm:text-xs"
                   >
-                    GET A QUOTE
-                    <span className="grid h-7 w-7 place-items-center rounded-full bg-white text-[#111820] shadow-sm transition-transform duration-300 group-hover:translate-x-0.5 sm:h-8 sm:w-8">
-                      <ArrowRight className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+                    CHOOSE TOUR
+                    <span className="grid h-7 w-7 place-items-center rounded-full bg-white text-[#111820] shadow-sm transition-transform duration-300 group-hover:rotate-45 sm:h-8 sm:w-8">
+                      <ArrowUpRight className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                     </span>
+                  </a>
+
+                  <a
+                    href="/holiday-tours#tour-quote"
+                    className="inline-flex min-h-[48px] items-center justify-center rounded-full border border-white/40 bg-white/10 px-6 text-[11px] font-extrabold uppercase tracking-wider text-white backdrop-blur-xs transition duration-300 hover:bg-white hover:text-[#082B49] hover:scale-105 sm:min-h-12 sm:px-7 sm:text-xs"
+                  >
+                    PLAN YOUR TRIP
                   </a>
                 </motion.div>
               </motion.div>
