@@ -65,7 +65,7 @@ const sriLankanPics = {
   beachSunset: "/images/new-pic/The_Common_Wanderer_-2.jpg",
   luxuryCoast: "/images/new-pic/aerial-view-to-north.jpg",
   riverSafari: "/images/srilankan-pics/IMG_1254.jpg",
-  wildlifeElephant: "/images/srilankan-pics/wildlife-adventure-leopards.jpg",
+  wildlifeElephant: "/images/srilankan-pics/wildlife-elephants-family.jpg",
   safariRoad: "/images/new-pic/SRI-middle-rectangle-139041303303132.jpg",
   peraheraElephant: "/images/srilankan-pics/IMG_6800.jpg",
   peraheraUmbrella: "/images/srilankan-pics/IMG_7964.jpg"
@@ -519,7 +519,7 @@ export default function HolidayToursClient() {
                   title: "Wildlife Adventures",
                   desc: "Plan safari days around Sri Lanka's national parks, birdlife, elephants and big-cat territory.",
                   image: sriLankanPics.wildlifeElephant,
-                  objectPos: "object-bottom"
+                  objectPos: "object-center"
                 },
                 {
                   title: "Beach Getaways",
