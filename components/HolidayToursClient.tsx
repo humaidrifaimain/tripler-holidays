@@ -406,7 +406,7 @@ export default function HolidayToursClient() {
   useEffect(() => {
     const timer = window.setInterval(() => {
       setActiveHeroSlide(index => (index + 1) % sriLankaHeroSlides.length);
-    }, 5200);
+    }, 4000);
 
     return () => window.clearInterval(timer);
   }, []);
