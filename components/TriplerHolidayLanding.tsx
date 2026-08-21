@@ -793,7 +793,7 @@ export default function TriplerHolidayLanding() {
                     hidden: { opacity: 0, y: 24 },
                     visible: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 80, damping: 15 } }
                   }}
-                  className="font-serif text-3xl font-extrabold uppercase leading-tight tracking-wide sm:text-5xl lg:text-6xl text-white drop-shadow-[0_4px_16px_rgba(0,0,0,0.6)]"
+                  className="font-serif text-2xl font-extrabold uppercase leading-tight tracking-wide sm:text-4xl lg:text-5xl text-white drop-shadow-[0_4px_16px_rgba(0,0,0,0.6)]"
                 >
                   ESCAPE INTO THE
                   <br />
