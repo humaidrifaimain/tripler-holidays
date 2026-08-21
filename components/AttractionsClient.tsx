@@ -337,7 +337,7 @@ export default function AttractionsClient() {
             </h2>
 
             <p className="mx-auto mt-4 max-w-xl text-sm leading-7 text-white/70">
-              Let our travel experts craft a personalised itinerary covering the
+              Let our travel experts craft a personalized itinerary covering the
               best attractions, hotels, and transport — designed around your
               interests, pace, and budget.
             </p>

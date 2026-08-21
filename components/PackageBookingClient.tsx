@@ -97,7 +97,7 @@ const notIncluded = [
 const routeNotes = [
   "This sample package covers multiple Sri Lanka cities in one route.",
   "Jaffna, Pasikudah and Arugam Bay are not included in this sample route.",
-  "Prices are shared only after dates, traveller count and hotel category are confirmed."
+  "Prices are shared only after dates, traveler count and hotel category are confirmed."
 ];
 
 const timelineShots = [
@@ -412,7 +412,7 @@ export default function PackageBookingClient() {
                 Send your travel details
               </h2>
               <p className="mt-5 text-base leading-8 text-white/76">
-                Share your expected dates, traveller count and hotel preference. Triple R
+                Share your expected dates, traveler count and hotel preference. Triple R
                 Holidays will prepare a tailored quotation with no public price shown on
                 the website.
               </p>
@@ -512,9 +512,9 @@ export default function PackageBookingClient() {
                   />
                 </label>
                 <label className="text-sm font-bold text-[#111820]">
-                  Travellers
+                  Travelers
                   <input
-                    name="Travellers"
+                    name="Travelers"
                     className="mt-2 min-h-12 w-full rounded-[10px] border border-[#111820]/22 bg-[#F5F1E8]/70 px-4 text-sm text-[#111820] outline-none placeholder:text-[#111820]/46 focus:border-[#D98928]"
                     placeholder="Adults / children"
                   />

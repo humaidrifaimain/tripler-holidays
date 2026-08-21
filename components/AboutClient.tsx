@@ -42,7 +42,7 @@ const trustPoints = [
   "Personal planning with one direct coordination team",
   "Over a decade of practical tourism and hospitality experience",
   "Reliable execution for leisure, business and group travel",
-  "Clear communication from enquiry to return transfer"
+  "Clear communication from inquiry to return transfer"
 ];
 
 const faqs = [
@@ -68,7 +68,7 @@ const whatWeDoCards = [
     icon: Hotel
   },
   {
-    title: "Personalised Itineraries",
+    title: "Personalized Itineraries",
     description:
       "Your dream trip, your way. We design travel plans around your interests, budget and preferred pace.",
     icon: CalendarDays
@@ -249,7 +249,7 @@ export default function AboutClient() {
             </h2>
             <div className="mx-auto mt-5 max-w-3xl space-y-4 text-center text-sm leading-8 text-[#111820]/78 sm:text-base">
               <p>
-                Triple R Holidays (Pvt) Ltd is a Sri Lankan travel company specialising in tailor-made holidays and travel services across Sri Lanka, with selected destinations in Asia.
+                Triple R Holidays (Pvt) Ltd is a Sri Lankan travel company specializing in tailor-made holidays and travel services across Sri Lanka, with selected destinations in Asia.
               </p>
               <p>
                 Backed by our team with 23+ years of combined experience in the travel and tourism industry, we work closely with every client to design journeys that match their interests, travel style, and budget. Our local knowledge and hands-on approach ensure every journey is carefully planned from start to finish.
@@ -361,7 +361,7 @@ export default function AboutClient() {
             className="text-center"
           >
             <h2 className="font-space fluid-title font-bold uppercase text-[#111820]">
-              Why Travellers <span className="text-[#D98928]">Choose Us</span>
+              Why Travelers <span className="text-[#D98928]">Choose Us</span>
             </h2>
             <p className="mx-auto mt-4 max-w-3xl text-sm leading-7 text-[#111820]/78 sm:text-base">
               Discover the Triple R difference. We are committed to making your Sri Lankan journey exceptional.
@@ -597,7 +597,7 @@ export default function AboutClient() {
             className="text-center"
           >
             <h2 className="font-space fluid-title font-bold uppercase text-[#111820]">
-              What Our Travellers <span className="text-[#D98928]">Say</span>
+              What Our Travelers <span className="text-[#D98928]">Say</span>
             </h2>
           </motion.div>
 

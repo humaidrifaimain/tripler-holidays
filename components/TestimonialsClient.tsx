@@ -34,7 +34,7 @@ const testimonials = [
     platform: "Facebook" as const,
     rating: 5,
     review:
-      "I highly recommend Triple R Holidays for anyone travelling in Sri Lanka. Their service is reliable, professional and very friendly. They offer safe transportation, well-planned tours, and great customer support throughout.",
+      "I highly recommend Triple R Holidays for anyone traveling in Sri Lanka. Their service is reliable, professional and very friendly. They offer safe transportation, well-planned tours, and great customer support throughout.",
     color: "#D98928"
   },
   {
@@ -305,7 +305,7 @@ export default function TestimonialsClient() {
               Start Your <span className="text-[#D98928]">Journey</span> Today
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-sm leading-7 text-white/60">
-              Join our growing family of happy travellers. Let us plan your
+              Join our growing family of happy travelers. Let us plan your
               perfect Sri Lanka experience with the care and attention
               you deserve.
             </p>

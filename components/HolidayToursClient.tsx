@@ -377,7 +377,7 @@ const sriLankaFaqs = [
   },
   {
     q: "How fast can we receive a Sri Lanka plan?",
-    a: "Share travel dates and traveller count, and we will send your first route draft quickly."
+    a: "Share travel dates and traveler count, and we will send your first route draft quickly."
   }
 ];
 
@@ -765,7 +765,7 @@ export default function HolidayToursClient() {
                 Testimonials
               </span>
               <h2 className="font-space fluid-title mt-4 font-bold uppercase">
-                WHAT OUR TRAVELLERS SAY
+                WHAT OUR TRAVELERS SAY
               </h2>
             </div>
           </motion.div>

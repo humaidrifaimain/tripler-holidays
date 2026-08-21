@@ -45,7 +45,7 @@ const outboundPackageVoice: Record<
     duration: "3 Nights 4 Days",
     teaser: "Kuala Lumpur city lights, shopping streets and cooler highland moments arranged into a smooth short-haul escape.",
     location: "Malaysia",
-    audience: "Ideal for couples, friends and first-time outbound travellers",
+    audience: "Ideal for couples, friends and first-time outbound travelers",
     quoteStart: "From flexible seasonal rates"
   },
   Singapore: {
@@ -84,7 +84,7 @@ const internationalPackages = destinations.map(destination => ({
     "Custom outbound journeys designed around your preferred travel pace.",
   audience:
     outboundPackageVoice[destination.city]?.audience ??
-    "Ideal for all outbound travellers",
+    "Ideal for all outbound travelers",
   quoteStart:
     outboundPackageVoice[destination.city]?.quoteStart ?? "Quote on request",
   image: destination.image,
@@ -476,7 +476,7 @@ const outboundFaqs = [
   },
   {
     q: "How do we start an outbound booking?",
-    a: "Send dates, destination and traveller count. We then share route options and hotel tiers."
+    a: "Send dates, destination and traveler count. We then share route options and hotel tiers."
   }
 ];
 
@@ -1245,7 +1245,7 @@ export default function OutboundToursClient() {
                 Reviews
               </span>
               <h2 className="font-space fluid-title mt-4 font-bold uppercase">
-                What Travellers Say
+                What Travelers Say
               </h2>
             </div>
           </motion.div>

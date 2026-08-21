@@ -70,7 +70,7 @@ const services = [
 ];
 
 const process = [
-  "Share dates, traveller count and service needs.",
+  "Share dates, traveler count and service needs.",
   "Receive a practical plan with route and support structure.",
   "Confirm and travel with a single coordination point."
 ];
