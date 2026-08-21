@@ -96,7 +96,7 @@ const outboundCategories = [
   {
     title: "City Lights",
     note: "Kuala Lumpur and Singapore escapes with skyline views, shopping stops and smooth transfers",
-    image: outboundPexelsImages.kualaLumpur
+    image: "/images/outbound-tours/city-lights-kl.jpg"
   },
   {
     title: "Ocean Dreams",
@@ -290,7 +290,7 @@ const malaysiaTourCollection: DetailedPackage[] = [
     title: "KL + Sunway Lagoon + Genting Package",
     duration: "4 Days 3 Nights",
     tourType: "Daily Tour",
-    image: outboundPexelsImages.kualaLumpur,
+    image: "/images/outbound-tours/kl-sunway-genting.jpg",
     details: [
       "Kuala Lumpur half-day city tour with KL Tower observation deck",
       "Sunway Lagoon 6 theme parks access",
@@ -496,9 +496,9 @@ function getOutboundPackageImages(pkg: OutboundPackageModal) {
       outboundPexelsImages.gentingHighlands
     ],
     "KL + Sunway Lagoon + Genting Package": [
-      outboundPexelsImages.kualaLumpur,
-      outboundPexelsImages.gentingHighlands,
-      outboundPexelsImages.cameronHighlands
+      "/images/outbound-tours/kl-sunway-genting.jpg",
+      "/images/outbound-tours/city-lights-kl.jpg",
+      outboundPexelsImages.gentingHighlands
     ],
     "Malaysia Grand Discovery": [
       outboundPexelsImages.langkawi,
