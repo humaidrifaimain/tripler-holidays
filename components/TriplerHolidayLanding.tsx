@@ -650,7 +650,7 @@ export default function TriplerHolidayLanding() {
     const timer = setTimeout(() => {
       intervalId = window.setInterval(() => {
         setActiveHeroSlide(index => (index + 1) % heroSlides.length);
-      }, 7000);
+      }, 5200);
     }, 1200);
 
     return () => {
