@@ -768,73 +768,73 @@ export default function TriplerHolidayLanding() {
               decoding="async"
             />
           </AnimatePresence>
-          <div className="absolute inset-0 bg-[#082B49]/28" />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#082B49]/18 via-[#082B49]/10 to-[#082B49]/40" />
-          <div className="absolute inset-x-0 bottom-0 h-[46%] bg-gradient-to-t from-[#061826]/72 via-[#082B49]/42 to-transparent" />
-          <div className="absolute inset-x-0 bottom-[11vh] mx-auto h-[22rem] max-w-4xl bg-[radial-gradient(ellipse_at_center,rgba(6,24,38,0.50)_0%,rgba(8,43,73,0.30)_44%,transparent_72%)]" />
+          <div className="absolute inset-0 bg-[#082B49]/15 pointer-events-none" />
+          <div className="absolute inset-x-0 bottom-0 h-[65%] bg-gradient-to-t from-[#041d2f]/95 via-[#06263e]/70 via-[#082B49]/35 to-transparent pointer-events-none" />
 
-          <div className="absolute inset-0 z-20 flex items-end justify-center pb-10 text-center sm:pb-[14vh] lg:pb-[16vh]">
+          <div className="absolute inset-0 z-20 flex items-end justify-center pb-10 text-center sm:pb-14 lg:pb-16">
             <div className="w-full px-4 sm:px-6 lg:px-8">
-            <motion.div
-              initial="hidden"
-              animate="visible"
-              variants={{
-                hidden: { opacity: 0 },
-                visible: {
-                  opacity: 1,
-                  transition: { staggerChildren: 0.12 }
-                }
-              }}
-              className="mx-auto max-w-md sm:max-w-3xl lg:max-w-4xl"
-              data-hero-content
-            >
-              <motion.h1
-                variants={{
-                  hidden: { opacity: 0, y: 28 },
-                  visible: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 80, damping: 15 } }
-                }}
-                className="font-space text-3xl font-extrabold uppercase leading-tight sm:text-4xl lg:text-5xl text-white drop-shadow-[0_4px_12px_rgba(8,43,73,0.5)]"
-              >
-                Escape Into The
-                <br />
-                <span className="text-[#D98928]">Extraordinary</span>
-              </motion.h1>
-
-              <motion.p
-                variants={{
-                  hidden: { opacity: 0, y: 20 },
-                  visible: { opacity: 1, y: 0, transition: { duration: 0.8 } }
-                }}
-                className="mx-auto mt-5 max-w-2xl text-sm leading-relaxed text-[#F5F1E8]/90 sm:text-base sm:leading-8 drop-shadow-[0_2px_10px_rgba(8,43,73,0.5)]"
-              >
-                Discover Sri Lanka & Beyond through refined travel experiences.
-              </motion.p>
-
               <motion.div
+                initial="hidden"
+                animate="visible"
                 variants={{
-                  hidden: { opacity: 0, y: 16 },
-                  visible: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 100 } }
+                  hidden: { opacity: 0 },
+                  visible: {
+                    opacity: 1,
+                    transition: { staggerChildren: 0.12 }
+                  }
                 }}
-                className="mt-5 flex flex-wrap items-center justify-center gap-2.5 sm:mt-7 sm:gap-3"
+                className="mx-auto max-w-md sm:max-w-3xl lg:max-w-4xl"
+                data-hero-content
               >
-                <a
-                  href="/holiday-tours"
-                  className="inline-flex min-h-[48px] items-center gap-2.5 rounded-full bg-[#D98928] py-2 pl-5 pr-2 text-[11px] font-bold uppercase tracking-wider text-[#111820] shadow-lg transition-all duration-300 hover:bg-[#D98928] group sm:gap-3 sm:pl-6 sm:text-[11px]"
+                <motion.h1
+                  variants={{
+                    hidden: { opacity: 0, y: 24 },
+                    visible: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 80, damping: 15 } }
+                  }}
+                  className="font-serif text-3xl font-bold uppercase tracking-wider sm:text-5xl lg:text-6xl text-white drop-shadow-[0_4px_16px_rgba(0,0,0,0.6)]"
                 >
-                  Choose Tour
-                  <span className="grid h-7 w-7 place-items-center rounded-full bg-white text-[#111820] transition-transform duration-300 group-hover:rotate-45 sm:h-8 sm:w-8">
-                    <ArrowUpRight className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
-                  </span>
-                </a>
+                  DISCOVER <span className="text-[#D98928]">SRI LANKA</span>
+                </motion.h1>
 
-                <a
-                  href="/holiday-tours#tour-quote"
-                  className="inline-flex min-h-[48px] items-center justify-center rounded-full border border-white/25 bg-white/10 px-4 text-[11px] font-bold uppercase tracking-wider text-white transition hover:bg-white hover:text-[#082B49] sm:min-h-11 sm:px-5 sm:text-[11px]"
+                <motion.p
+                  variants={{
+                    hidden: { opacity: 0, y: 18 },
+                    visible: { opacity: 1, y: 0, transition: { duration: 0.8 } }
+                  }}
+                  className="mx-auto mt-4 max-w-2xl text-xs leading-relaxed text-white/90 sm:text-sm sm:leading-relaxed lg:text-base font-light tracking-wide drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]"
                 >
-                  Plan your trip
-                </a>
+                  Curated island journeys across heritage cities,
+                  <br className="hidden sm:inline" /> misty highlands, wildlife parks and sunlit coastlines.
+                </motion.p>
+
+                <motion.p
+                  variants={{
+                    hidden: { opacity: 0, y: 14 },
+                    visible: { opacity: 1, y: 0, transition: { duration: 0.8, delay: 0.1 } }
+                  }}
+                  className="mx-auto mt-3 text-xs font-semibold tracking-wider text-white sm:text-sm lg:text-base drop-shadow-[0_2px_6px_rgba(0,0,0,0.6)]"
+                >
+                  Culture, Wildlife, Highlands, Beaches.
+                </motion.p>
+
+                <motion.div
+                  variants={{
+                    hidden: { opacity: 0, y: 14 },
+                    visible: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 100 } }
+                  }}
+                  className="mt-6 flex items-center justify-center sm:mt-7"
+                >
+                  <a
+                    href="/holiday-tours#tour-quote"
+                    className="inline-flex min-h-[44px] items-center gap-3 rounded-full bg-[#D98928] py-2 pl-6 pr-2 text-[11px] font-extrabold uppercase tracking-wider text-[#111820] shadow-xl transition-all duration-300 hover:bg-[#c5791e] hover:scale-105 group sm:text-xs"
+                  >
+                    GET A QUOTE
+                    <span className="grid h-7 w-7 place-items-center rounded-full bg-white text-[#111820] shadow-sm transition-transform duration-300 group-hover:translate-x-0.5 sm:h-8 sm:w-8">
+                      <ArrowRight className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+                    </span>
+                  </a>
+                </motion.div>
               </motion.div>
-            </motion.div>
             </div>
           </div>
         </section>
