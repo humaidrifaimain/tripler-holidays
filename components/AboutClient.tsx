@@ -290,7 +290,7 @@ export default function AboutClient() {
                 <CountUpStat value={72} suffix="+" label="Destinations" />
                 <CountUpStat value={10} suffix="+" label="Daily Tours" delay={0.05} />
                 <CountUpStat value={20} suffix="+" label="Events Per Month" delay={0.1} />
-                <CountUpStat value={10000} suffix="+" label="Happy Customers" delay={0.15} />
+                <CountUpStat value={10000} suffix="+" label="Happy Travelers" delay={0.15} />
               </div>
             </div>
           </motion.article>

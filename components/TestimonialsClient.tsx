@@ -60,7 +60,7 @@ const testimonials = [
 const stats = [
   { value: "5/5", label: "Five-Star Rating" },
   { value: "100%", label: "Satisfaction Rate" },
-  { value: "50+", label: "Happy Travelers" }
+  { value: "10,000+", label: "Happy Travelers" }
 ];
 
 /* ── Animation variants ── */
